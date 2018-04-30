@@ -1,39 +1,56 @@
 import React from "react";
-import { Container, Row, Col, Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, InputGroup, Input, Button, } from "reactstrap";
+import {
+  Container,
+  Row,
+  Col,
+  Card,
+  CardImg,
+  CardText,
+  CardBody,
+  CardTitle,
+  CardSubtitle,
+  InputGroup,
+  Input,
+  Button
+} from "reactstrap";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import './App.css';
+import "./App.css";
 
-
-import Home from "./page/home"
-import Login from "./page/login"
-import Profile from "./page/profile"
-import Signup from "./page/signup"
+import Home from "./page/home";
+import Login from "./page/login";
+import Profile from "./page/profile";
+import Signup from "./page/signup";
 
 const BasicExample = () => (
   <Router>
-   <header>
-     <Row className="App-header navbar fixed-top">
-          <Link className="textNavBar" to="/">Home</Link>
-          <Link className="textNavBar" to="/login">Login</Link>
-          <Link className="textNavBar" to="/profile">Profile</Link>
-          <Link className="textNavBar" to="/signup">Sign Up</Link>
-     </Row>
-     <InputGroup className="inputTextProduk">
-        <input type="text" className="inputText"/>
-        <Button className="buttonText"outline color="danger">Submit</Button>
-     </InputGroup>
-      <Route exact path="/" component={Home}/>
-      <Route path="/login" component={Login}/>
-      <Route path="/profile" component={Profile}/>
-      <Route path="/signup" component={Signup}/>
+    <header>
+      <Row className="App-header navbar fixed-top d-flex justify-content-end">
+        <Link className="textNavBar text-right mx-2" to="/">
+          Home
+        </Link>
+        <Link className="textNavBar text-right mx-2" to="/login">
+          Login
+        </Link>
+        <Link className="textNavBar text-right mx-2" to="/profile">
+          Profile
+        </Link>
+        <Link className="textNavBar text-right mx-2" to="/signup">
+          Sign Up
+        </Link>
+      </Row>
+      <InputGroup className="inputTextProduk">
+        <input type="text" className="inputText" />
+        <Button className="buttonText" outline color="danger">
+          Submit
+        </Button>
+      </InputGroup>
+      <Route exact path="/" component={Home} />
+      <Route path="/login" component={Login} />
+      <Route path="/profile" component={Profile} />
+      <Route path="/signup" component={Signup} />
     </header>
   </Router>
 );
-
-
-
-
 
 const Topics = ({ match }) => (
   <div>
