@@ -41,7 +41,7 @@ const BasicExample = () => (
       <InputGroup className="inputTextProduk">
         <input type="text" className="inputText" />
         <Button className="buttonText" outline color="danger">
-          Submit
+          Search
         </Button>
       </InputGroup>
       <Route exact path="/" component={Home} />

@@ -13,6 +13,7 @@
   color: white;
   text-align: right;
   justify-content: flex-end;
+  border-bottom: solid lightskyblue 2px;
 }
 
 .App-intro {
