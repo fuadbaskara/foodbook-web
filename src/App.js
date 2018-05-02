@@ -25,40 +25,43 @@ import addFood from "./page/addfood";
 
 const BasicExample = () => (
   <Router>
-    <header>
-      <Row className="App-header navbar fixed-top d-flex justify-content-end">
-        <Link className="textNavBar text-right mx-2" to="/">
-          Home
-        </Link>
-        <Link className="textNavBar text-right mx-2" to="/login">
-          Login
-        </Link>
-        <Link className="textNavBar text-right mx-2" to="/profile">
-          Profile
-        </Link>
-        <Link className="textNavBar text-right mx-2" to="/detailProduk">
-          Detail Product
-        </Link>
-        <Link className="textNavBar text-right mx-2" to="/addfood">
-        Add Food
-        </Link>
-        <Link className="textNavBar text-right mx-2" to="/signup">
-          Sign Up
-        </Link>
-      </Row>
-      <InputGroup className="inputTextProduk">
-        <input type="text" className="inputText border border-danger" />
-        <Button className="buttonText" outline color="danger">
-          Search
-        </Button>
-      </InputGroup>
+    <div>
+      <header>
+        <Row className="App-header navbar fixed-top d-flex justify-content-end">
+          <Link className="textNavBar text-right mx-2" to="/">
+            Home
+          </Link>
+          <Link className="textNavBar text-right mx-2" to="/login">
+            Login
+          </Link>
+          <Link className="textNavBar text-right mx-2" to="/profile">
+            Profile
+          </Link>
+          <Link className="textNavBar text-right mx-2" to="/detailProduk">
+            Detail Product
+          </Link>
+          <Link className="textNavBar text-right mx-2" to="/addfood">
+            Add Food
+          </Link>
+          <Link className="textNavBar text-right mx-2" to="/signup">
+            Sign Up
+          </Link>
+        </Row>
+        <InputGroup className="inputTextProduk">
+          <input type="text" className="inputText border border-danger" />
+          <Button className="buttonText" outline color="danger">
+            Search
+          </Button>
+        </InputGroup>
+      </header>
+
       <Route exact path="/" component={Home} />
       <Route path="/login" component={Login} />
       <Route path="/detailProduk" component={detailProduk} />
       <Route path="/profile" component={Profile} />
       <Route path="/addfood" component={addFood} />
       <Route path="/signup" component={Signup} />
-    </header>
+    </div>
   </Router>
 );
 
@@ -81,7 +84,7 @@ const Topics = ({ match }) => (
     <Route
       exact
       path={match.url}
-      render={() => <h3>Please select a topic.</h3>}
+      render={() => <h3>Please select a topic </h3>}
     />
   </div>
 );
