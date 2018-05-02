@@ -1,57 +1,47 @@
-import React, { Component} from "react";
-import { Container, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-import { Link, Route} from "react-router-dom";
+import React from "react";
+import { Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
-
-const divStyle = {
-  padding: "50px",
-  border: "solid lightskyblue 2px",
-  width: "40%",
+const containerForm = {
+  width: "50%",
   marginLeft: "auto",
   marginRight: "auto",
-  borderRadius: "5px",
-  backgroundColor: "red"
-};
-
-const fontStyle = {
-  font: "bold 18px arial, sans-serif",
-  padding: "20px"
-};
+  border: "solid lightskyblue 2px",
+  padding: "5px",
+  borderRadius: "3px",
+  marginTop:"50px",
+}
 
 const buttonStyle = {
   display: "flex",
   justifyContent: "center",
-  alignItems: "center"
-};
+  alignItems: "center",
+}
 
 const inputStyle = {
-  border: "solid black 2px"
-};
-
-const centerText = {
-  textAlign: "center"
-};
+  border: "solid black 2px",
+}
 
 class Login extends React.Component {
   render() {
     return (
       <div>
-        <div>
-          <h1 style={centerText}>FORM LOGIN</h1>
-        </div>
-        <form style={divStyle}>
-          <div>
-            <label style={fontStyle}>USERNAME :</label>
-            <input type="username" style={inputStyle} />
-          </div>
-          <div>
-            <label style={fontStyle}>PASSWORD :</label>
-            <input type="password" style={inputStyle} />
-          </div>
-          <div style={buttonStyle}>
-            <Button color="secondary">LOGIN</Button>{" "}
-          </div>
-        </form>
+      <Form style = {containerForm}>
+         <FormGroup row>
+           <Label for="username" sm={2}>USERNAME </Label>
+           <Col sm={10}>
+             <Input type="username" name="username" id="username" placeholder="input your username" style={inputStyle} />
+           </Col>
+         </FormGroup>
+         <FormGroup row>
+           <Label for="examplePassword" sm={2}>PASSWORD </Label>
+           <Col sm={10}>
+             <Input type="password" name="password" id="examplePassword" placeholder="input your password" style={inputStyle} />
+           </Col>
+         </FormGroup>
+         <div style={buttonStyle}>
+         <Button color="secondary">LOG IN</Button>{' '}
+         </div>
+       </Form>
       </div>
     );
   }
