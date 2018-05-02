@@ -20,6 +20,8 @@ import Home from "./page/home";
 import Login from "./page/login";
 import Profile from "./page/profile";
 import Signup from "./page/signup";
+import detailProduk from "./page/detailproduk";
+import addFood from "./page/addfood";
 
 const BasicExample = () => (
   <Router>
@@ -34,19 +36,27 @@ const BasicExample = () => (
         <Link className="textNavBar text-right mx-2" to="/profile">
           Profile
         </Link>
+        <Link className="textNavBar text-right mx-2" to="/detailProduk">
+          Detail Product
+        </Link>
+        <Link className="textNavBar text-right mx-2" to="/addfood">
+        Add Food
+        </Link>
         <Link className="textNavBar text-right mx-2" to="/signup">
           Sign Up
         </Link>
       </Row>
       <InputGroup className="inputTextProduk">
-        <input type="text" className="inputText" />
+        <input type="text" className="inputText border border-danger" />
         <Button className="buttonText" outline color="danger">
           Search
         </Button>
       </InputGroup>
       <Route exact path="/" component={Home} />
       <Route path="/login" component={Login} />
+      <Route path="/detailProduk" component={detailProduk} />
       <Route path="/profile" component={Profile} />
+      <Route path="/addfood" component={addFood} />
       <Route path="/signup" component={Signup} />
     </header>
   </Router>
