@@ -26,10 +26,17 @@ const inputStyle = {
   border: "solid black 2px"
 };
 
+const centerText = {
+  textAlign: "center"
+};
+
 class Login extends React.Component {
   render() {
     return (
       <div>
+        <div>
+          <h1 style={centerText}>FORM LOGIN</h1>
+        </div>
         <form style={divStyle}>
           <div>
             <label style={fontStyle}>USERNAME :</label>
