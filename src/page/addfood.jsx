@@ -21,7 +21,7 @@ import { Link, Route } from "react-router-dom";
 import Home from "./home";
 
 const addFood = ({ match }) => (
-  <div>
+  <div className="margin-top-100">
     <Form className="addFoodForm">
       <FormGroup row>
         <Label for="exampleFood" sm={2}>

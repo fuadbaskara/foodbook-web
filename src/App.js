@@ -11,6 +11,7 @@ import {
   CardSubtitle,
   InputGroup,
   Input,
+  InputGroupAddon,
   Button
 } from "reactstrap";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
@@ -26,13 +27,43 @@ import addFood from "./page/addfood";
 const BasicExample = () => (
   <Router>
     <div>
-      <header>
-        <Row className="App-header navbar fixed-top d-flex justify-content-end">
-          <Link className="textNavBar text-right mx-2" to="/">
-            Home
-          </Link>
+      <div className="App-header fixed-top">
+        <div className="display-inline margin-right-90">
+          <input type="text" className="inputText border border-danger" />
+          <button className="button-border-sign textNavBar">Search</button>
+        </div>
+        <Link className="textNavBar text-right mx-2" to="/">
+          Home
+        </Link>
+        {/*<Link className="textNavBar text-right mx-2" to="/profile">
+              Profile
+            </Link>
+            <Link className="textNavBar text-right mx-2" to="/detailProduk">
+              Detail Product
+            </Link>*/}
+        <Link className="textNavBar text-right mx-2" to="/addfood">
+          Add Food
+        </Link>
+        <Link className="border-sign textNavBar text-right mx-2" to="/login">
+          Sign In
+        </Link>
+        <Link className="border-sign textNavBar text-right mx-2" to="/signup">
+          Sign Up
+        </Link>
+      </div>
+
+      {/*<header>
+        <div className="App-header navbar d-flex justify-content-end">
           <Link className="textNavBar text-right mx-2" to="/login">
             Login
+          </Link>
+          <Link className="textNavBar text-right mx-2" to="/signup">
+            Sign Up
+          </Link>
+        </div>
+        <div className="App-header navbar d-flex justify-content-end">
+          <Link className="textNavBar text-right mx-2" to="/">
+            Home
           </Link>
           <Link className="textNavBar text-right mx-2" to="/profile">
             Profile
@@ -43,17 +74,9 @@ const BasicExample = () => (
           <Link className="textNavBar text-right mx-2" to="/addfood">
             Add Food
           </Link>
-          <Link className="textNavBar text-right mx-2" to="/signup">
-            Sign Up
-          </Link>
-        </Row>
-        <InputGroup className="inputTextProduk">
-          <input type="text" className="inputText border border-danger" />
-          <Button className="buttonText" outline color="danger">
-            Search
-          </Button>
-        </InputGroup>
-      </header>
+        </div>
+
+      </header>*/}
 
       <Route exact path="/" component={Home} />
       <Route path="/login" component={Login} />

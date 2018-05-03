@@ -24,7 +24,7 @@ const inputStyle = {
 }
 
 const Signup = () => (
-  <div>
+  <div className="margin-top-100">
     <Form style = {containerForm}>
        <FormGroup row>
          <Label for="firstname" sm={2}>FIRSTNAME </Label>

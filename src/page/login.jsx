@@ -29,7 +29,7 @@ const centerText = {
 class Login extends React.Component {
   render() {
     return (
-      <div>
+      <div className="margin-top-100">
       <Form style = {containerForm}>
          <FormGroup row>
            <Label for="username" sm={2}>USERNAME </Label>
