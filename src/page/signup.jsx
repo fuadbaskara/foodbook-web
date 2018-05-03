@@ -1,7 +1,5 @@
-import React, { Component} from "react";
+import React from "react";
 import { Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
-
-import { Link, Route} from "react-router-dom";
 
 const containerForm = {
   width: "70%",

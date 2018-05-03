@@ -1,6 +1,5 @@
-import React, { Component} from "react";
-import { Button, Form, Card, CardImg } from 'reactstrap';
-import { Link, Route} from "react-router-dom";
+import React from "react";
+import { Card, CardImg } from 'reactstrap';
 
 const Profile = () => (
       <div className="margin-top-100">

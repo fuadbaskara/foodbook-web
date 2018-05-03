@@ -1,13 +1,7 @@
 import React from 'react';
-import { Container, Row, Col, Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, InputGroup, Input, Button, Link } from "reactstrap";
+import { Row, Col, CardImg, CardText, CardBody,
+  CardTitle, CardSubtitle, Button } from "reactstrap";
 import '../App.css';
-import {
-  Collapse,
-  Navbar,
-  NavItem,
-  NavLink,
-  } from 'reactstrap';
 
 
 const Home = () => (

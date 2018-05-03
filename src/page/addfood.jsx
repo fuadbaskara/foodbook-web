@@ -1,24 +1,12 @@
-import React, { Component } from "react";
+import React  from "react";
 import {
   Col,
   Button,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
   Form,
-  Card,
-  CardImg,
   FormGroup,
   Input,
-  Label,
-  Nav,
-  NavItem,
-  NavLink
+  Label
 } from "reactstrap";
-import { Link, Route } from "react-router-dom";
-
-import Home from "./home";
 
 const addFood = ({ match }) => (
   <div className="margin-top-100">

@@ -1,6 +1,4 @@
-import React, { Component} from "react";
-import { Button, Form, Card, CardImg, Nav, NavItem, NavLink } from 'reactstrap';
-import { Link, Route} from "react-router-dom";
+import React from "react";
 
 const detailProduk= () => (
   <h1>
