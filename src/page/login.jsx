@@ -1,47 +1,78 @@
-import React from "react";
-import { Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import React, { Component } from "react";
+import {
+  Container,
+  Button,
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  FormText
+} from "reactstrap";
+import { Link, Route } from "react-router-dom";
 
-const containerForm = {
-  width: "50%",
-  marginLeft: "auto",
-  marginRight: "auto",
-  border: "solid lightskyblue 2px",
-  padding: "5px",
-  borderRadius: "3px",
-  marginTop:"50px",
-}
+class Login extends Component {
+  constructor() {
+    super();
+    this.state = {
+      username: "",
+      password: ""
+    };
+    this.handleChangeUserName = this.handleChangeUserName.bind(this);
+    this.handleChangePassword = this.handleChangePassword.bind(this);
+  }
 
-const buttonStyle = {
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-}
+  handleChangeUserName(event) {
+    let value = event.target.value;
+    this.setState(() => {
+      return { username: value };
+    });
+  }
 
-const inputStyle = {
-  border: "solid black 2px",
-}
+  handleChangePassword(event) {
+    let value = event.target.value;
+    this.setState(() => {
+      return { password: value };
+    });
+  }
 
-class Login extends React.Component {
+  submitForm(event) {
+    event.preventDefault();
+  }
+
   render() {
+    console.log("state", this.state);
     return (
-      <div className="margin-top-100">
-      <Form style = {containerForm}>
-         <FormGroup row>
-           <Label for="username" sm={2}>USERNAME </Label>
-           <Col sm={10}>
-             <Input type="username" name="username" id="username" placeholder="input your username" style={inputStyle} />
-           </Col>
-         </FormGroup>
-         <FormGroup row>
-           <Label for="examplePassword" sm={2}>PASSWORD </Label>
-           <Col sm={10}>
-             <Input type="password" name="password" id="examplePassword" placeholder="input your password" style={inputStyle} />
-           </Col>
-         </FormGroup>
-         <div style={buttonStyle}>
-         <Button color="secondary">LOG IN</Button>{' '}
-         </div>
-       </Form>
+      <div className="Container" onSubmit={this.submitForm}>
+        <Form>
+          <FormGroup>
+            <Label for="exampleEmail">User Name</Label>
+            <Input
+              type="text"
+              name="userid"
+              placeholder="Insert Your User Name"
+              value={this.state.username}
+              onChange={this.handleChangeUserName}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for="examplePassword">Password</Label>
+            <Input
+              type="password"
+              name="password"
+              placeholder="Insert Your Password"
+              value={this.state.password}
+              onChange={this.handleChangePassword}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Button outline color="primary" size="lg" block>
+              Sign Up
+            </Button>
+          </FormGroup>
+          <Button outline color="danger" size="lg" block>
+            Submit
+          </Button>
+        </Form>
       </div>
     );
   }
