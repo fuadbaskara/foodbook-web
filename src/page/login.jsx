@@ -39,7 +39,7 @@ class Login extends React.Component {
            </Col>
          </FormGroup>
          <div style={buttonStyle}>
-         <Button color="secondary">LOG IN</Button>{' '}
+         <Button color="danger">LOG IN</Button>{' '}
          </div>
        </Form>
       </div>

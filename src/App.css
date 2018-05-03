@@ -6,6 +6,7 @@
   color: white;
   text-align: right;
   justify-content: flex-end;
+  border-bottom: solid black 2px;
 }
 
 .addFoodForm{

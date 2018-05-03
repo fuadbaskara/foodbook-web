@@ -20,4 +20,4 @@ const detailProduk= () => (
       //   </Nav>
       // </div>
     )
-export default detailProduk
+export default detailProduk;

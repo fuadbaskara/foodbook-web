@@ -9,4 +9,4 @@ const Profile = () => (
         </Card>
       </div>
     )
-export default Profile
+export default Profile;
