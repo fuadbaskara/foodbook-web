@@ -8,15 +8,14 @@ body {
   color: white;
   text-align: right;
   justify-content: flex-end;
-  border-bottom: solid black 2px;
 }
 
 .display-inline {
   display: inline;
 }
 
-.margin-right-90 {
-  margin-right: 90px;
+.margin-right-50 {
+  margin-right: 50px;
 }
 
 .padding-top-20 {

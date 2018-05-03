@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const AppHeader = () => {
   return (
     <div className="App-header fixed-top">
-      <div className="display-inline margin-right-90">
+      <div className="display-inline margin-right-50">
         <input type="text" className="inputText border border-danger" />
         <button className="button-border-sign textNavBar">Search</button>
       </div>
