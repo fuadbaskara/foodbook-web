@@ -1,118 +1,66 @@
 import React from "react";
 import { Col, Button, Form, FormGroup, Label, Input } from "reactstrap";
 
-const containerForm = {
-  border: "solid lightskyblue 4px",
-  width: "38%",
-  marginLeft: "auto",
-  marginRight: "auto",
-  border: "solid lightskyblue 2px",
-  padding: "5px",
-  borderRadius: "3px",
-  marginTop: "50px"
-};
-
-const styleH1 = {
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center"
-};
-
-const inputStyle = {
-  border: "solid black 2px"
-};
-
 const Signup = () => (
   <div className="margin-top-100">
-    <Form style={containerForm}>
-      <FormGroup row>
-        <Label for="firstname" sm={2}>
-          FIRSTNAME{" "}
-        </Label>
-        <Col sm={10}>
+    <div className="Container">
+      <Form>
+        <FormGroup>
+          <Label for="exampleFirstname">Firstname</Label>
           <Input
-            type="firstname"
-            name="firstname"
-            id="firstname"
-            placeholder="input your firstname"
-            style={inputStyle}
+            type="text"
+            name="text"
+            placeholder="input your Firstname"
           />
-        </Col>
-      </FormGroup>
-      <FormGroup row>
-        <Label for="lastname" sm={2}>
-          LASTNAME{" "}
-        </Label>
-        <Col sm={10}>
+        </FormGroup>
+        <FormGroup>
+          <Label for="exampleLastname">Lastname</Label>
           <Input
-            type="lastname"
-            name="lastname"
-            id="lastname"
-            placeholder="input your lastname"
-            style={inputStyle}
+            type="text"
+            name="text"
+            placeholder="input your Lastname"
           />
-        </Col>
-      </FormGroup>
-      <FormGroup row>
-        <Label for="email" sm={2}>
-          EMAIL{" "}
-        </Label>
-        <Col sm={10}>
+        </FormGroup>
+        <FormGroup>
+          <Label for="exampleEmail">Email</Label>
           <Input
-            type="email"
-            name="email"
-            id="email"
-            placeholder="input your email"
-            style={inputStyle}
+            type="Email"
+            name="Email"
+            placeholder="input your Email"
           />
-        </Col>
-      </FormGroup>
-      <FormGroup row>
-        <Label for="username" sm={2}>
-          USERNAME{" "}
-        </Label>
-        <Col sm={10}>
+        </FormGroup>
+        <FormGroup>
+          <Label for="exampleUsername">Username</Label>
           <Input
-            type="username"
+            type="text"
             name="username"
-            id="username"
-            placeholder="input your username"
-            style={inputStyle}
+            placeholder="input your Username"
           />
-        </Col>
-      </FormGroup>
-      <FormGroup row>
-        <Label for="password" sm={2}>
-          PASSWORD{" "}
-        </Label>
-        <Col sm={10}>
+        </FormGroup>
+
+        <FormGroup>
+          <Label for="examplePassword">Password</Label>
           <Input
-            type="password"
+            type="Password"
+            name="Password"
+            placeholder="input your Password"
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label for="examplePassword">Re-password</Label>
+          <Input
+            type="Password"
             name="password"
-            id="password"
-            placeholder="input your password"
-            style={inputStyle}
-          />
-        </Col>
-      </FormGroup>
-      <FormGroup row>
-        <Label for="re-password" sm={2}>
-          RE-PASSWORD{" "}
-        </Label>
-        <Col sm={10}>
-          <Input
-            type="re-password"
-            name="re-password"
-            id="re-password"
             placeholder="input your re-password"
-            style={inputStyle}
           />
-        </Col>
-      </FormGroup>
-      <div>
-        <Button color="secondary">REGISTER</Button>{" "}
-      </div>
-    </Form>
+        </FormGroup>
+        <FormGroup>
+          <Button outline color="primary" size="lg" block>
+            Sign Up
+          </Button>
+        </FormGroup>
+      </Form>
+    </div>
   </div>
 );
 export default Signup;
