@@ -1,93 +1,118 @@
 import React from "react";
-import { Button} from "reactstrap";
+import { Col, Button, Form, FormGroup, Label, Input } from "reactstrap";
 
 const containerForm = {
   border: "solid lightskyblue 4px",
   width: "38%",
   marginLeft: "auto",
   marginRight: "auto",
-  padding: "3px",
-  borderRadius: "5px",
-  backgroundColor: "rgb(186, 193, 191)"
+  border: "solid lightskyblue 2px",
+  padding: "5px",
+  borderRadius: "3px",
+  marginTop: "50px"
 };
 
 const styleH1 = {
   display: "flex",
-  justifyContent: "center"
-};
-
-const labelStyles = {
-  padding: "8px"
-};
-
-const buttonRegister = {
-  display: "flex",
-  marginLeft: "auto",
-  marginRight: "auto"
-};
-
-const containerButton = {
-  padding: "3px"
+  justifyContent: "center",
+  alignItems: "center"
 };
 
 const inputStyle = {
-  borderRadius: "4px",
-  width: "90%",
   border: "solid black 2px"
 };
 
 const Signup = () => (
   <div className="margin-top-100">
-    <div>
-      <div style={containerForm}>
-        <form>
-          <div>
-            <h1 style={styleH1}>-- SIGN UP --</h1>
-          </div>
-          <div>
-            <label style={labelStyles}>Firstname :</label>
-          </div>
-          <div>
-            <input style={inputStyle} />
-          </div>
-          <div>
-            <label style={labelStyles}>Lastname :</label>
-          </div>
-          <div>
-            <input style={inputStyle} />
-          </div>
-          <div>
-            <label style={labelStyles}>Email :</label>
-          </div>
-          <div>
-            <input style={inputStyle} />
-          </div>
-          <div>
-            <label style={labelStyles}>Username :</label>
-          </div>
-          <div>
-            <input style={inputStyle} />
-          </div>
-          <div>
-            <label style={labelStyles}>Password :</label>
-          </div>
-          <div>
-            <input style={inputStyle} />
-          </div>
-          <div>
-            <label style={labelStyles}>Re_Password :</label>
-          </div>
-          <div>
-            <input style={inputStyle} />
-          </div>
-          <div style={containerButton}>
-            <Button outline color="danger" style={buttonRegister}>
-              SUBMIT
-            </Button>
-          </div>
-        </form>
+    <Form style={containerForm}>
+      <FormGroup row>
+        <Label for="firstname" sm={2}>
+          FIRSTNAME{" "}
+        </Label>
+        <Col sm={10}>
+          <Input
+            type="firstname"
+            name="firstname"
+            id="firstname"
+            placeholder="input your firstname"
+            style={inputStyle}
+          />
+        </Col>
+      </FormGroup>
+      <FormGroup row>
+        <Label for="lastname" sm={2}>
+          LASTNAME{" "}
+        </Label>
+        <Col sm={10}>
+          <Input
+            type="lastname"
+            name="lastname"
+            id="lastname"
+            placeholder="input your lastname"
+            style={inputStyle}
+          />
+        </Col>
+      </FormGroup>
+      <FormGroup row>
+        <Label for="email" sm={2}>
+          EMAIL{" "}
+        </Label>
+        <Col sm={10}>
+          <Input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="input your email"
+            style={inputStyle}
+          />
+        </Col>
+      </FormGroup>
+      <FormGroup row>
+        <Label for="username" sm={2}>
+          USERNAME{" "}
+        </Label>
+        <Col sm={10}>
+          <Input
+            type="username"
+            name="username"
+            id="username"
+            placeholder="input your username"
+            style={inputStyle}
+          />
+        </Col>
+      </FormGroup>
+      <FormGroup row>
+        <Label for="password" sm={2}>
+          PASSWORD{" "}
+        </Label>
+        <Col sm={10}>
+          <Input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="input your password"
+            style={inputStyle}
+          />
+        </Col>
+      </FormGroup>
+      <FormGroup row>
+        <Label for="re-password" sm={2}>
+          RE-PASSWORD{" "}
+        </Label>
+        <Col sm={10}>
+          <Input
+            type="re-password"
+            name="re-password"
+            id="re-password"
+            placeholder="input your re-password"
+            style={inputStyle}
+          />
+        </Col>
+      </FormGroup>
+      <div style={buttonStyle}>
+        <Button color="secondary">REGISTER</Button>{" "}
       </div>
-    </div>
+    </Form>
   </div>
 );
 export default Signup;

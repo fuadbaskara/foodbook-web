@@ -1,5 +1,16 @@
 import React, { Component } from "react";
-import { Col, Button, Form, FormGroup, Input, Label } from "reactstrap";
+import {
+  Col,
+  Button,
+  Form,
+  FormGroup,
+  Input,
+  Label,
+  Nav,
+  NavItem,
+  NavLink
+} from "reactstrap";
+import { Link, Route } from "react-router-dom";
 import "/home/mfaris/Desktop/Bootcamp/impactbyte/project/foodbook/foodbook-web/src/App.css";
 
 class addFood extends Component {

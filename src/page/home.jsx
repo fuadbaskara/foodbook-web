@@ -10,7 +10,6 @@ import {
   Button
 } from "reactstrap";
 import axios from "axios";
-import "../App.css";
 
 const Home = () => (
   <div className="margin-top-100">
