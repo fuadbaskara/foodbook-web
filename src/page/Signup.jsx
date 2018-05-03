@@ -2,7 +2,6 @@ import React from "react";
 import { Col, Button, Form, FormGroup, Label, Input } from "reactstrap";
 
 const containerForm = {
-  border: "solid lightskyblue 4px",
   width: "38%",
   marginLeft: "auto",
   marginRight: "auto",
@@ -10,12 +9,6 @@ const containerForm = {
   padding: "5px",
   borderRadius: "3px",
   marginTop: "50px"
-};
-
-const styleH1 = {
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center"
 };
 
 const inputStyle = {

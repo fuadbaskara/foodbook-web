@@ -9,7 +9,6 @@ import {
   CardSubtitle,
   Button
 } from "reactstrap";
-import axios from "axios";
 
 const Home = () => (
   <div className="margin-top-100">

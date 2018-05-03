@@ -1,18 +1,7 @@
 import React, { Component } from "react";
-import {
-  Col,
-  Button,
-  Form,
-  FormGroup,
-  Input,
-  Label,
-  Nav,
-  NavItem,
-  NavLink
-} from "reactstrap";
-import { Link, Route } from "react-router-dom";
+import { Col, Button, Form, FormGroup, Input, Label } from "reactstrap";
 
-class addFood extends Component {
+class AddFood extends Component {
   constructor() {
     super();
     this.state = {
@@ -194,4 +183,4 @@ class addFood extends Component {
     );
   }
 }
-export default addFood;
+export default AddFood;
