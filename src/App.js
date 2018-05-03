@@ -21,7 +21,7 @@ const App = () => (
       <Route path="/login" component={Login} />
       <Route path="/food" component={Food} />
       <Route path="/profile" component={Profile} />
-      <Route path="/add" component={AddFood} />
+      <Route path="/addfood" component={AddFood} />
       <Route path="/signup" component={Signup} />
     </div>
   </Router>
