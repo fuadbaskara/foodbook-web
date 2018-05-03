@@ -10,6 +10,7 @@ const containerForm = {
   marginRight: "auto",
   padding: "3px",
   borderRadius: "5px",
+  backgroundColor: "rgb(186, 193, 191)",
 }
 
 const styleH1 = {
