@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import {
   Col,
   Button,
@@ -11,6 +11,7 @@ import {
   NavLink
 } from "reactstrap";
 import { Link, Route } from "react-router-dom";
+import "/home/mfaris/Desktop/Bootcamp/impactbyte/project/foodbook/foodbook-web/src/App.css";
 
 class addFood extends Component {
   constructor() {
@@ -82,7 +83,7 @@ class addFood extends Component {
   render() {
     console.log("state", this.state);
     return (
-      <div onSubmit={this.submitForm}>
+      <div className="margin-top-100" onSubmit={this.submitForm}>
         <Form className="addFoodForm">
           <FormGroup row>
             <Label for="exampleFood" sm={2}>
