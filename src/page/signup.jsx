@@ -109,7 +109,7 @@ const Signup = () => (
           />
         </Col>
       </FormGroup>
-      <div style={buttonStyle}>
+      <div>
         <Button color="secondary">REGISTER</Button>{" "}
       </div>
     </Form>

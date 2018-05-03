@@ -11,7 +11,6 @@ import {
   NavLink
 } from "reactstrap";
 import { Link, Route } from "react-router-dom";
-import "/home/mfaris/Desktop/Bootcamp/impactbyte/project/foodbook/foodbook-web/src/App.css";
 
 class addFood extends Component {
   constructor() {
