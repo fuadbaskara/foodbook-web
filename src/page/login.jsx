@@ -1,14 +1,11 @@
 import React, { Component } from "react";
 import {
-  Container,
   Button,
   Form,
   FormGroup,
   Label,
-  Input,
-  FormText
+  Input
 } from "reactstrap";
-import { Link, Route } from "react-router-dom";
 import "/home/mfaris/Desktop/Bootcamp/impactbyte/project/foodbook/foodbook-web/src/App.css";
 
 class Login extends Component {
