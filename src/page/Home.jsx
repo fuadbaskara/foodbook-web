@@ -29,7 +29,7 @@ const Home = () => (
             bulk of the card's content.
           </CardText>
           <Link className="textNavBar text-right mx-2" to="/food">
-            <Button>Button</Button>
+            <Button>Detail</Button>
           </Link>
         </CardBody>
       </Col>
@@ -47,7 +47,7 @@ const Home = () => (
             Some quick example text to build on the card title and make up the
             bulk of the card's content.
           </CardText>
-          <Button>Button</Button>
+          <Button>Detail</Button>
         </CardBody>
       </Col>
       <Col sm="4">
@@ -64,7 +64,7 @@ const Home = () => (
             Some quick example text to build on the card title and make up the
             bulk of the card's content.
           </CardText>
-          <Button>Button</Button>
+          <Button>Detail</Button>
         </CardBody>
       </Col>
       <Col sm="4">
@@ -81,7 +81,7 @@ const Home = () => (
             Some quick example text to build on the card title and make up the
             bulk of the card's content.
           </CardText>
-          <Button>Button</Button>
+          <Button>Detail</Button>
         </CardBody>
       </Col>
       <Col sm="4">
@@ -98,7 +98,7 @@ const Home = () => (
             Some quick example text to build on the card title and make up the
             bulk of the card's content.
           </CardText>
-          <Button>Button</Button>
+          <Button>Detail</Button>
         </CardBody>
       </Col>
       <Col sm="4">
@@ -115,7 +115,7 @@ const Home = () => (
             Some quick example text to build on the card title and make up the
             bulk of the card's content.
           </CardText>
-          <Button>Button</Button>
+          <Button>Detail</Button>
         </CardBody>
       </Col>
       <Col sm="4">
@@ -132,7 +132,7 @@ const Home = () => (
             Some quick example text to build on the card title and make up the
             bulk of the card's content.
           </CardText>
-          <Button>Button</Button>
+          <Button>Detail</Button>
         </CardBody>
       </Col>
       <Col sm="4">
@@ -149,7 +149,7 @@ const Home = () => (
             Some quick example text to build on the card title and make up the
             bulk of the card's content.
           </CardText>
-          <Button>Button</Button>
+          <Button>Detail</Button>
         </CardBody>
       </Col>
       <Col sm="4">
@@ -166,7 +166,7 @@ const Home = () => (
             Some quick example text to build on the card title and make up the
             bulk of the card's content.
           </CardText>
-          <Button>Button</Button>
+          <Button>Detail</Button>
         </CardBody>
       </Col>
     </Row>
