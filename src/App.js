@@ -16,7 +16,6 @@ const App = () => (
   <Router>
     <div>
       <AppHeader />
-
       <Route exact path="/" component={Home} />
       <Route path="/login" component={Login} />
       <Route path="/food" component={Food} />
