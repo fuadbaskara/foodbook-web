@@ -95,6 +95,7 @@ body {
   padding: 6px;
   border-radius: 10px;
   background: red;
+  font-family: Comfortaa;
 }
 
 .button-border-sign:hover {
@@ -146,6 +147,8 @@ body {
   margin-right: 2px;
   color: white;
   text-align: right;
+  font-family: Comfortaa;
+  font-size: 13px;
 }
 
 .textNavBar:hover {

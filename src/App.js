@@ -9,6 +9,7 @@ import Profile from "./page/Profile";
 import Signup from "./page/Signup";
 import Food from "./page/Food";
 import AddFood from "./page/AddFood";
+import Footer from "./page/footer";
 
 import "./App.css";
 
@@ -23,6 +24,8 @@ const App = () => (
       <Route path="/profile" component={Profile} />
       <Route path="/addfood" component={AddFood} />
       <Route path="/signup" component={Signup} />
+
+      <Route exact path="/" component={Footer} />
     </div>
   </Router>
 );
