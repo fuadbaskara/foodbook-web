@@ -1,19 +1,28 @@
-import React from "react";
+import React, { Component } from "react";
+import { Link, Route } from "react-router-dom";
+import Carousels from "../medium/Carousels.jsx";
+import DetailTab from "../medium/DetailTab.jsx";
 
-const Food = () => (
-  <h1>Food Details</h1>
-  // <div>
-  //   <Card  className="containerProfile">
-  //      <CardImg class="rounded-circle" top width="25%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
-  //   </Card>
-  //   <Nav>
-  //     <NavItem>
-  //       <NavLink href="#">Link</NavLink>
-  //     </NavItem>
-  //     <NavItem>
-  //       <NavLink href="#">Link</NavLink>
-  //     </NavItem>
-  //   </Nav>
-  // </div>
-);
+class Food extends Component {
+  render() {
+    return (
+      <div>
+        <div>
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <div className="carousels">
+            <Carousels />
+          </div>
+          <div>
+            <DetailTab className="detailTab" />
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+
 export default Food;
