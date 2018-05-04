@@ -41,11 +41,16 @@ class Home extends Component {
       <div className="margin-top-100">
         <Row className="homeProduct">
           {this.state.foods.map((food, index) => (
-            <Col sm="4">
-              <CardImg top width="25%" src={food.photo} alt="Card image cap" />
+            <Col sm="4" key={index}>
+              <CardImg
+                width="25%"
+                height="50%"
+                src={food.photos[0]}
+                alt="Card image cap"
+              />
               <CardBody>
                 <CardTitle>{food.name}</CardTitle>
-                <CardText />
+                <CardText>{food.overview}</CardText>
                 <Link to="/food">
                   <Button className="width-full">Details</Button>
                 </Link>
