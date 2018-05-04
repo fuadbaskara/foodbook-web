@@ -17,6 +17,8 @@
     "superagent": "^3.8.3"
   },
   "scripts": {
+    "postinstall": "./setup.sh",
+    "dev": "PORT=8000 react-scripts start",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
