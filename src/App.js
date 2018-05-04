@@ -14,7 +14,7 @@ import "./App.css";
 
 const App = () => (
   <Router>
-    <div>
+    <div className="height">
       <AppHeader />
 
       <Route exact path="/" component={Home} />
