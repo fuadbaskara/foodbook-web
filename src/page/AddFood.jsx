@@ -1,16 +1,22 @@
 import React, { Component } from "react";
 import { Col, Button, Form, FormGroup, Input, Label } from "reactstrap";
+import ReactFilestack from "filestack-react";
+import axios from "axios";
+
+const API_KEY = "AGPirPvMfTs2BMOi8EPmaz";
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3030";
 
 class AddFood extends Component {
   constructor() {
     super();
     this.state = {
-      inputFoodName: "",
-      inputAddress: "",
-      inputCity: "",
-      inputLocation: "",
-      inputDescriptionMenu: "",
-      inputPrice: ""
+      name: "",
+      overview: "",
+      price: "",
+      location: "",
+      city: "",
+      photos: [],
+      file_uploaded: 0
     };
     this.handleChangeFood = this.handleChangeFood.bind(this);
     this.handleChangeAddress = this.handleChangeAddress.bind(this);
@@ -20,6 +26,16 @@ class AddFood extends Component {
       this
     );
     this.handleChangePrice = this.handleChangePrice.bind(this);
+    this.submitForm = this.submitForm.bind(this);
+  }
+
+  handleUpload(response) {
+    if (response.filesUploaded[0].url) {
+      this.setState({
+        photos: this.state.photos.concat(response.filesUploaded[0].url),
+        file_uploaded: this.state.file_uploaded + 1
+      });
+    }
   }
 
   handleChangeFood(event) {
@@ -64,8 +80,26 @@ class AddFood extends Component {
     });
   }
 
-  submitForm(event) {
-    event.preventDefault();
+  // submitForm(event) {
+  //   event.preventDefault();
+  // }
+
+  async submitForm() {
+    await axios
+      .post(`${API_URL}/foods`, {
+        name: this.state.inputFoodName,
+        overview: this.state.inputDescriptionMenu,
+        price: this.state.inputPrice,
+        location: "",
+        city: this.state.inputCity,
+        photos: this.state.photos
+      })
+      .then(res => {
+        res, console.log(res);
+      })
+      .catch(error => {
+        console.log(error.res);
+      });
   }
 
   render() {
@@ -89,7 +123,7 @@ class AddFood extends Component {
           </FormGroup>
           <FormGroup row>
             <Label for="exampleAddress" sm={2}>
-              ADDRESS
+              res ADDRESS
             </Label>
             <Col sm={10}>
               <Input
@@ -157,23 +191,36 @@ class AddFood extends Component {
               />
             </Col>
           </FormGroup>
-          <FormGroup row>
-            <Label for="examplePhoto" sm={2}>
-              PHOTO
-            </Label>
-            <Col sm={10}>
-              <button
-                id="button-upload"
-                type="button"
-                className="btn btn-default"
-              >
-                Upload <span className="caret" />
-              </button>
-            </Col>
-          </FormGroup>
+
+          <ReactFilestack
+            apikey={API_KEY}
+            onSuccess={response => this.handleUpload(response)}
+            render={({ onPick }) => (
+              <FormGroup row>
+                <Label for="examplePrice" sm={2}>
+                  PHOTO
+                </Label>
+                <Col sm={10}>
+                  <Button
+                    outline="outline"
+                    color="info"
+                    size="sm"
+                    onClick={onPick}
+                  >
+                    Upload
+                  </Button>&nbsp;<span>&nbsp;{this.state.file_uploaded}</span>
+                </Col>
+              </FormGroup>
+            )}
+          />
           <FormGroup check row>
             <Col sm={12}>
-              <Button color="danger" size="lg" block>
+              <Button
+                color="danger"
+                size="lg"
+                block="block"
+                onClick={this.submitForm}
+              >
                 Submit
               </Button>
             </Col>
