@@ -1,6 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+const StyleImage = {
+  width: "22%",
+  display: "flex",
+  justifyContent: "left",
+  marginTop: "-45px",
+}
+
 const AppHeader = () => {
   return (
     <div className="App-header fixed-top">
@@ -23,7 +30,15 @@ const AppHeader = () => {
       <Link className="border-sign textNavBar text-right mx-2" to="/signup">
         Sign Up
       </Link>
+      <div>
+        <img
+          src={require(`../image/foodbook-logo.png`)}
+          alt="Foodbook Logo"
+          style={StyleImage}
+        />
+      </div>
     </div>
+
   );
 };
 
