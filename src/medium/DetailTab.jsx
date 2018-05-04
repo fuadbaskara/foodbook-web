@@ -3,10 +3,6 @@ import Reviews from "./Reviews.jsx";
 import {
   Nav,
   NavItem,
-  Dropdown,
-  DropdownItem,
-  DropdownToggle,
-  DropdownMenu,
   NavLink
 } from "reactstrap";
 

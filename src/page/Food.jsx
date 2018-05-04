@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link, Route } from "react-router-dom";
 import Carousels from "../medium/Carousels.jsx";
 import DetailTab from "../medium/DetailTab.jsx";
 

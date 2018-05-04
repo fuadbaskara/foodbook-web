@@ -9,6 +9,7 @@ import {
   CardSubtitle,
   Button
 } from "reactstrap";
+import { Link } from "react-router-dom";
 
 const Home = () => (
   <div className="margin-top-100">
@@ -27,7 +28,9 @@ const Home = () => (
             Some quick example text to build on the card title and make up the
             bulk of the card's content.
           </CardText>
-          <Button>Button</Button>
+          <Link className="textNavBar text-right mx-2" to="/food">
+            <Button>Button</Button>
+          </Link>
         </CardBody>
       </Col>
       <Col sm="4">

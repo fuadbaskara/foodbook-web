@@ -5,8 +5,8 @@ const StyleImage = {
   width: "22%",
   display: "flex",
   justifyContent: "left",
-  marginTop: "-45px",
-}
+  marginTop: "-45px"
+};
 
 const AppHeader = () => {
   return (
@@ -31,14 +31,15 @@ const AppHeader = () => {
         Sign Up
       </Link>
       <div>
-        <img
-          src={require(`../image/foodbook-logo.png`)}
-          alt="Foodbook Logo"
-          style={StyleImage}
-        />
+        <Link to="/">
+          <img
+            src={require(`../image/foodbook-logo.png`)}
+            alt="Foodbook Logo"
+            style={StyleImage}
+          />
+        </Link>
       </div>
     </div>
-
   );
 };
 
