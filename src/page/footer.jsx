@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom'
 const ContainerDiv = {
     borderTop: "solid black 2px",
     padding: "25px",
+    width: "100%",
+    height: "8px",
 }
 
 const LogoImage = {
