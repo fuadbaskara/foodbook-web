@@ -13,8 +13,6 @@ import { Link } from "react-router-dom";
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3030";
 
-console.log(process.env.REACT_APP_API_URL);
-
 class Home extends Component {
   constructor() {
     super();
