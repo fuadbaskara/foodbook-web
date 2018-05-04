@@ -1,10 +1,17 @@
 import React, { Component } from "react";
-import { Col, Button, Form, FormGroup, Input, Label } from "reactstrap";
+import {
+  Col,
+  Button,
+  Form,
+  FormGroup,
+  Input,
+  Label } from "reactstrap";
 
 class AddFood extends Component {
   constructor() {
     super();
     this.state = {
+      foods: [],
       inputFoodName: "",
       inputAddress: "",
       inputCity: "",
@@ -16,10 +23,9 @@ class AddFood extends Component {
     this.handleChangeAddress = this.handleChangeAddress.bind(this);
     this.handleChangeCity = this.handleChangeCity.bind(this);
     this.handleChangeLocation = this.handleChangeLocation.bind(this);
-    this.handleChangeDescriptionMenu = this.handleChangeDescriptionMenu.bind(
-      this
-    );
+    this.handleChangeDescriptionMenu = this.handleChangeDescriptionMenu.bind(this);
     this.handleChangePrice = this.handleChangePrice.bind(this);
+    this.handleClick = this.handleClick .bind(this)
   }
 
   handleChangeFood(event) {
@@ -63,6 +69,36 @@ class AddFood extends Component {
       return { inputPrice: value };
     });
   }
+
+   handleClick(){
+     if(
+       this.state.inputFoodName !== "" &&
+       this.state.inputAddress !== "" &&
+       this.state.inputCity!== "" &&
+       this.state.inputLocation !== "" &&
+       this.state.inputDescriptionMenu !== "" &&
+       this.state.inputPrice !== ""
+     ){
+       this.setState(prevState => {
+         return{
+           foods: prevState.foods.concat({
+             food: prevState.inputFoodName,
+             address:prevState.inputAddress,
+             city: prevState.inputCity,
+             location: prevState.inputLocation,
+             description: prevState.inputDescriptionMenu,
+             price: prevState.inputPrice
+           }),
+           inputFoodName: "",
+           inputAddress: "",
+           inputCity: "",
+           inputLocation: "",
+           inputDescriptionMenu: "",
+           inputPrice: ""
+         };
+       });
+     }
+   }
 
   submitForm(event) {
     event.preventDefault();
@@ -166,14 +202,17 @@ class AddFood extends Component {
                 id="button-upload"
                 type="button"
                 className="btn btn-default"
-              >
-                Upload <span className="caret" />
+              >Upload <span className="caret" />
               </button>
             </Col>
           </FormGroup>
           <FormGroup check row>
             <Col sm={12}>
-              <Button color="danger" size="lg" block>
+              <Button
+                color="danger"
+                size="lg"
+                block
+                onClick={this.handleClick}>
                 Submit
               </Button>
             </Col>
