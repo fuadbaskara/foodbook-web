@@ -1,4 +1,5 @@
 import React from "react";
+import Reviews from "./Reviews.jsx";
 import {
   Nav,
   NavItem,
@@ -16,7 +17,8 @@ export default class DetailTab extends React.Component {
       overviewTab: true,
       menuTab: false,
       locationTab: false,
-      reviewTab: false
+      reviewTab: false,
+      reviewContent: false
     };
     this.toggleOverview = this.toggleOverview.bind(this);
     this.toggleMenu = this.toggleMenu.bind(this);
@@ -61,6 +63,7 @@ export default class DetailTab extends React.Component {
     this.setState(() => {
       return {
         reviewTab: true,
+        reviewContent: true,
         menuTab: false,
         locationTab: false,
         overviewTab: false
@@ -122,11 +125,18 @@ export default class DetailTab extends React.Component {
             </div>
             <div onClick={this.toggleReview}>
               {this.state.reviewTab === true ? (
-                <NavItem>
-                  <NavLink href="#" active>
-                    Reviews
-                  </NavLink>
-                </NavItem>
+                <div>
+                  <div>
+                    <NavItem>
+                      <NavLink href="#" active>
+                        Reviews
+                      </NavLink>
+                    </NavItem>
+                  </div>
+                  <div>
+                    <Reviews />
+                  </div>
+                </div>
               ) : (
                 <div>
                   <NavItem>
