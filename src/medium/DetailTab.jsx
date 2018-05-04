@@ -1,10 +1,4 @@
 import React from "react";
-import Reviews from "./Reviews.jsx";
-import {
-  Nav,
-  NavItem,
-  NavLink
-} from "reactstrap";
 
 export default class DetailTab extends React.Component {
   constructor(props) {
@@ -71,77 +65,61 @@ export default class DetailTab extends React.Component {
     return (
       <div>
         <br />
-        <div className="center">
-          <br />
-          <Nav tabs>
-            <div onClick={this.toggleOverview}>
-              {this.state.overviewTab === true ? (
-                <NavItem>
-                  <NavLink href="#" active>
+        <div className="container">
+          <ul className="nav nav-tabs nav-justified">
+            <li className="nav-item">
+              <a onClick={this.toggleOverview}>
+                {this.state.overviewTab === true ? (
+                  <a className="nav-link active" href="#">
                     Overview
-                  </NavLink>
-                </NavItem>
-              ) : (
-                <div>
-                  <NavItem>
-                    <NavLink href="#">Overview</NavLink>
-                  </NavItem>
-                </div>
-              )}
-            </div>
-            <div onClick={this.toggleMenu}>
-              {this.state.menuTab === true ? (
-                <NavItem>
-                  <NavLink href="#" active>
+                  </a>
+                ) : (
+                  <a className="nav-link" href="#">
+                    Overview
+                  </a>
+                )}
+              </a>
+            </li>
+            <li className="nav-item">
+              <a onClick={this.toggleMenu}>
+                {this.state.menuTab === true ? (
+                  <a className="nav-link active" href="#">
                     Menu
-                  </NavLink>
-                </NavItem>
-              ) : (
-                <div>
-                  <NavItem>
-                    <NavLink href="#">Menu</NavLink>
-                  </NavItem>
-                </div>
-              )}
-            </div>
-            <div onClick={this.toggleLocation}>
-              {this.state.locationTab === true ? (
-                <NavItem>
-                  <NavLink href="#" active>
+                  </a>
+                ) : (
+                  <a className="nav-link" href="#">
+                    Menu
+                  </a>
+                )}
+              </a>
+            </li>
+            <li className="nav-item">
+              <a onClick={this.toggleLocation}>
+                {this.state.locationTab === true ? (
+                  <a className="nav-link active" href="#">
                     Location
-                  </NavLink>
-                </NavItem>
-              ) : (
-                <div>
-                  <NavItem>
-                    <NavLink href="#">Location</NavLink>
-                  </NavItem>
-                </div>
-              )}
-            </div>
-            <div onClick={this.toggleReview}>
-              {this.state.reviewTab === true ? (
-                <div>
-                  <div>
-                    <NavItem>
-                      <NavLink href="#" active>
-                        Reviews
-                      </NavLink>
-                    </NavItem>
-                  </div>
-                  <div>
-                    <Reviews />
-                  </div>
-                </div>
-              ) : (
-                <div>
-                  <NavItem>
-                    <NavLink href="#">Reviews</NavLink>
-                  </NavItem>
-                </div>
-              )}
-            </div>
-          </Nav>
+                  </a>
+                ) : (
+                  <a className="nav-link" href="#">
+                    Location
+                  </a>
+                )}
+              </a>
+            </li>
+            <li className="nav-item">
+              <a onClick={this.toggleReview}>
+                {this.state.reviewTab === true ? (
+                  <a className="nav-link active" href="#">
+                    Reviews
+                  </a>
+                ) : (
+                  <a className="nav-link" href="#">
+                    Reviews
+                  </a>
+                )}
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     );

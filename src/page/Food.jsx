@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Carousels from "../medium/Carousels.jsx";
 import DetailTab from "../medium/DetailTab.jsx";
+import Reviews from "../medium/Reviews.jsx";
 
 class Food extends Component {
   render() {
@@ -17,6 +18,7 @@ class Food extends Component {
           </div>
           <div>
             <DetailTab className="detailTab" />
+            <Reviews />
           </div>
         </div>
       </div>
