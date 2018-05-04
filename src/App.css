@@ -6,6 +6,10 @@ body {
   height: 1000px;
 }
 
+.width-full {
+  width: 100%;
+}
+
 .App-header {
   background-color: red;
   height: 70px;
