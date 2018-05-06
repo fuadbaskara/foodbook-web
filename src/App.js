@@ -10,7 +10,6 @@ import Signup from "./page/Signup";
 import Food from "./page/Food";
 import AddFood from "./page/AddFood";
 import Footer from "./page/footer";
-
 import "./App.css";
 
 const App = () => (
