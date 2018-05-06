@@ -46,7 +46,7 @@ class Home extends Component {
                 width="25%"
                 height="50%"
                 src={food.photos[0]}
-                alt="Card image cap"
+                alt="Food Image"
               />
               <CardBody>
                 <CardTitle>{food.name}</CardTitle>

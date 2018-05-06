@@ -9,7 +9,8 @@ import Profile from "./page/Profile";
 import Signup from "./page/Signup";
 import Food from "./page/Food";
 import AddFood from "./page/AddFood";
-import Footer from "./page/footer";
+import Footer from "./page/Footer";
+
 import "./App.css";
 
 const App = () => (
@@ -18,11 +19,12 @@ const App = () => (
       <AppHeader />
 
       <Route exact path="/" component={Home} />
-      <Route path="/login" component={Login} />
       <Route path="/food" component={Food} />
-      <Route path="/profile" component={Profile} />
-      <Route path="/addfood" component={AddFood} />
+
       <Route path="/signup" component={Signup} />
+      <Route path="/login" component={Login} />
+      <Route path="/addfood" component={AddFood} />
+      <Route path="/profile" component={Profile} />
 
       <Route exact path="/" component={Footer} />
     </div>

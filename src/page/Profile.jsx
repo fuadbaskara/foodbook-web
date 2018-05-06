@@ -9,7 +9,7 @@ const Profile = () => (
         top
         width="25%"
         src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180"
-        alt="Card image cap"
+        alt="User Avatar Image"
       />
     </Card>
   </div>
