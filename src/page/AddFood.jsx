@@ -2,21 +2,20 @@ import React, { Component } from "react";
 import { Col, Button, Form, FormGroup, Input, Label } from "reactstrap";
 import ReactFilestack from "filestack-react";
 import axios from "axios";
-const _ = require("lodash");
-const { compose, withProps, lifecycle } = require("recompose");
-const {
+import { compose, withProps, lifecycle } from "recompose";
+import _ from "lodash";
+import {
   withScriptjs,
   withGoogleMap,
   GoogleMap,
   Marker
-} = require("react-google-maps");
-const {
-  SearchBox
-} = require("react-google-maps/lib/components/places/SearchBox");
-/*global google*/
+} from "react-google-maps";
+import { SearchBox } from "react-google-maps/lib/components/places/SearchBox";
 
+/*global google*/
 const API_KEY = "AGPirPvMfTs2BMOi8EPmaz";
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3030";
+
 const MapWithASearchBox = compose(
   withProps({
     googleMapURL:
@@ -308,6 +307,7 @@ class AddFood extends Component {
               />
             </Col>
           </FormGroup>
+
           {/*Use FILESTACK API to upload photos*/}
           <ReactFilestack
             apikey={API_KEY}
@@ -325,6 +325,7 @@ class AddFood extends Component {
               </FormGroup>
             )}
           />
+
           <FormGroup check row>
             <Col sm={12}>
               <Button color="danger" block size="lg" onClick={this.submitForm}>

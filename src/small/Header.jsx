@@ -8,7 +8,7 @@ const StyleImage = {
   marginTop: "-45px"
 };
 
-const AppHeader = () => {
+const Header = () => {
   return (
     <div className="App-header fixed-top">
       <div className="display-inline margin-right-50">
@@ -43,4 +43,4 @@ const AppHeader = () => {
   );
 };
 
-export default AppHeader;
+export default Header;
