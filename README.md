@@ -4,6 +4,11 @@ Share your favorite food here, so other people can tasted your favorite food too
 
 Foodbook web app is live at http://foodbook-web.netlify.com / http://foodbook-web.herokuapp.com
 
+## Inspirations
+
+* [Qraved](https://www.qraved.com)
+* [Zomato](https://www.zomato.com)
+
 ## Features
 
 ### Food
