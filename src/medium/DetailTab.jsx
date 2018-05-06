@@ -70,52 +70,36 @@ export default class DetailTab extends React.Component {
             <li className="nav-item">
               <a onClick={this.toggleOverview}>
                 {this.state.overviewTab === true ? (
-                  <a className="nav-link active" href="#">
-                    Overview
-                  </a>
+                  <a className="nav-link active">Overview</a>
                 ) : (
-                  <a className="nav-link" href="#">
-                    Overview
-                  </a>
+                  <a className="nav-link">Overview</a>
                 )}
               </a>
             </li>
             <li className="nav-item">
               <a onClick={this.toggleMenu}>
                 {this.state.menuTab === true ? (
-                  <a className="nav-link active" href="#">
-                    Menu
-                  </a>
+                  <a className="nav-link active">Menu</a>
                 ) : (
-                  <a className="nav-link" href="#">
-                    Menu
-                  </a>
+                  <a className="nav-link">Menu</a>
                 )}
               </a>
             </li>
             <li className="nav-item">
               <a onClick={this.toggleLocation}>
                 {this.state.locationTab === true ? (
-                  <a className="nav-link active" href="#">
-                    Location
-                  </a>
+                  <a className="nav-link active">Location</a>
                 ) : (
-                  <a className="nav-link" href="#">
-                    Location
-                  </a>
+                  <a className="nav-link">Location</a>
                 )}
               </a>
             </li>
             <li className="nav-item">
               <a onClick={this.toggleReview}>
                 {this.state.reviewTab === true ? (
-                  <a className="nav-link active" href="#">
-                    Reviews
-                  </a>
+                  <a className="nav-link active">Reviews</a>
                 ) : (
-                  <a className="nav-link" href="#">
-                    Reviews
-                  </a>
+                  <a className="nav-link">Reviews</a>
                 )}
               </a>
             </li>
