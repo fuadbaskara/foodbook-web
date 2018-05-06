@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import {
   Row,
   Col,
@@ -9,27 +10,26 @@ import {
   Button
 } from "reactstrap";
 import axios from "axios";
-import { Link } from "react-router-dom";
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3030";
 
 class Home extends Component {
   constructor() {
     super();
-
     this.state = {
       foods: []
     };
   }
 
   async getData() {
-    let foods = "";
-    await axios.get(`${API_URL}/foods`).then(res => {
-      foods = res.data;
-    });
-    await this.setState({ foods: foods });
-
-    console.log(this.state.foods);
+    await axios
+      .get(`${API_URL}/foods`)
+      .then(res => {
+        return res.data;
+      })
+      .then(res => {
+        this.setState({ foods: res });
+      });
   }
 
   componentWillMount() {
@@ -39,23 +39,24 @@ class Home extends Component {
   render() {
     return (
       <Row className="homeProduct">
-        {this.state.foods.map((food, index) => (
-          <Col sm="4" key={index}>
-            <CardImg
-              width="25%"
-              height="50%"
-              src={food.photos[0]}
-              alt="Food Image"
-            />
-            <CardBody>
-              <CardTitle>{food.name}</CardTitle>
-              <CardText>{food.overview}</CardText>
-              <Link to="/food">
-                <Button className="width-full">Details</Button>
-              </Link>
-            </CardBody>
-          </Col>
-        ))}
+        {this.state.foods &&
+          this.state.foods.map((food, index) => (
+            <Col sm="4" key={index}>
+              <CardImg
+                width="25%"
+                height="50%"
+                src={food.photos[0]}
+                alt="Food Image"
+              />
+              <CardBody>
+                <CardTitle>{food.name}</CardTitle>
+                <CardText>{food.overview}</CardText>
+                <Link to="/food">
+                  <Button className="width-full">Details</Button>
+                </Link>
+              </CardBody>
+            </Col>
+          ))}
       </Row>
     );
   }

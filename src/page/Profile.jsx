@@ -4,7 +4,7 @@ import { Card, CardImg } from "reactstrap";
 const Profile = () => (
   <Card className="containerProfile">
     <CardImg
-      class="rounded-circle"
+      className="rounded-circle"
       top
       width="25%"
       src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180"
