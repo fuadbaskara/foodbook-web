@@ -214,7 +214,7 @@ class AddFood extends Component {
   render() {
     console.log("state", this.state);
     return (
-      <div className="margin-top-100" onSubmit={this.submitForm}>
+      <div onSubmit={this.submitForm}>
         <Form className="addFoodForm">
           {/*Foodname Input*/}
           <FormGroup row>

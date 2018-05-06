@@ -4,10 +4,10 @@ import Header from "../small/Header";
 import Footer from "../small/Footer";
 
 const Template = props => (
-  <div className="height">
+  <div className="app">
     <Header />
 
-    {props.children}
+    <div className="app-content">{props.children}</div>
 
     <Footer />
   </div>

@@ -10,7 +10,7 @@ const StyleImage = {
 
 const Header = () => {
   return (
-    <div className="App-header fixed-top">
+    <header className="header">
       <div className="display-inline margin-right-50">
         <input type="text" className="inputText border border-danger" />
         <button className="button-border-sign textNavBar">Search</button>
@@ -39,7 +39,7 @@ const Header = () => {
           />
         </Link>
       </div>
-    </div>
+    </header>
   );
 };
 
