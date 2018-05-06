@@ -6,16 +6,21 @@ const containerForm = {
   width: "50%",
   marginLeft: "auto",
   marginRight: "auto",
-  border: "solid lightskyblue 2px",
+  border: "solid #bb1212 2px",
   padding: "5px",
   borderRadius: "3px",
   marginTop:"50px",
+}
+
+const border = {
+  borderBottom: "solid #bb1212 2px"
 }
 
 const buttonStyle = {
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
+  backgroundColor: "#bb1212"
 }
 
 const inputStyle = {
@@ -31,21 +36,24 @@ class Login extends React.Component {
     return (
       <div>
       <Form style = {containerForm}>
+        <FormGroup>
+          <Label for="login" sm={12} style={border}>Login</Label>
+        </FormGroup>
          <FormGroup row>
            <Label for="username" sm={2}>USERNAME </Label>
-           <Col sm={10}>
+           <Col md={12}>
              <Input type="username" name="username" id="username" placeholder="input your username" style={inputStyle} />
            </Col>
          </FormGroup>
          <FormGroup row>
            <Label for="examplePassword" sm={2}>PASSWORD </Label>
-           <Col sm={10}>
+           <Col md={12}>
              <Input type="password" name="password" id="examplePassword" placeholder="input your password" style={inputStyle} />
            </Col>
          </FormGroup>
-         <div style={buttonStyle}>
-         <Button color="secondary">LOG IN</Button>{' '}
-         </div>
+         <FormGroup row style={buttonStyle}>
+             <Button style={buttonStyle} size="sm" block>Login</Button>
+        </FormGroup>
        </Form>
       </div>
     );
