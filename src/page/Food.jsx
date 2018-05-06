@@ -7,19 +7,12 @@ class Food extends Component {
   render() {
     return (
       <div>
+        <div className="carousels">
+          <Carousels />
+        </div>
         <div>
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <div className="carousels">
-            <Carousels />
-          </div>
-          <div>
-            <DetailTab className="detailTab" />
-            <Reviews />
-          </div>
+          <DetailTab className="detailTab" />
+          <Reviews />
         </div>
       </div>
     );

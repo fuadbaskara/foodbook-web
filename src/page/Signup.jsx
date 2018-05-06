@@ -29,66 +29,64 @@ const divStyle = {
 };
 
 const Signup = () => (
-  <div className="margin-top-100">
-    <div className="Container" styl={divStyle}>
-      <Form>
-        <label for="fname">First Name</label>
-        <input
-          type="text"
-          id="fname"
-          name="firstname"
-          placeholder="Your name.."
-          style={InputStyle}
-        />
+  <div className="Container" styl={divStyle}>
+    <Form>
+      <label for="fname">First Name</label>
+      <input
+        type="text"
+        id="fname"
+        name="firstname"
+        placeholder="Your name.."
+        style={InputStyle}
+      />
 
-        <label for="lname">Last Name</label>
-        <input
-          type="text"
-          id="lname"
-          name="lastname"
-          placeholder="Your last name.."
-          style={InputStyle}
-        />
+      <label for="lname">Last Name</label>
+      <input
+        type="text"
+        id="lname"
+        name="lastname"
+        placeholder="Your last name.."
+        style={InputStyle}
+      />
 
-        <label for="email">Email</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="Your email.."
-          style={InputStyle}
-        />
+      <label for="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Your email.."
+        style={InputStyle}
+      />
 
-        <label for="username">Username</label>
-        <input
-          type="text"
-          id="username"
-          name="username"
-          placeholder="Your username.."
-          style={InputStyle}
-        />
+      <label for="username">Username</label>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        placeholder="Your username.."
+        style={InputStyle}
+      />
 
-        <label for="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          placeholder="Your password.."
-          style={InputStyle}
-        />
+      <label for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Your password.."
+        style={InputStyle}
+      />
 
-        <label for="lname">Re-Password</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          placeholder="Your password again.."
-          style={InputStyle}
-        />
+      <label for="lname">Re-Password</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Your password again.."
+        style={InputStyle}
+      />
 
-        <input type="submit" value="SIGN UP" style={inputSubmit} />
-      </Form>
-    </div>
+      <input type="submit" value="SIGN UP" style={inputSubmit} />
+    </Form>
   </div>
 );
 export default Signup;

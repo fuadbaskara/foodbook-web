@@ -38,27 +38,25 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="margin-top-100">
-        <Row className="homeProduct">
-          {this.state.foods.map((food, index) => (
-            <Col sm="4" key={index}>
-              <CardImg
-                width="25%"
-                height="50%"
-                src={food.photos[0]}
-                alt="Food Image"
-              />
-              <CardBody>
-                <CardTitle>{food.name}</CardTitle>
-                <CardText>{food.overview}</CardText>
-                <Link to="/food">
-                  <Button className="width-full">Details</Button>
-                </Link>
-              </CardBody>
-            </Col>
-          ))}
-        </Row>
-      </div>
+      <Row className="homeProduct">
+        {this.state.foods.map((food, index) => (
+          <Col sm="4" key={index}>
+            <CardImg
+              width="25%"
+              height="50%"
+              src={food.photos[0]}
+              alt="Food Image"
+            />
+            <CardBody>
+              <CardTitle>{food.name}</CardTitle>
+              <CardText>{food.overview}</CardText>
+              <Link to="/food">
+                <Button className="width-full">Details</Button>
+              </Link>
+            </CardBody>
+          </Col>
+        ))}
+      </Row>
     );
   }
 }
