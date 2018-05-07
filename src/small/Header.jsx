@@ -8,10 +8,10 @@ const StyleImage = {
   marginTop: "-45px"
 };
 
-const AppHeader = () => {
+const Header = () => {
   return (
     <div className="App-header fixed-top">
-      <div className="display-inline margin-right-50">
+      <div className="display-inline margin-right-30">
         <input type="text" className="inputText border border-danger" />
         <button className="button-border-sign textNavBar">Search</button>
       </div>
@@ -43,4 +43,4 @@ const AppHeader = () => {
   );
 };
 
-export default AppHeader;
+export default Header;

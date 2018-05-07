@@ -1,57 +1,42 @@
 import React from "react";
-import { Media } from "reactstrap";
+import "../App.css";
 
 const Reviews = () => {
   return (
     <div>
-      <Media>
-        <Media left top href="#">
-          <Media
-            object
-            data-src="holder.js/64x64"
-            alt="Generic placeholder image"
-          />
-        </Media>
-        <Media body>
-          <Media heading>Top aligned media</Media>
-          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
-          scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in
-          vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
-          vulputate fringilla. Donec lacinia congue felis in faucibus.
-        </Media>
-      </Media>
-      <Media className="mt-1">
-        <Media left middle href="#">
-          <Media
-            object
-            data-src="holder.js/64x64"
-            alt="Generic placeholder image"
-          />
-        </Media>
-        <Media body>
-          <Media heading>Middle aligned media</Media>
-          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
-          scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in
-          vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
-          vulputate fringilla. Donec lacinia congue felis in faucibus.
-        </Media>
-      </Media>
-      <Media className="mt-1">
-        <Media left bottom href="#">
-          <Media
-            object
-            data-src="holder.js/64x64"
-            alt="Generic placeholder image"
-          />
-        </Media>
-        <Media body>
-          <Media heading>Bottom aligned media</Media>
-          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
-          scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in
-          vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
-          vulputate fringilla. Donec lacinia congue felis in faucibus.
-        </Media>
-      </Media>
+      <link
+        rel="stylesheet"
+        type="text/css"
+        href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
+      />
+      <br />
+      <div className="container pb-cmnt-container">
+        <div className="row">
+          <div className="col-md-9 offset-md-3">
+            <div className="card card-info">
+              <div className="card-block">
+                <textarea
+                  placeholder="Write your review here!"
+                  className="pb-cmnt-textarea"
+                />
+                <form className="form-inline d-flex justify-content-end">
+                  <div className="btn-group m-2">
+                    <button className="btn" type="button">
+                      <span className="fa fa-paperclip fa-lg" />
+                    </button>
+                  </div>
+                  <button
+                    className="btn btn-primary float-xs-right col-md-3 m-2"
+                    type="button"
+                  >
+                    Post
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

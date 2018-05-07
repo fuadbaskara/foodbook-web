@@ -2,25 +2,25 @@ import React, { Component } from "react";
 import { Col, Button, Form, FormGroup, Input, Label } from "reactstrap";
 import ReactFilestack from "filestack-react";
 import axios from "axios";
-const _ = require("lodash");
-const { compose, withProps, lifecycle } = require("recompose");
-const {
+import { compose, withProps, lifecycle } from "recompose";
+import _ from "lodash";
+import {
   withScriptjs,
   withGoogleMap,
   GoogleMap,
   Marker
-} = require("react-google-maps");
-const {
-  SearchBox
-} = require("react-google-maps/lib/components/places/SearchBox");
-/*global google*/
+} from "react-google-maps";
+import { Link, withRouter } from "react-router-dom";
+import { SearchBox } from "react-google-maps/lib/components/places/SearchBox";
 
+/*global google*/
 const API_KEY = "AGPirPvMfTs2BMOi8EPmaz";
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3030";
+
 const MapWithASearchBox = compose(
   withProps({
     googleMapURL:
-      "https://maps.googleapis.com/maps/api/js?key=AIzaSyC4R6AN7SmujjPUIGKdyao2Kqitzr1kiRg&v=3.exp&libraries=geometry,drawing,places",
+      "https://maps.googleapis.com/maps/api/js?key=AIzaSyB8hBBo2JuGbJqmC50AR1CrJ20ogcbOU0g&v=3.exp&libraries=geometry,drawing,places",
     loadingElement: <div style={{ height: `100%` }} />,
     containerElement: <div style={{ height: `200px`, width: `100%` }} />,
     mapElement: <div style={{ height: `100%` }} />
@@ -127,6 +127,7 @@ class AddFood extends Component {
       price: "",
       location: "",
       city: "",
+      street: "",
       photos: [],
       file_uploaded: 0
     };
@@ -144,10 +145,11 @@ class AddFood extends Component {
   handleUpload(response) {
     if (response.filesUploaded[0].url) {
       this.setState({
-        photos: this.state.photos.concat(response.filesUploaded[0].url),
+        photos: this.state.photos.concat([response.filesUploaded[0].url]),
         file_uploaded: this.state.file_uploaded + 1
       });
     }
+    console.log(this.state.photos);
   }
 
   handleChangeFood(event) {
@@ -196,7 +198,8 @@ class AddFood extends Component {
   //   event.preventDefault();
   // }
 
-  async submitForm() {
+  async submitForm(event) {
+    event.preventDefault();
     await axios
       .post(`${API_URL}/foods`, {
         name: this.state.inputFoodName,
@@ -204,9 +207,15 @@ class AddFood extends Component {
         price: this.state.inputPrice,
         location: "",
         city: this.state.inputCity,
+        street: this.state.inputAddress,
         photos: this.state.photos
       })
-      .then(res => res)
+      .then(res => {
+        const id = res.data.data.id;
+        console.log(res);
+        this.props.history.push(`/food/${id}`);
+      })
+
       .catch(error => {
         console.log(error.res);
       });
@@ -215,126 +224,142 @@ class AddFood extends Component {
   render() {
     console.log("state", this.state);
     return (
-      <div className="margin-top-100" onSubmit={this.submitForm}>
-        <Form className="addFoodForm">
-          {/*Foodname Input*/}
-          <FormGroup row>
-            <Label for="exampleFood" sm={2}>
-              FOOD NAME
-            </Label>
-            <Col sm={10}>
-              <Input
-                type="foodname"
-                name="foodname"
-                placeholder="Insert Food Name"
-                value={this.state.inputFoodName}
-                onChange={this.handleChangeFood}
-              />
-            </Col>
-          </FormGroup>
-          {/*Overview/Description input*/}
-          <FormGroup row>
-            <Label for="exampleMenus" sm={2}>
-              DESCRIPTION MENU
-            </Label>
-            <Col sm={10}>
-              <Input
-                type="Menus"
-                name="Menus"
-                placeholder="Insert Your Menu"
-                value={this.state.inputDescriptionMenu}
-                onChange={this.handleChangeDescriptionMenu}
-              />
-            </Col>
-          </FormGroup>
-          {/*Detail Location input*/}
-          <FormGroup row>
-            <Label for="exampleAddress" sm={2}>
-              res ADDRESS
-            </Label>
-            <Col sm={10}>
-              <Input
-                type="Address"
-                name="Address"
-                placeholder="Insert Address"
-                value={this.state.inputAddress}
-                onChange={this.handleChangeAddress}
-              />
-            </Col>
-          </FormGroup>
+      <div className="margin-top-100">
+        <div>
+          <Form onSubmit={this.submitForm} className="addFoodForm">
+            {/*Foodname Input*/}
+            <FormGroup row>
+              <Label htmlFor="exampleFood" sm={2}>
+                FOOD NAME
+              </Label>
+              <Col sm={10}>
+                <Input
+                  type="text"
+                  id="foodname"
+                  name="foodname"
+                  placeholder="Insert Food Name"
+                  value={this.state.inputFoodName}
+                  onChange={this.handleChangeFood}
+                />
+              </Col>
+            </FormGroup>
+            {/*Overview/Description input*/}
+            <FormGroup row>
+              <Label htmlFor="exampleMenus" sm={2}>
+                DESCRIPTION MENU
+              </Label>
+              <Col sm={10}>
+                <Input
+                  type="text"
+                  id="menus"
+                  name="menus"
+                  placeholder="Insert Your Menu"
+                  value={this.state.inputDescriptionMenu}
+                  onChange={this.handleChangeDescriptionMenu}
+                />
+              </Col>
+            </FormGroup>
+            {/*Detail Location input*/}
+            <FormGroup row>
+              <Label htmlFor="exampleAddress" sm={2}>
+                res ADDRESS
+              </Label>
+              <Col sm={10}>
+                <Input
+                  type="text"
+                  id="address"
+                  name="address"
+                  placeholder="Insert Address"
+                  value={this.state.inputAddress}
+                  onChange={this.handleChangeAddress}
+                />
+              </Col>
+            </FormGroup>
 
-          <FormGroup row>
-            <Label for="exampleCity" sm={2}>
-              CITY
-            </Label>
-            <Col sm={10}>
-              <Input
-                type="City"
-                name="City"
-                placeholder="Insert City"
-                value={this.state.inputCity}
-                onChange={this.handleChangeCity}
-              />
-            </Col>
-          </FormGroup>
+            <FormGroup row>
+              <Label htmlFor="exampleCity" sm={2}>
+                CITY
+              </Label>
+              <Col sm={10}>
+                <Input
+                  type="text"
+                  id="city"
+                  name="city"
+                  placeholder="Insert City"
+                  value={this.state.inputCity}
+                  onChange={this.handleChangeCity}
+                />
+              </Col>
+            </FormGroup>
 
-          <FormGroup row>
-            <Label for="exampleLocation" sm={2}>
-              LOCATION
-            </Label>
-            <Col sm={10}>
-              <MapWithASearchBox />
-              <Input
-                type="Price"
-                name="Price"
-                placeholder="Insert Price Menu"
-                value={this.state.inputPrice}
-                onChange={this.handleChangePrice}
-              />
-            </Col>
-          </FormGroup>
+            <FormGroup row>
+              <Label htmlFor="exampleLocation" sm={2}>
+                LOCATION
+              </Label>
+              <Col sm={10}>
+                <MapWithASearchBox />
+                <Input
+                  type="text"
+                  id="price"
+                  name="price"
+                  placeholder="Insert Price Menu"
+                  value={this.state.inputPrice}
+                  onChange={this.handleChangePrice}
+                />
+              </Col>
+            </FormGroup>
 
-          <FormGroup row>
-            <Label for="examplePrice" sm={2}>
-              PRICE
-            </Label>
-            <Col sm={10}>
-              <Input
-                type="Price"
-                name="Price"
-                placeholder="Insert Price Menu"
-                value={this.state.inputPrice}
-                onChange={this.handleChangePrice}
-              />
-            </Col>
-          </FormGroup>
-          {/*Use FILESTACK API to upload photos*/}
-          <ReactFilestack
-            apikey={API_KEY}
-            onSuccess={response => this.handleUpload(response)}
-            render={({ onPick }) => (
-              <FormGroup row>
-                <Label for="examplePrice" sm={2}>
-                  PHOTO
-                </Label>
-                <Col sm={10}>
-                  <Button outline color="danger" size="sm" onClick={onPick}>
-                    Upload
-                  </Button>&nbsp;<span>&nbsp;{this.state.file_uploaded}</span>
-                </Col>
-              </FormGroup>
-            )}
-          />
-          <FormGroup check row>
-            <Col sm={12}>
-              <Button color="danger" block size="lg" onClick={this.submitForm}>
-                Submit
-              </Button>
-            </Col>
-          </FormGroup>
-        </Form>
+            <FormGroup row>
+              <Label htmlFor="examplePrice" sm={2}>
+                PRICE
+              </Label>
+              <Col sm={10}>
+                <Input
+                  type="text"
+                  name="Price"
+                  placeholder="Insert Price Menu"
+                  value={this.state.inputPrice}
+                  onChange={this.handleChangePrice}
+                />
+              </Col>
+            </FormGroup>
+
+            {/*Use FILESTACK API to upload photos*/}
+            <ReactFilestack
+              apikey={API_KEY}
+              onSuccess={response => this.handleUpload(response)}
+              render={({ onPick }) => (
+                <FormGroup row>
+                  <Label htmlFor="examplePrice" sm={2}>
+                    PHOTO
+                  </Label>
+                  <Col sm={10}>
+                    <Button outline color="danger" size="sm" onClick={onPick}>
+                      Upload
+                    </Button>&nbsp;<span>&nbsp;{this.state.file_uploaded}</span>
+                  </Col>
+                </FormGroup>
+              )}
+            />
+
+            <FormGroup check row>
+              <Col sm={12}>
+                <Link to="/">
+                  <Button
+                    color="danger"
+                    block
+                    size="lg"
+                    onClick={this.submitForm}
+                  >
+                    Submit
+                  </Button>
+                </Link>
+              </Col>
+            </FormGroup>
+          </Form>
+        </div>
       </div>
     );
   }
 }
-export default AddFood;
+export default withRouter(AddFood);

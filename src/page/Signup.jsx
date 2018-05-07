@@ -1,5 +1,9 @@
 import React from "react";
 import { Form } from "reactstrap";
+import { withRouter } from "react-router-dom";
+import axios from "axios";
+
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3030";
 
 const InputStyle = {
   width: "100%",
@@ -9,6 +13,12 @@ const InputStyle = {
   border: "solid black 2px",
   borderRadius: "4px",
   boxSizing: "borderBox"
+};
+
+const divStyle = {
+  borderRadius: "5px",
+  backgroundColor: "#f2f2f2",
+  padding: "20px"
 };
 
 const inputSubmit = {
@@ -22,73 +32,164 @@ const inputSubmit = {
   cursor: "pointer"
 };
 
-const divStyle = {
-  borderRadius: "5px",
-  backgroundColor: "#f2f2f2",
-  padding: "20px"
-};
+class Signup extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      firstName: "",
+      lastName: "",
+      email: "",
+      username: "",
+      password: ""
+    };
+    this.handleChangeFirstName = this.handleChangeFirstName.bind(this);
+    this.handleChangeLastName = this.handleChangeLastName.bind(this);
+    this.handleChangeEmail = this.handleChangeEmail.bind(this);
+    this.handleChangeUserName = this.handleChangeUserName.bind(this);
+    this.handleChangePassword = this.handleChangePassword.bind(this);
+    this.submitForm = this.submitForm.bind(this);
+  }
 
-const Signup = () => (
-  <div className="margin-top-100">
-    <div className="Container" styl={divStyle}>
-      <Form>
-        <label for="fname">First Name</label>
-        <input
-          type="text"
-          id="fname"
-          name="firstname"
-          placeholder="Your name.."
-          style={InputStyle}
-        />
+  handleChangeFirstName(event) {
+    let value = event.target.value;
+    this.setState(() => {
+      return { firstName: value };
+    });
+  }
 
-        <label for="lname">Last Name</label>
-        <input
-          type="text"
-          id="lname"
-          name="lastname"
-          placeholder="Your last name.."
-          style={InputStyle}
-        />
+  handleChangeLastName(event) {
+    let value = event.target.value;
+    this.setState(() => {
+      return { lastName: value };
+    });
+  }
 
-        <label for="email">Email</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="Your email.."
-          style={InputStyle}
-        />
+  handleChangeEmail(event) {
+    let value = event.target.value;
+    this.setState(() => {
+      return { email: value };
+    });
+  }
 
-        <label for="username">Username</label>
-        <input
-          type="text"
-          id="username"
-          name="username"
-          placeholder="Your username.."
-          style={InputStyle}
-        />
+  handleChangeUserName(event) {
+    let value = event.target.value;
+    this.setState(() => {
+      return { username: value };
+    });
+  }
 
-        <label for="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          placeholder="Your password.."
-          style={InputStyle}
-        />
+  handleChangePassword(event) {
+    const value = event.target.value;
+    this.setState(() => {
+      return { password: value };
+    });
+  }
 
-        <label for="lname">Re-Password</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          placeholder="Your password again.."
-          style={InputStyle}
-        />
+  // submitForm(event) {
+  //   event.preventDefault();
+  // }
 
-        <input type="submit" value="SIGN UP" style={inputSubmit} />
-      </Form>
-    </div>
-  </div>
-);
-export default Signup;
+  async submitForm(event) {
+    event.preventDefault();
+    await axios
+      .post(`${API_URL}/accounts`, {
+        firstName: this.state.firstName,
+        lastName: this.state.lastName,
+        email: this.state.email,
+        username: this.state.username,
+        password: this.state.password
+      })
+      .then(res => {
+        console.log(res);
+        this.props.history.push("/login");
+      })
+      .catch(error => {
+        console.log(error);
+        alert(error);
+      });
+  }
+
+  render() {
+    return (
+      <div className="margin-top-100">
+        <div className="Container" style={divStyle}>
+          <Form onSubmit={this.submitForm}>
+            <label htmlFor="fname">First Name</label>
+            <input
+              type="text"
+              id="fname"
+              name="firstName"
+              placeholder="Your name.."
+              style={InputStyle}
+              value={this.state.firstName}
+              onChange={this.handleChangeFirstName}
+            />
+
+            <label htmlFor="lname">Last Name</label>
+            <input
+              type="text"
+              id="lname"
+              name="lastName"
+              placeholder="Your last name.."
+              style={InputStyle}
+              value={this.state.lastName}
+              onChange={this.handleChangeLastName}
+            />
+
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Your email.."
+              style={InputStyle}
+              value={this.state.email}
+              onChange={this.handleChangeEmail}
+            />
+
+            <label htmlFor="username">Username</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Your username.."
+              style={InputStyle}
+              value={this.state.username}
+              onChange={this.handleChangeUserName}
+            />
+
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Your password.."
+              style={InputStyle}
+              value={this.state.password}
+              onChange={this.handleChangePassword}
+            />
+
+            {/*<Button
+            style={inputSubmit}
+            color="danger"
+            block
+            size="lg"
+            onClick={this.submitForm}
+          >
+            Submit
+          </Button>*/}
+
+            <input
+              type="submit"
+              value="SIGN UP"
+              style={inputSubmit}
+              onClick={this.submitForm}
+            />
+          </Form>
+        </div>
+      </div>
+    );
+  }
+}
+
+export default withRouter(Signup);
