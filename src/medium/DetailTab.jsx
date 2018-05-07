@@ -13,7 +13,7 @@ export default class DetailTab extends React.Component {
       locationTab: false,
       reviewTab: false,
       reviewContent: false,
-      detailfood: {}
+      detailfood: []
     };
     this.toggleOverview = this.toggleOverview.bind(this);
     this.toggleMenu = this.toggleMenu.bind(this);
@@ -26,9 +26,10 @@ export default class DetailTab extends React.Component {
     await axios.get(`${API_URL}/foods/${this.id}`).then(res => {
       let responseData = res.data.data;
       let data = {
-        ...res.data.data,
+        ...responseData,
         city: responseData.address.city,
-        street: responseData.address.street
+        street: responseData.address.street,
+        photos: responseData.photos[0]
       };
       this.setState({ detailfood: data });
     });
@@ -37,6 +38,7 @@ export default class DetailTab extends React.Component {
   async componentWillMount() {
     await this.getData();
     console.log(this.state.detailfood);
+    console.log(process.env.REACT_APP_API_URL);
   }
 
   toggleOverview() {
@@ -90,7 +92,7 @@ export default class DetailTab extends React.Component {
         <br />
         {this.state.detailfood.name} || {this.state.detailfood.overview} ||{" "}
         {this.state.detailfood.city} || {this.state.detailfood.street} ||{" "}
-        {this.state.detailfood.price}
+        {this.state.detailfood.price} || {this.state.detailfood.photos}
         <div className="container">
           <ul className="nav nav-tabs nav-justified">
             <li className="nav-item">

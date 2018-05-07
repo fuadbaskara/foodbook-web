@@ -28,7 +28,7 @@ class Home extends Component {
     this.setState(() => {
       return {
         index: index
-      }; 
+      };
     });
   }
 
