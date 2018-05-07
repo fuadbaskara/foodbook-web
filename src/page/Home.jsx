@@ -11,8 +11,7 @@ import {
 } from "reactstrap";
 import axios from "axios";
 
-const API_URL =
-  process.env.REACT_APP_API_URL || "http://localhost:3030";
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3030";
 
 class Home extends Component {
   constructor() {
@@ -57,7 +56,7 @@ class Home extends Component {
               <CardImg
                 width="25%"
                 height="50%"
-                src={food.photos[0]}
+                src={food.photos[0][0]}
                 alt="Food Image"
               />
               <CardBody>
