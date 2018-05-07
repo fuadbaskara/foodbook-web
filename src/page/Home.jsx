@@ -19,6 +19,16 @@ class Home extends Component {
     this.state = {
       foods: []
     };
+    this.getIndex = this.getIndex.bind(this);
+  }
+
+  getIndex(index) {
+    console.log(index);
+    this.setState(() => {
+      return {
+        index: index
+      };
+    });
   }
 
   async getData() {
@@ -29,6 +39,7 @@ class Home extends Component {
       })
       .then(res => {
         this.setState({ foods: res });
+        console.log(this.state.foods);
       });
   }
 
@@ -45,13 +56,13 @@ class Home extends Component {
               <CardImg
                 width="25%"
                 height="50%"
-                src={food.photos[0]}
+                src={food.photos[0][0]}
                 alt="Food Image"
               />
               <CardBody>
                 <CardTitle>{food.name}</CardTitle>
                 <CardText>{food.overview}</CardText>
-                <Link to="/food">
+                <Link to={`/food/${food.id}`}>
                   <Button className="width-full">Details</Button>
                 </Link>
               </CardBody>

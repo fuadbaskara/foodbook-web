@@ -1,5 +1,8 @@
-import React, { Component } from "react";
-import { Col, Button, Form, FormGroup, Label, Input } from "reactstrap";
+import React from "react";
+import { Form } from "reactstrap";
+import axios from "axios";
+
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3030";
 
 const InputStyle = {
   width: "100%",
@@ -48,120 +51,160 @@ handleChangeFirstname(event){
   })
 }
 
-handleChangeLastname(event){
-  let value = event.target.value;
-  this.setState(() => {
-    return { lastname : value };
-  })
-}
+class Signup extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      firstName: "",
+      lastName: "",
+      email: "",
+      username: "",
+      password: ""
+    };
+    this.handleChangeFirstName = this.handleChangeFirstName.bind(this);
+    this.handleChangeLastName = this.handleChangeLastName.bind(this);
+    this.handleChangeEmail = this.handleChangeEmail.bind(this);
+    this.handleChangeUserName = this.handleChangeUserName.bind(this);
+    this.handleChangePassword = this.handleChangePassword.bind(this);
+    this.submitButton = this.submitButton.bind(this);
+  }
 
-handleChangeEmail(event){
-  let value = event.target.value;
-  this.setState(() => {
-    return { email : value };
-  })
-}
+  handleChangeFirstName(event) {
+    let value = event.target.value;
+    this.setState(() => {
+      return { firstName: value };
+    });
+  }
 
-handleChangeUsername(event){
-  let value = event.target.value;
-  this.setState(() => {
-    return { username : value };
-  })
-}
+  handleChangeLastName(event) {
+    let value = event.target.value;
+    this.setState(() => {
+      return { lastName: value };
+    });
+  }
 
-handleChangePassword(event){
-  let value = event.target.value;
-  this.setState(() =>{
-    return { password : value };
-  })
-}
+  handleChangeEmail(event) {
+    let value = event.target.value;
+    this.setState(() => {
+      return { email: value };
+    });
+  }
 
-handleChangeRePassword(event){
-  let value = event.target.value;
-  this.setState(() =>{
-    return { repassword : value }
-  })
-}
+  handleChangeUserName(event) {
+    let value = event.target.value;
+    this.setState(() => {
+      return { username: value };
+    });
+  }
 
-submitForm(event){
-  event.preventDefault();
-}
+  handleChangePassword(event) {
+    let value = event.target.value;
+    this.setState(() => {
+      return { password: value };
+    });
+  }
 
-render(){
-  console.log("state", this.state);
-return(
-  <div className="margin-top-100">
-    <div className="Container" onSubmit={this.submitForm}>
-      <Form>
-        <FormGroup>
-          <Label for="exampleFirstname">Firstname</Label>
-          <Input
+  submitForm(event) {
+    event.preventDefault();
+  }
+
+  async submitButton() {
+    await axios
+      .post(`${API_URL}/accounts`, {
+        firstName: this.state.firstName,
+        lastName: this.state.lastName,
+        email: this.state.email,
+        username: this.state.username,
+        password: this.state.password
+      })
+      .then(res => {
+        res, console.log(res.data);
+      })
+      .catch(error => {
+        console.log(error.res);
+      });
+    console.log(this.state.firstName);
+  }
+
+  render() {
+    return (
+      <div className="Container" onSubmit={this.submitForm} styl={divStyle}>
+        <Form>
+          <label htmlFor="fname">First Name</label>
+          <input
             type="text"
-            name="text"
-            placeholder="input your Firstname"
-            value={this.state.firstname}
-            onChange={this.handleChangeFirstname}/>
-        </FormGroup>
-        <FormGroup>
-          <Label for="exampleLastname">Lastname</Label>
-          <Input
-          type="text"
-          name="text"
-          placeholder="input your Lastname"
-          value={this.state.lastname}
-          onChange={this.handleChangeLastname} />
-        </FormGroup>
-        <FormGroup>
-          <Label for="exampleEmail">Email</Label>
-          <Input
-          type="Email"
-          name="Email"
-          placeholder="input your Email"
-          value={this.state.email}
-          onChange={this.handleChangeEmail} />
-        </FormGroup>
-        <FormGroup>
-          <Label for="exampleUsername">Username</Label>
-          <Input
-            type="text"
-            name="username"
-            placeholder="input your Username"
-            value={this.state.username}
-            onChange={this.handleChangeUsername}
+            id="fname"
+            name="firstName"
+            placeholder="Your name.."
+            style={InputStyle}
+            value={this.state.firstName}
+            onChange={this.handleChangeFirstName}
           />
-        </FormGroup>
-        <FormGroup>
-          <Label for="examplePassword">Password</Label>
-          <Input
-            type="Password"
-            name="Password"
-            placeholder="input your Password"
+
+          <label htmlFor="lname">Last Name</label>
+          <input
+            type="text"
+            id="lname"
+            name="lastName"
+            placeholder="Your last name.."
+            style={InputStyle}
+            value={this.state.lastName}
+            onChange={this.handleChangeLastName}
+          />
+
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Your email.."
+            style={InputStyle}
+            value={this.state.email}
+            onChange={this.handleChangeEmail}
+          />
+
+          <label htmlFor="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Your username.."
+            style={InputStyle}
+            value={this.state.username}
+            onChange={this.handleChangeUserName}
+          />
+
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Your password.."
+            style={InputStyle}
             value={this.state.password}
             onChange={this.handleChangePassword}
           />
-        </FormGroup>
-        <FormGroup>
-          <Label for="examplePassword">Re-password</Label>
-          <Input
-            type="Password"
-            name="password"
-            placeholder="input your re-password"
-            value={this.state.repassword}
-            onChange={this.handleChangeRePassword}
+
+          {/*<Button
+            style={inputSubmit}
+            color="danger"
+            block
+            size="lg"
+            onClick={this.submitButton}
+          >
+            Submit
+          </Button>*/}
+
+          <input
+            type="submit"
+            value="SIGN UP"
+            style={inputSubmit}
+            onClick={this.submitButton}
           />
-        </FormGroup>
-        <FormGroup>
-          <Button outline color="primary" size="lg" block>
-            Sign Up
-          </Button>
-        </FormGroup>
-      </Form>
-    </div>
-  </div>
-)}
+        </Form>
+      </div>
+    );
+  }
 }
-
-
-
 
 export default Signup;

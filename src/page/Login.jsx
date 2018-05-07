@@ -68,7 +68,7 @@ async submitForm(e) {
             />
           </FormGroup>
           <FormGroup>
-            <Label for="examplePassword">Password</Label>
+            <Label htmlFor="examplePassword">Password</Label>
             <Input
               type="password"
               name="password"
@@ -76,11 +76,6 @@ async submitForm(e) {
               value={this.state.password}
               onChange={this.handleChangePassword}
             />
-          </FormGroup>
-          <FormGroup>
-            <Button outline color="primary" size="lg" block>
-              Sign Up
-            </Button>
           </FormGroup>
           <Button outline color="danger" size="lg" block>
             Submit

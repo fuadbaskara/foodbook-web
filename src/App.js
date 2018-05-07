@@ -13,16 +13,16 @@ import "./App.css";
 
 const App = () => (
   <Router>
-    <div>
+    <Template>
       <AppHeader />
       <Route exact path="/" component={Home} />
-      <Route path="/food" component={Food} />
+      <Route path="/food/:id" component={Food} />
 
       <Route path="/signup" component={Signup} />
       <Route path="/login" component={Login} />
       <Route path="/addfood" component={AddFood} />
       <Route path="/profile" component={Profile} />
-    </div>
+    </Template>
   </Router>
 );
 

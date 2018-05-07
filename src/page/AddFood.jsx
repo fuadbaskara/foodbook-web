@@ -10,6 +10,7 @@ import {
   GoogleMap,
   Marker
 } from "react-google-maps";
+import { Link } from "react-router-dom";
 import { SearchBox } from "react-google-maps/lib/components/places/SearchBox";
 
 /*global google*/
@@ -19,7 +20,7 @@ const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3030";
 const MapWithASearchBox = compose(
   withProps({
     googleMapURL:
-      "https://maps.googleapis.com/maps/api/js?key=AIzaSyC4R6AN7SmujjPUIGKdyao2Kqitzr1kiRg&v=3.exp&libraries=geometry,drawing,places",
+      "https://maps.googleapis.com/maps/api/js?key=AIzaSyB8hBBo2JuGbJqmC50AR1CrJ20ogcbOU0g&v=3.exp&libraries=geometry,drawing,places",
     loadingElement: <div style={{ height: `100%` }} />,
     containerElement: <div style={{ height: `200px`, width: `100%` }} />,
     mapElement: <div style={{ height: `100%` }} />
@@ -73,7 +74,7 @@ const MapWithASearchBox = compose(
             center: nextCenter,
             markers: nextMarkers
           });
-        
+
         }
       });
     }
@@ -129,13 +130,14 @@ class AddFood extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      foods: [],
-      inputFoodName: "",
-      inputAddress: "",
-      inputCity: "",
-      inputLocation: "",
-      inputDescriptionMenu: "",
-      inputPrice: ""
+      name: "",
+      overview: "",
+      price: "",
+      location: "",
+      city: "",
+      street: "",
+      photos: [],
+      file_uploaded: 0
     };
     this.handleChangeFood = this.handleChangeFood.bind(this);
     this.handleChangeAddress = this.handleChangeAddress.bind(this);
@@ -143,7 +145,17 @@ class AddFood extends Component {
     this.handleChangeLocation = this.handleChangeLocation.bind(this);
     this.handleChangeDescriptionMenu = this.handleChangeDescriptionMenu.bind(this);
     this.handleChangePrice = this.handleChangePrice.bind(this);
-    this.handleClick = this.handleClick .bind(this)
+    this.submitForm = this.submitForm.bind(this);
+  }
+
+  handleUpload(response) {
+    if (response.filesUploaded[0].url) {
+      this.setState({
+        photos: this.state.photos.concat([response.filesUploaded[0].url]),
+        file_uploaded: this.state.file_uploaded + 1
+      });
+    }
+    console.log(this.state.photos);
   }
 
   handleChangeFood(event) {
@@ -201,6 +213,7 @@ class AddFood extends Component {
         price: this.state.inputPrice,
         location: "",
         city: this.state.inputCity,
+        street: this.state.inputAddress,
         photos: this.state.photos
       })
       .then(res => res)
@@ -255,7 +268,7 @@ class AddFood extends Component {
             </Label>
             <Col sm={10}>
               <Input
-                type="foodname"
+                type="text"
                 name="foodname"
                 placeholder="Insert Food Name"
                 value={this.state.inputFoodName}
@@ -270,7 +283,7 @@ class AddFood extends Component {
             </Label>
             <Col sm={10}>
               <Input
-                type="Menus"
+                type="text"
                 name="Menus"
                 placeholder="Insert Your Menu"
                 value={this.state.inputDescriptionMenu}
@@ -285,7 +298,7 @@ class AddFood extends Component {
             </Label>
             <Col sm={10}>
               <Input
-                type="Address"
+                type="text"
                 name="Address"
                 placeholder="Insert Address"
                 value={this.state.inputAddress}
@@ -300,7 +313,7 @@ class AddFood extends Component {
             </Label>
             <Col sm={10}>
               <Input
-                type="City"
+                type="text"
                 name="City"
                 placeholder="Insert City"
                 value={this.state.inputCity}
@@ -316,7 +329,7 @@ class AddFood extends Component {
             <Col sm={10}>
               <MapWithASearchBox />
               <Input
-                type="Price"
+                type="text"
                 name="Price"
                 placeholder="Insert Price Menu"
                 value={this.state.inputPrice}
@@ -331,7 +344,7 @@ class AddFood extends Component {
             </Label>
             <Col sm={10}>
               <Input
-                type="Price"
+                type="text"
                 name="Price"
                 placeholder="Insert Price Menu"
                 value={this.state.inputPrice}
@@ -360,9 +373,16 @@ class AddFood extends Component {
 
           <FormGroup check row>
             <Col sm={12}>
-              <Button color="danger" block size="lg" onClick={this.submitForm}>
-                Submit
-              </Button>
+              <Link to="/">
+                <Button
+                  color="danger"
+                  block
+                  size="lg"
+                  onClick={this.submitForm}
+                >
+                  Submit
+                </Button>
+              </Link>
             </Col>
           </FormGroup>
         </Form>
