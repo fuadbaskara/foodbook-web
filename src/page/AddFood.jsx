@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-<<<<<<< HEAD
 import { Col, Button, Form, FormGroup, Input, Label } from "reactstrap";
 import ReactFilestack from "filestack-react";
 import axios from "axios";
@@ -74,7 +73,7 @@ const MapWithASearchBox = compose(
             center: nextCenter,
             markers: nextMarkers
           });
-          // refs.map.fitBounds(bounds);
+        
         }
       });
     }
@@ -117,7 +116,7 @@ const MapWithASearchBox = compose(
     ))}
   </GoogleMap>
 ));
-=======
+
 import {
   Col,
   Button,
@@ -125,7 +124,6 @@ import {
   FormGroup,
   Input,
   Label } from "reactstrap";
->>>>>>> 0e902caa49b5fa5e4cf8d505afb1fea99f5508e9
 
 class AddFood extends Component {
   constructor(props) {
@@ -190,7 +188,7 @@ class AddFood extends Component {
     });
   }
 
-<<<<<<< HEAD
+// <<<<<<< HEAD
   // submitForm(event) {
   //   event.preventDefault();
   // }
@@ -209,44 +207,44 @@ class AddFood extends Component {
       .catch(error => {
         console.log(error.res);
       });
-=======
-   handleClick(){
-     if(
-       this.state.inputFoodName !== "" &&
-       this.state.inputAddress !== "" &&
-       this.state.inputCity!== "" &&
-       this.state.inputLocation !== "" &&
-       this.state.inputDescriptionMenu !== "" &&
-       this.state.inputPrice !== ""
-     ){
-       this.setState(prevState => {
-         return{
-           foods: prevState.foods.concat({
-             food: prevState.inputFoodName,
-             address:prevState.inputAddress,
-             city: prevState.inputCity,
-             location: prevState.inputLocation,
-             description: prevState.inputDescriptionMenu,
-             price: prevState.inputPrice
-           }),
-           inputFoodName: "",
-           inputAddress: "",
-           inputCity: "",
-           inputLocation: "",
-           inputDescriptionMenu: "",
-           inputPrice: ""
-         };
-       });
-     }
-   }
 
-  submitForm(event) {
-    event.preventDefault();
->>>>>>> 0e902caa49b5fa5e4cf8d505afb1fea99f5508e9
-  }
+   // handleClick(){
+   //   if(
+   //     this.state.inputFoodName !== "" &&
+   //     this.state.inputAddress !== "" &&
+   //     this.state.inputCity!== "" &&
+   //     this.state.inputLocation !== "" &&
+   //     this.state.inputDescriptionMenu !== "" &&
+   //     this.state.inputPrice !== ""
+   //   ){
+   //     this.setState(prevState => {
+   //       return{
+   //         foods: prevState.foods.concat({
+   //           food: prevState.inputFoodName,
+   //           address:prevState.inputAddress,
+   //           city: prevState.inputCity,
+   //           location: prevState.inputLocation,
+   //           description: prevState.inputDescriptionMenu,
+   //           price: prevState.inputPrice
+   //         }),
+   //         inputFoodName: "",
+   //         inputAddress: "",
+   //         inputCity: "",
+   //         inputLocation: "",
+   //         inputDescriptionMenu: "",
+   //         inputPrice: ""
+   //       };
+   //     });
+   //   }
+   // }
+
+//   submitForm(event) {
+//     event.preventDefault();
+// // >>>>>>> 0e902caa49b5fa5e4cf8d505afb1fea99f5508e9
+//   }
 
   render() {
-    console.log("state", this.state);
+    // console.log("state", this.state);
     return (
       <div onSubmit={this.submitForm}>
         <Form className="addFoodForm">
