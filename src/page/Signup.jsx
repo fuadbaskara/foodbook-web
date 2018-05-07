@@ -89,7 +89,7 @@ class Signup extends React.Component {
     return (
       <div className="Container" onSubmit={this.submitForm} styl={divStyle}>
         <Form>
-          <label for="fname">First Name</label>
+          <label htmlFor="fname">First Name</label>
           <input
             type="text"
             id="fname"
@@ -100,7 +100,7 @@ class Signup extends React.Component {
             onChange={this.handleChangeFirstName}
           />
 
-          <label for="lname">Last Name</label>
+          <label htmlFor="lname">Last Name</label>
           <input
             type="text"
             id="lname"
@@ -111,7 +111,7 @@ class Signup extends React.Component {
             onChange={this.handleChangeLastName}
           />
 
-          <label for="email">Email</label>
+          <label htmlFor="email">Email</label>
           <input
             type="email"
             id="email"
@@ -122,7 +122,7 @@ class Signup extends React.Component {
             onChange={this.handleChangeEmail}
           />
 
-          <label for="username">Username</label>
+          <label htmlFor="username">Username</label>
           <input
             type="text"
             id="username"
@@ -133,7 +133,7 @@ class Signup extends React.Component {
             onChange={this.handleChangeUserName}
           />
 
-          <label for="password">Password</label>
+          <label htmlFor="password">Password</label>
           <input
             type="password"
             id="password"

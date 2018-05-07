@@ -36,7 +36,7 @@ class Login extends Component {
       <div className="Container" onSubmit={this.submitForm}>
         <Form>
           <FormGroup>
-            <Label for="exampleEmail">User Name</Label>
+            <Label htmlFor="exampleEmail">User Name</Label>
             <Input
               type="text"
               name="userid"
@@ -46,7 +46,7 @@ class Login extends Component {
             />
           </FormGroup>
           <FormGroup>
-            <Label for="examplePassword">Password</Label>
+            <Label htmlFor="examplePassword">Password</Label>
             <Input
               type="password"
               name="password"
