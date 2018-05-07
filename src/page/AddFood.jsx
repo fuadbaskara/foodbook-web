@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+<<<<<<< HEAD
 import { Col, Button, Form, FormGroup, Input, Label } from "reactstrap";
 import ReactFilestack from "filestack-react";
 import axios from "axios";
@@ -116,37 +117,35 @@ const MapWithASearchBox = compose(
     ))}
   </GoogleMap>
 ));
+=======
+import {
+  Col,
+  Button,
+  Form,
+  FormGroup,
+  Input,
+  Label } from "reactstrap";
+>>>>>>> 0e902caa49b5fa5e4cf8d505afb1fea99f5508e9
 
 class AddFood extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
-      overview: "",
-      price: "",
-      location: "",
-      city: "",
-      photos: [],
-      file_uploaded: 0
+      foods: [],
+      inputFoodName: "",
+      inputAddress: "",
+      inputCity: "",
+      inputLocation: "",
+      inputDescriptionMenu: "",
+      inputPrice: ""
     };
     this.handleChangeFood = this.handleChangeFood.bind(this);
     this.handleChangeAddress = this.handleChangeAddress.bind(this);
     this.handleChangeCity = this.handleChangeCity.bind(this);
     this.handleChangeLocation = this.handleChangeLocation.bind(this);
-    this.handleChangeDescriptionMenu = this.handleChangeDescriptionMenu.bind(
-      this
-    );
+    this.handleChangeDescriptionMenu = this.handleChangeDescriptionMenu.bind(this);
     this.handleChangePrice = this.handleChangePrice.bind(this);
-    this.submitForm = this.submitForm.bind(this);
-  }
-
-  handleUpload(response) {
-    if (response.filesUploaded[0].url) {
-      this.setState({
-        photos: this.state.photos.concat(response.filesUploaded[0].url),
-        file_uploaded: this.state.file_uploaded + 1
-      });
-    }
+    this.handleClick = this.handleClick .bind(this)
   }
 
   handleChangeFood(event) {
@@ -191,6 +190,7 @@ class AddFood extends Component {
     });
   }
 
+<<<<<<< HEAD
   // submitForm(event) {
   //   event.preventDefault();
   // }
@@ -209,6 +209,40 @@ class AddFood extends Component {
       .catch(error => {
         console.log(error.res);
       });
+=======
+   handleClick(){
+     if(
+       this.state.inputFoodName !== "" &&
+       this.state.inputAddress !== "" &&
+       this.state.inputCity!== "" &&
+       this.state.inputLocation !== "" &&
+       this.state.inputDescriptionMenu !== "" &&
+       this.state.inputPrice !== ""
+     ){
+       this.setState(prevState => {
+         return{
+           foods: prevState.foods.concat({
+             food: prevState.inputFoodName,
+             address:prevState.inputAddress,
+             city: prevState.inputCity,
+             location: prevState.inputLocation,
+             description: prevState.inputDescriptionMenu,
+             price: prevState.inputPrice
+           }),
+           inputFoodName: "",
+           inputAddress: "",
+           inputCity: "",
+           inputLocation: "",
+           inputDescriptionMenu: "",
+           inputPrice: ""
+         };
+       });
+     }
+   }
+
+  submitForm(event) {
+    event.preventDefault();
+>>>>>>> 0e902caa49b5fa5e4cf8d505afb1fea99f5508e9
   }
 
   render() {

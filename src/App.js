@@ -13,7 +13,8 @@ import "./App.css";
 
 const App = () => (
   <Router>
-    <Template>
+    <div>
+      <AppHeader />
       <Route exact path="/" component={Home} />
       <Route path="/food" component={Food} />
 
@@ -21,7 +22,7 @@ const App = () => (
       <Route path="/login" component={Login} />
       <Route path="/addfood" component={AddFood} />
       <Route path="/profile" component={Profile} />
-    </Template>
+    </div>
   </Router>
 );
 
