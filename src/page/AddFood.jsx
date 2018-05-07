@@ -10,6 +10,7 @@ import {
   GoogleMap,
   Marker
 } from "react-google-maps";
+import { Link } from "react-router-dom";
 import { SearchBox } from "react-google-maps/lib/components/places/SearchBox";
 
 /*global google*/
@@ -126,6 +127,7 @@ class AddFood extends Component {
       price: "",
       location: "",
       city: "",
+      street: "",
       photos: [],
       file_uploaded: 0
     };
@@ -203,6 +205,7 @@ class AddFood extends Component {
         price: this.state.inputPrice,
         location: "",
         city: this.state.inputCity,
+        street: this.state.inputAddress,
         photos: this.state.photos
       })
       .then(res => res)
@@ -328,9 +331,16 @@ class AddFood extends Component {
 
           <FormGroup check row>
             <Col sm={12}>
-              <Button color="danger" block size="lg" onClick={this.submitForm}>
-                Submit
-              </Button>
+              <Link to="/">
+                <Button
+                  color="danger"
+                  block
+                  size="lg"
+                  onClick={this.submitForm}
+                >
+                  Submit
+                </Button>
+              </Link>
             </Col>
           </FormGroup>
         </Form>

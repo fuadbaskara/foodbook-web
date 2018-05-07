@@ -28,7 +28,7 @@ const divStyle = {
   padding: "20px"
 };
 
-class Signup extends React.Component{
+class Signup extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -37,59 +37,59 @@ class Signup extends React.Component{
       email: "",
       username: "",
       password: ""
-      };
-      this.handleChangeFirstName= this.handleChangeFirstName.bind(this);
-      this.handleChangeLastName= this.handleChangeLastName.bind(this);
-      this.handleChangeEmail= this.handleChangeEmail.bind(this);
-      this.handleChangeUserName= this.handleChangeUserName.bind(this);
-      this.handleChangePassword= this.handleChangePassword.bind(this);
-    }
+    };
+    this.handleChangeFirstName = this.handleChangeFirstName.bind(this);
+    this.handleChangeLastName = this.handleChangeLastName.bind(this);
+    this.handleChangeEmail = this.handleChangeEmail.bind(this);
+    this.handleChangeUserName = this.handleChangeUserName.bind(this);
+    this.handleChangePassword = this.handleChangePassword.bind(this);
+  }
 
-    handleChangeFirstName(event) {
-      let value = event.target.value;
-      this.setState(()=> {
-        return {firstname: value};
-      });
-    }
+  handleChangeFirstName(event) {
+    let value = event.target.value;
+    this.setState(() => {
+      return { firstname: value };
+    });
+  }
 
-    handleChangeLastName(event) {
-      let value = event.target.value;
-      this.setState(()=>{
-        return {lastname: value};
-      });
-    }
+  handleChangeLastName(event) {
+    let value = event.target.value;
+    this.setState(() => {
+      return { lastname: value };
+    });
+  }
 
-    handleChangeEmail(event){
-      let value = event.target.value;
-      this.setState(()=>{
-        return {email: value};
-      });
-    }
+  handleChangeEmail(event) {
+    let value = event.target.value;
+    this.setState(() => {
+      return { email: value };
+    });
+  }
 
-    handleChangeUserName(event){
-      let value = event.target.value;
-      this.setState(()=> {
-        return {username: value};
-      });
-    }
+  handleChangeUserName(event) {
+    let value = event.target.value;
+    this.setState(() => {
+      return { username: value };
+    });
+  }
 
-    handleChangePassword(event){
-      let value = event.target.value;
-      this.setState(()=> {
-        return {password: value};
-      });
-    }
+  handleChangePassword(event) {
+    let value = event.target.value;
+    this.setState(() => {
+      return { password: value };
+    });
+  }
 
-    submitForm(event){
-      event.preventDefault();
-    }
+  submitForm(event) {
+    event.preventDefault();
+  }
 
-  render(){
+  render() {
     console.log("state", this.state);
     return (
       <div className="Container" onSubmit={this.submitForm} styl={divStyle}>
         <Form>
-          <label for="fname" >First Name</label>
+          <label htmlFor="fname">First Name</label>
           <input
             type="text"
             id="fname"
@@ -100,7 +100,7 @@ class Signup extends React.Component{
             onChange={this.handleChangeFirstName}
           />
 
-          <label for="lname">Last Name</label>
+          <label htmlFor="lname">Last Name</label>
           <input
             type="text"
             id="lname"
@@ -111,7 +111,7 @@ class Signup extends React.Component{
             onChange={this.handleChangeLastName}
           />
 
-          <label for="email">Email</label>
+          <label htmlFor="email">Email</label>
           <input
             type="email"
             id="email"
@@ -122,7 +122,7 @@ class Signup extends React.Component{
             onChange={this.handleChangeEmail}
           />
 
-          <label for="username">Username</label>
+          <label htmlFor="username">Username</label>
           <input
             type="text"
             id="username"
@@ -133,7 +133,7 @@ class Signup extends React.Component{
             onChange={this.handleChangeUserName}
           />
 
-          <label for="password">Password</label>
+          <label htmlFor="password">Password</label>
           <input
             type="password"
             id="password"
@@ -147,8 +147,8 @@ class Signup extends React.Component{
           <input type="submit" value="SIGN UP" style={inputSubmit} />
         </Form>
       </div>
-    )
+    );
   }
-};
+}
 
 export default Signup;

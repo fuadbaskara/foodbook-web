@@ -40,6 +40,7 @@ class Home extends Component {
       })
       .then(res => {
         this.setState({ foods: res });
+        console.log(this.state.foods);
       });
   }
 
