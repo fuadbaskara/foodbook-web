@@ -10,7 +10,7 @@ import {
   GoogleMap,
   Marker
 } from "react-google-maps";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { SearchBox } from "react-google-maps/lib/components/places/SearchBox";
 
 /*global google*/
@@ -210,7 +210,12 @@ class AddFood extends Component {
         street: this.state.inputAddress,
         photos: this.state.photos
       })
-      .then(res => res)
+      .then(res => {
+        const id = res.data.data.id;
+        console.log(res);
+        this.props.history.push(`/food/${id}`);
+      })
+
       .catch(error => {
         console.log(error.res);
       });
@@ -220,8 +225,8 @@ class AddFood extends Component {
     console.log("state", this.state);
     return (
       <div className="margin-top-100">
-        <div onSubmit={this.submitForm}>
-          <Form className="addFoodForm">
+        <div>
+          <Form onSubmit={this.submitForm} className="addFoodForm">
             {/*Foodname Input*/}
             <FormGroup row>
               <Label htmlFor="exampleFood" sm={2}>
@@ -357,4 +362,4 @@ class AddFood extends Component {
     );
   }
 }
-export default AddFood;
+export default withRouter(AddFood);
