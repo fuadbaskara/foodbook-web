@@ -11,7 +11,8 @@ import {
 } from "reactstrap";
 import axios from "axios";
 
-const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3030";
+const API_URL =
+  process.env.REACT_APP_API_URL || "https://foodbook-api.herokuapp.com";
 
 class Home extends Component {
   constructor() {
@@ -19,6 +20,16 @@ class Home extends Component {
     this.state = {
       foods: []
     };
+    this.getIndex = this.getIndex.bind(this);
+  }
+
+  getIndex(index) {
+    console.log(index);
+    this.setState(() => {
+      return {
+        index: index
+      };
+    });
   }
 
   async getData() {
@@ -52,7 +63,7 @@ class Home extends Component {
               <CardBody>
                 <CardTitle>{food.name}</CardTitle>
                 <CardText>{food.overview}</CardText>
-                <Link to="/food">
+                <Link to={`/food/${food.id}`}>
                   <Button className="width-full">Details</Button>
                 </Link>
               </CardBody>
