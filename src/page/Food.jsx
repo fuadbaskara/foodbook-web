@@ -15,13 +15,15 @@ class Food extends Component {
 
   render() {
     return (
-      <div>
-        <div className="carousels">
-          <Carousels />
-        </div>
+      <div className="margin-top-100">
         <div>
-          <DetailTab className="detailTab" food_id={this.id} />
-          <Reviews />
+          <div className="carousels">
+            <Carousels />
+          </div>
+          <div>
+            <DetailTab className="detailTab" food_id={this.id} />
+            <Reviews />
+          </div>
         </div>
       </div>
     );

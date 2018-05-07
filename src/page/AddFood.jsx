@@ -74,7 +74,7 @@ const MapWithASearchBox = compose(
             center: nextCenter,
             markers: nextMarkers
           });
-
+          // refs.map.fitBounds(bounds);
         }
       });
     }
@@ -118,14 +118,6 @@ const MapWithASearchBox = compose(
   </GoogleMap>
 ));
 
-import {
-  Col,
-  Button,
-  Form,
-  FormGroup,
-  Input,
-  Label } from "reactstrap";
-
 class AddFood extends Component {
   constructor(props) {
     super(props);
@@ -143,7 +135,9 @@ class AddFood extends Component {
     this.handleChangeAddress = this.handleChangeAddress.bind(this);
     this.handleChangeCity = this.handleChangeCity.bind(this);
     this.handleChangeLocation = this.handleChangeLocation.bind(this);
-    this.handleChangeDescriptionMenu = this.handleChangeDescriptionMenu.bind(this);
+    this.handleChangeDescriptionMenu = this.handleChangeDescriptionMenu.bind(
+      this
+    );
     this.handleChangePrice = this.handleChangePrice.bind(this);
     this.submitForm = this.submitForm.bind(this);
   }
@@ -200,7 +194,6 @@ class AddFood extends Component {
     });
   }
 
-// <<<<<<< HEAD
   // submitForm(event) {
   //   event.preventDefault();
   // }
@@ -220,177 +213,145 @@ class AddFood extends Component {
       .catch(error => {
         console.log(error.res);
       });
-
-   // handleClick(){
-   //   if(
-   //     this.state.inputFoodName !== "" &&
-   //     this.state.inputAddress !== "" &&
-   //     this.state.inputCity!== "" &&
-   //     this.state.inputLocation !== "" &&
-   //     this.state.inputDescriptionMenu !== "" &&
-   //     this.state.inputPrice !== ""
-   //   ){
-   //     this.setState(prevState => {
-   //       return{
-   //         foods: prevState.foods.concat({
-   //           food: prevState.inputFoodName,
-   //           address:prevState.inputAddress,
-   //           city: prevState.inputCity,
-   //           location: prevState.inputLocation,
-   //           description: prevState.inputDescriptionMenu,
-   //           price: prevState.inputPrice
-   //         }),
-   //         inputFoodName: "",
-   //         inputAddress: "",
-   //         inputCity: "",
-   //         inputLocation: "",
-   //         inputDescriptionMenu: "",
-   //         inputPrice: ""
-   //       };
-   //     });
-   //   }
-   // }
-
-//   submitForm(event) {
-//     event.preventDefault();
-// // >>>>>>> 0e902caa49b5fa5e4cf8d505afb1fea99f5508e9
-//   }
+  }
 
   render() {
-    // console.log("state", this.state);
+    console.log("state", this.state);
     return (
-      <div onSubmit={this.submitForm}>
-        <Form className="addFoodForm">
-          {/*Foodname Input*/}
-          <FormGroup row>
-            <Label htmlFor="exampleFood" sm={2}>
-              FOOD NAME
-            </Label>
-            <Col sm={10}>
-              <Input
-                type="text"
-                id="foodname"
-                name="foodname"
-                placeholder="Insert Food Name"
-                value={this.state.inputFoodName}
-                onChange={this.handleChangeFood}
-              />
-            </Col>
-          </FormGroup>
-          {/*Overview/Description input*/}
-          <FormGroup row>
-            <Label htmlFor="exampleMenus" sm={2}>
-              DESCRIPTION MENU
-            </Label>
-            <Col sm={10}>
-              <Input
-                type="text"
-                id="menus"
-                name="menus"
-                placeholder="Insert Your Menu"
-                value={this.state.inputDescriptionMenu}
-                onChange={this.handleChangeDescriptionMenu}
-              />
-            </Col>
-          </FormGroup>
-          {/*Detail Location input*/}
-          <FormGroup row>
-            <Label htmlFor="exampleAddress" sm={2}>
-              res ADDRESS
-            </Label>
-            <Col sm={10}>
-              <Input
-                type="text"
-                id="address"
-                name="address"
-                placeholder="Insert Address"
-                value={this.state.inputAddress}
-                onChange={this.handleChangeAddress}
-              />
-            </Col>
-          </FormGroup>
+      <div className="margin-top-100">
+        <div onSubmit={this.submitForm}>
+          <Form className="addFoodForm">
+            {/*Foodname Input*/}
+            <FormGroup row>
+              <Label htmlFor="exampleFood" sm={2}>
+                FOOD NAME
+              </Label>
+              <Col sm={10}>
+                <Input
+                  type="text"
+                  id="foodname"
+                  name="foodname"
+                  placeholder="Insert Food Name"
+                  value={this.state.inputFoodName}
+                  onChange={this.handleChangeFood}
+                />
+              </Col>
+            </FormGroup>
+            {/*Overview/Description input*/}
+            <FormGroup row>
+              <Label htmlFor="exampleMenus" sm={2}>
+                DESCRIPTION MENU
+              </Label>
+              <Col sm={10}>
+                <Input
+                  type="text"
+                  id="menus"
+                  name="menus"
+                  placeholder="Insert Your Menu"
+                  value={this.state.inputDescriptionMenu}
+                  onChange={this.handleChangeDescriptionMenu}
+                />
+              </Col>
+            </FormGroup>
+            {/*Detail Location input*/}
+            <FormGroup row>
+              <Label htmlFor="exampleAddress" sm={2}>
+                res ADDRESS
+              </Label>
+              <Col sm={10}>
+                <Input
+                  type="text"
+                  id="address"
+                  name="address"
+                  placeholder="Insert Address"
+                  value={this.state.inputAddress}
+                  onChange={this.handleChangeAddress}
+                />
+              </Col>
+            </FormGroup>
 
-          <FormGroup row>
-            <Label htmlFor="exampleCity" sm={2}>
-              CITY
-            </Label>
-            <Col sm={10}>
-              <Input
-                type="text"
-                id="city"
-                name="city"
-                placeholder="Insert City"
-                value={this.state.inputCity}
-                onChange={this.handleChangeCity}
-              />
-            </Col>
-          </FormGroup>
+            <FormGroup row>
+              <Label htmlFor="exampleCity" sm={2}>
+                CITY
+              </Label>
+              <Col sm={10}>
+                <Input
+                  type="text"
+                  id="city"
+                  name="city"
+                  placeholder="Insert City"
+                  value={this.state.inputCity}
+                  onChange={this.handleChangeCity}
+                />
+              </Col>
+            </FormGroup>
 
-          <FormGroup row>
-            <Label htmlFor="exampleLocation" sm={2}>
-              LOCATION
-            </Label>
-            <Col sm={10}>
-              <MapWithASearchBox />
-              <Input
-                type="text"
-                id="price"
-                name="price"
-                placeholder="Insert Price Menu"
-                value={this.state.inputPrice}
-                onChange={this.handleChangePrice}
-              />
-            </Col>
-          </FormGroup>
+            <FormGroup row>
+              <Label htmlFor="exampleLocation" sm={2}>
+                LOCATION
+              </Label>
+              <Col sm={10}>
+                <MapWithASearchBox />
+                <Input
+                  type="text"
+                  id="price"
+                  name="price"
+                  placeholder="Insert Price Menu"
+                  value={this.state.inputPrice}
+                  onChange={this.handleChangePrice}
+                />
+              </Col>
+            </FormGroup>
 
-          <FormGroup row>
-            <Label htmlFor="examplePrice" sm={2}>
-              PRICE
-            </Label>
-            <Col sm={10}>
-              <Input
-                type="text"
-                name="Price"
-                placeholder="Insert Price Menu"
-                value={this.state.inputPrice}
-                onChange={this.handleChangePrice}
-              />
-            </Col>
-          </FormGroup>
+            <FormGroup row>
+              <Label htmlFor="examplePrice" sm={2}>
+                PRICE
+              </Label>
+              <Col sm={10}>
+                <Input
+                  type="text"
+                  name="Price"
+                  placeholder="Insert Price Menu"
+                  value={this.state.inputPrice}
+                  onChange={this.handleChangePrice}
+                />
+              </Col>
+            </FormGroup>
 
-          {/*Use FILESTACK API to upload photos*/}
-          <ReactFilestack
-            apikey={API_KEY}
-            onSuccess={response => this.handleUpload(response)}
-            render={({ onPick }) => (
-              <FormGroup row>
-                <Label htmlFor="examplePrice" sm={2}>
-                  PHOTO
-                </Label>
-                <Col sm={10}>
-                  <Button outline color="danger" size="sm" onClick={onPick}>
-                    Upload
-                  </Button>&nbsp;<span>&nbsp;{this.state.file_uploaded}</span>
-                </Col>
-              </FormGroup>
-            )}
-          />
+            {/*Use FILESTACK API to upload photos*/}
+            <ReactFilestack
+              apikey={API_KEY}
+              onSuccess={response => this.handleUpload(response)}
+              render={({ onPick }) => (
+                <FormGroup row>
+                  <Label htmlFor="examplePrice" sm={2}>
+                    PHOTO
+                  </Label>
+                  <Col sm={10}>
+                    <Button outline color="danger" size="sm" onClick={onPick}>
+                      Upload
+                    </Button>&nbsp;<span>&nbsp;{this.state.file_uploaded}</span>
+                  </Col>
+                </FormGroup>
+              )}
+            />
 
-          <FormGroup check row>
-            <Col sm={12}>
-              <Link to="/">
-                <Button
-                  color="danger"
-                  block
-                  size="lg"
-                  onClick={this.submitForm}
-                >
-                  Submit
-                </Button>
-              </Link>
-            </Col>
-          </FormGroup>
-        </Form>
+            <FormGroup check row>
+              <Col sm={12}>
+                <Link to="/">
+                  <Button
+                    color="danger"
+                    block
+                    size="lg"
+                    onClick={this.submitForm}
+                  >
+                    Submit
+                  </Button>
+                </Link>
+              </Col>
+            </FormGroup>
+          </Form>
+        </div>
       </div>
     );
   }
