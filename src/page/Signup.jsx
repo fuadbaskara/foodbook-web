@@ -1,5 +1,6 @@
 import React from "react";
 import { Form } from "reactstrap";
+import { withRouter } from "react-router-dom";
 import axios from "axios";
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3030";
@@ -78,7 +79,7 @@ class Signup extends React.Component {
   }
 
   handleChangePassword(event) {
-    let value = event.target.value;
+    const value = event.target.value;
     this.setState(() => {
       return { password: value };
     });
@@ -88,7 +89,8 @@ class Signup extends React.Component {
   //   event.preventDefault();
   // }
 
-  async submitForm() {
+  async submitForm(event) {
+    event.preventDefault();
     await axios
       .post(`${API_URL}/accounts`, {
         firstName: this.state.firstName,
@@ -98,18 +100,20 @@ class Signup extends React.Component {
         password: this.state.password
       })
       .then(res => {
-        res, console.log(res.data);
+        console.log(res);
+        this.props.history.push("/login");
       })
       .catch(error => {
-        console.log(error.res);
+        console.log(error);
+        alert(error);
       });
   }
 
   render() {
     return (
       <div className="margin-top-100">
-        <div className="Container" onSubmit={this.submitForm} style={divStyle}>
-          <Form>
+        <div className="Container" style={divStyle}>
+          <Form onSubmit={this.submitForm}>
             <label htmlFor="fname">First Name</label>
             <input
               type="text"
@@ -188,4 +192,4 @@ class Signup extends React.Component {
   }
 }
 
-export default Signup;
+export default withRouter(Signup);

@@ -198,7 +198,8 @@ class AddFood extends Component {
   //   event.preventDefault();
   // }
 
-  async submitForm() {
+  async submitForm(event) {
+    event.preventDefault();
     await axios
       .post(`${API_URL}/foods`, {
         name: this.state.inputFoodName,
