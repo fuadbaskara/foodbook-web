@@ -31,7 +31,7 @@ const divStyle = {
 const Signup = () => (
   <div className="Container" styl={divStyle}>
     <Form>
-      <label for="fname">First Name</label>
+      <label htmlFor="fname">First Name</label>
       <input
         type="text"
         id="fname"
@@ -40,7 +40,7 @@ const Signup = () => (
         style={InputStyle}
       />
 
-      <label for="lname">Last Name</label>
+      <label htmlFor="lname">Last Name</label>
       <input
         type="text"
         id="lname"
@@ -49,7 +49,7 @@ const Signup = () => (
         style={InputStyle}
       />
 
-      <label for="email">Email</label>
+      <label htmlFor="email">Email</label>
       <input
         type="email"
         id="email"
@@ -58,30 +58,12 @@ const Signup = () => (
         style={InputStyle}
       />
 
-      <label for="username">Username</label>
-      <input
-        type="text"
-        id="username"
-        name="username"
-        placeholder="Your username.."
-        style={InputStyle}
-      />
-
-      <label for="password">Password</label>
+      <label htmlFor="password">Password</label>
       <input
         type="password"
         id="password"
         name="password"
         placeholder="Your password.."
-        style={InputStyle}
-      />
-
-      <label for="lname">Re-Password</label>
-      <input
-        type="password"
-        id="password"
-        name="password"
-        placeholder="Your password again.."
         style={InputStyle}
       />
 
