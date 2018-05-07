@@ -10,10 +10,9 @@ import {
   Button
 } from "reactstrap";
 import axios from "axios";
-import { Link } from "react-router-dom";
-import Food from "./Food";
 
-const API_URL = "https://foodbook-api.herokuapp.com";
+const API_URL =
+  process.env.REACT_APP_API_URL || "https://foodbook-api.herokuapp.com";
 
 class Home extends Component {
   constructor() {
