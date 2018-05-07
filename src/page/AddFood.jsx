@@ -145,7 +145,7 @@ class AddFood extends Component {
   handleUpload(response) {
     if (response.filesUploaded[0].url) {
       this.setState({
-        photos: this.state.photos.concat(response.filesUploaded[0].url),
+        photos: this.state.photos.concat([response.filesUploaded[0].url]),
         file_uploaded: this.state.file_uploaded + 1
       });
     }
@@ -226,7 +226,7 @@ class AddFood extends Component {
             </Label>
             <Col sm={10}>
               <Input
-                type="foodname"
+                type="text"
                 name="foodname"
                 placeholder="Insert Food Name"
                 value={this.state.inputFoodName}
@@ -241,7 +241,7 @@ class AddFood extends Component {
             </Label>
             <Col sm={10}>
               <Input
-                type="Menus"
+                type="text"
                 name="Menus"
                 placeholder="Insert Your Menu"
                 value={this.state.inputDescriptionMenu}
@@ -256,7 +256,7 @@ class AddFood extends Component {
             </Label>
             <Col sm={10}>
               <Input
-                type="Address"
+                type="text"
                 name="Address"
                 placeholder="Insert Address"
                 value={this.state.inputAddress}
@@ -271,7 +271,7 @@ class AddFood extends Component {
             </Label>
             <Col sm={10}>
               <Input
-                type="City"
+                type="text"
                 name="City"
                 placeholder="Insert City"
                 value={this.state.inputCity}
@@ -287,7 +287,7 @@ class AddFood extends Component {
             <Col sm={10}>
               <MapWithASearchBox />
               <Input
-                type="Price"
+                type="text"
                 name="Price"
                 placeholder="Insert Price Menu"
                 value={this.state.inputPrice}
@@ -302,7 +302,7 @@ class AddFood extends Component {
             </Label>
             <Col sm={10}>
               <Input
-                type="Price"
+                type="text"
                 name="Price"
                 placeholder="Insert Price Menu"
                 value={this.state.inputPrice}

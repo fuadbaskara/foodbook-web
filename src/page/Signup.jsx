@@ -1,5 +1,8 @@
 import React from "react";
 import { Form } from "reactstrap";
+import axios from "axios";
+
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3030";
 
 const InputStyle = {
   width: "100%",
@@ -32,8 +35,8 @@ class Signup extends React.Component {
   constructor() {
     super();
     this.state = {
-      firstname: "",
-      lastname: "",
+      firstName: "",
+      lastName: "",
       email: "",
       username: "",
       password: ""
@@ -43,19 +46,20 @@ class Signup extends React.Component {
     this.handleChangeEmail = this.handleChangeEmail.bind(this);
     this.handleChangeUserName = this.handleChangeUserName.bind(this);
     this.handleChangePassword = this.handleChangePassword.bind(this);
+    this.submitButton = this.submitButton.bind(this);
   }
 
   handleChangeFirstName(event) {
     let value = event.target.value;
     this.setState(() => {
-      return { firstname: value };
+      return { firstName: value };
     });
   }
 
   handleChangeLastName(event) {
     let value = event.target.value;
     this.setState(() => {
-      return { lastname: value };
+      return { lastName: value };
     });
   }
 
@@ -84,8 +88,25 @@ class Signup extends React.Component {
     event.preventDefault();
   }
 
+  async submitButton() {
+    await axios
+      .post(`${API_URL}/accounts`, {
+        firstName: this.state.firstName,
+        lastName: this.state.lastName,
+        email: this.state.email,
+        username: this.state.username,
+        password: this.state.password
+      })
+      .then(res => {
+        res, console.log(res.data);
+      })
+      .catch(error => {
+        console.log(error.res);
+      });
+    console.log(this.state.firstName);
+  }
+
   render() {
-    console.log("state", this.state);
     return (
       <div className="Container" onSubmit={this.submitForm} styl={divStyle}>
         <Form>
@@ -93,10 +114,10 @@ class Signup extends React.Component {
           <input
             type="text"
             id="fname"
-            name="firstname"
+            name="firstName"
             placeholder="Your name.."
             style={InputStyle}
-            value={this.state.firstname}
+            value={this.state.firstName}
             onChange={this.handleChangeFirstName}
           />
 
@@ -104,10 +125,10 @@ class Signup extends React.Component {
           <input
             type="text"
             id="lname"
-            name="lastname"
+            name="lastName"
             placeholder="Your last name.."
             style={InputStyle}
-            value={this.state.lastname}
+            value={this.state.lastName}
             onChange={this.handleChangeLastName}
           />
 
@@ -144,7 +165,22 @@ class Signup extends React.Component {
             onChange={this.handleChangePassword}
           />
 
-          <input type="submit" value="SIGN UP" style={inputSubmit} />
+          {/*<Button
+            style={inputSubmit}
+            color="danger"
+            block
+            size="lg"
+            onClick={this.submitButton}
+          >
+            Submit
+          </Button>*/}
+
+          <input
+            type="submit"
+            value="SIGN UP"
+            style={inputSubmit}
+            onClick={this.submitButton}
+          />
         </Form>
       </div>
     );
