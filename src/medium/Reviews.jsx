@@ -1,5 +1,4 @@
 import React from "react";
-import { Media } from "reactstrap";
 import "../App.css";
 
 const Reviews = () => {
@@ -11,7 +10,7 @@ const Reviews = () => {
         href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
       />
       <br />
-      <div classNameName="container pb-cmnt-container">
+      <div className="container pb-cmnt-container">
         <div className="row">
           <div className="col-md-9 offset-md-3">
             <div className="card card-info">
