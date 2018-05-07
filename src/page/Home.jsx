@@ -10,7 +10,7 @@ import {
   Button
 } from "reactstrap";
 import axios from "axios";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Food from "./Food";
 
 const API_URL = "https://foodbook-api.herokuapp.com";
