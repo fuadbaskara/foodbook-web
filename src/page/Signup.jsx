@@ -28,47 +28,127 @@ const divStyle = {
   padding: "20px"
 };
 
-const Signup = () => (
-  <div className="Container" styl={divStyle}>
-    <Form>
-      <label htmlFor="fname">First Name</label>
-      <input
-        type="text"
-        id="fname"
-        name="firstname"
-        placeholder="Your name.."
-        style={InputStyle}
-      />
+class Signup extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      firstname: "",
+      lastname: "",
+      email: "",
+      username: "",
+      password: ""
+    };
+    this.handleChangeFirstName = this.handleChangeFirstName.bind(this);
+    this.handleChangeLastName = this.handleChangeLastName.bind(this);
+    this.handleChangeEmail = this.handleChangeEmail.bind(this);
+    this.handleChangeUserName = this.handleChangeUserName.bind(this);
+    this.handleChangePassword = this.handleChangePassword.bind(this);
+  }
 
-      <label htmlFor="lname">Last Name</label>
-      <input
-        type="text"
-        id="lname"
-        name="lastname"
-        placeholder="Your last name.."
-        style={InputStyle}
-      />
+  handleChangeFirstName(event) {
+    let value = event.target.value;
+    this.setState(() => {
+      return { firstname: value };
+    });
+  }
 
-      <label htmlFor="email">Email</label>
-      <input
-        type="email"
-        id="email"
-        name="email"
-        placeholder="Your email.."
-        style={InputStyle}
-      />
+  handleChangeLastName(event) {
+    let value = event.target.value;
+    this.setState(() => {
+      return { lastname: value };
+    });
+  }
 
-      <label htmlFor="password">Password</label>
-      <input
-        type="password"
-        id="password"
-        name="password"
-        placeholder="Your password.."
-        style={InputStyle}
-      />
+  handleChangeEmail(event) {
+    let value = event.target.value;
+    this.setState(() => {
+      return { email: value };
+    });
+  }
 
-      <input type="submit" value="SIGN UP" style={inputSubmit} />
-    </Form>
-  </div>
-);
+  handleChangeUserName(event) {
+    let value = event.target.value;
+    this.setState(() => {
+      return { username: value };
+    });
+  }
+
+  handleChangePassword(event) {
+    let value = event.target.value;
+    this.setState(() => {
+      return { password: value };
+    });
+  }
+
+  submitForm(event) {
+    event.preventDefault();
+  }
+
+  render() {
+    console.log("state", this.state);
+    return (
+      <div className="Container" onSubmit={this.submitForm} styl={divStyle}>
+        <Form>
+          <label for="fname">First Name</label>
+          <input
+            type="text"
+            id="fname"
+            name="firstname"
+            placeholder="Your name.."
+            style={InputStyle}
+            value={this.state.firstname}
+            onChange={this.handleChangeFirstName}
+          />
+
+          <label for="lname">Last Name</label>
+          <input
+            type="text"
+            id="lname"
+            name="lastname"
+            placeholder="Your last name.."
+            style={InputStyle}
+            value={this.state.lastname}
+            onChange={this.handleChangeLastName}
+          />
+
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Your email.."
+            style={InputStyle}
+            value={this.state.email}
+            onChange={this.handleChangeEmail}
+          />
+
+          <label for="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Your username.."
+            style={InputStyle}
+            value={this.state.username}
+            onChange={this.handleChangeUserName}
+          />
+
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Your password.."
+            style={InputStyle}
+            value={this.state.password}
+            onChange={this.handleChangePassword}
+          />
+
+          <input type="submit" value="SIGN UP" style={inputSubmit} />
+        </Form>
+      </div>
+    );
+  }
+}
+
 export default Signup;

@@ -55,11 +55,6 @@ class Login extends Component {
               onChange={this.handleChangePassword}
             />
           </FormGroup>
-          <FormGroup>
-            <Button outline color="primary" size="lg" block>
-              Sign Up
-            </Button>
-          </FormGroup>
           <Button outline color="danger" size="lg" block>
             Submit
           </Button>
