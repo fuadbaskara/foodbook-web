@@ -1,20 +1,34 @@
 import React from "react";
+import axios from "axios";
+const API_URL = "https://foodbook-api.herokuapp.com";
 
 export default class DetailTab extends React.Component {
   constructor(props) {
     super(props);
+    // this.id = this.props.match.params.id;
     this.state = {
       overviewTab: true,
       menuTab: false,
       locationTab: false,
       reviewTab: false,
-      reviewContent: false
+      reviewContent: false,
+      detailfood: []
     };
     this.toggleOverview = this.toggleOverview.bind(this);
     this.toggleMenu = this.toggleMenu.bind(this);
     this.toggleLocation = this.toggleLocation.bind(this);
     this.toggleReview = this.toggleReview.bind(this);
   }
+
+  // async getData() {
+  //   let detailfood = "";
+  //   await axios.get(`${API_URL}/foods/${this.id}`).then(res => {
+  //     detailfood = res.data;
+  //   });
+  //   await this.setState({ detailfood: detailfood });
+  //
+  //   console.log(this.state.detailfood);
+  // }
 
   toggleOverview() {
     this.setState(() => {

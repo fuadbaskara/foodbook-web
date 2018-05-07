@@ -6,7 +6,6 @@ import Reviews from "../medium/Reviews.jsx";
 class Food extends Component {
   constructor(props) {
     super(props);
-    console.log(props.index);
   }
 
   render() {
