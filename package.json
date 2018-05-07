@@ -3,15 +3,26 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.18.0",
     "bootstrap": "^4.1.0",
+    "filestack-js": "^0.11.4",
+    "filestack-react": "^1.3.9",
+    "google-map-react": "^1.0.0",
+    "jsonwebtoken": "^8.2.1",
+    "material-ui": "^0.20.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
+    "react-google-maps": "^9.4.5",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.4",
-    "reactstrap": "^5.0.0"
+    "reactstrap": "^5.0.0",
+    "recompose": "^0.27.0",
+    "superagent": "^3.8.3"
   },
   "scripts": {
+    "postinstall": "./setup.sh",
+    "dev": "PORT=8000 react-scripts start",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
