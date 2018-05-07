@@ -14,6 +14,7 @@ import "./App.css";
 const App = () => (
   <Router>
     <Template>
+      <AppHeader />
       <Route exact path="/" component={Home} />
       <Route path="/food/:id" component={Food} />
 

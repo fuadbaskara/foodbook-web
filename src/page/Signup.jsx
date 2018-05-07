@@ -25,11 +25,31 @@ const inputSubmit = {
   cursor: "pointer"
 };
 
-const divStyle = {
-  borderRadius: "5px",
-  backgroundColor: "#f2f2f2",
-  padding: "20px"
-};
+class Signup extends Component {
+constructor(){
+  super();
+  this.state = {
+    firstname: "",
+    lastname: "",
+    email: "",
+    username: "",
+    password: "",
+    repassword: "",
+  };
+  this.handleChangeFirstname = this.handleChangeFirstname.bind(this);
+  this.handleChangeLastname = this.handleChangeLastname.bind(this);
+  this.handleChangeEmail = this.handleChangeEmail.bind(this);
+  this.handleChangeUsername = this.handleChangeUsername.bind(this);
+  this.handleChangePassword = this.handleChangePassword.bind(this);
+  this.handleChangeRePassword = this.handleChangeRePassword.bind(this);
+}
+
+handleChangeFirstname(event){
+  let value = event.target.value;
+  this.setState(() =>{
+    return { firstname : value};
+  })
+}
 
 class Signup extends React.Component {
   constructor() {
