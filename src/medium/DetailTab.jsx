@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import Carousels from "../medium/Carousels.jsx";
 const API_URL =
   process.env.REACT_APP_API_URL || "https://foodbook-api.herokuapp.com";
 
@@ -38,6 +39,7 @@ export default class DetailTab extends React.Component {
   async componentWillMount() {
     await this.getData();
     console.log(this.state.detailfood);
+    console.log(this.state.detailfood.photos);
     console.log(process.env.REACT_APP_API_URL);
   }
 
@@ -87,8 +89,12 @@ export default class DetailTab extends React.Component {
   }
 
   render() {
+    let name = this.state.detailfood.name || "aa";
     return (
       <div>
+        <div className="carousels">
+          <Carousels photos={name} a="a" />
+        </div>
         <br />
         {this.state.detailfood.name} || {this.state.detailfood.overview} ||{" "}
         {this.state.detailfood.city} || {this.state.detailfood.street} ||{" "}
@@ -98,36 +104,36 @@ export default class DetailTab extends React.Component {
             <li className="nav-item">
               <a onClick={this.toggleOverview}>
                 {this.state.overviewTab === true ? (
-                  <p className="nav-link active">Overview</p>
+                  <a className="nav-link active">Overview</a>
                 ) : (
-                  <p className="nav-link">Overview</p>
+                  <a className="nav-link">Overview</a>
                 )}
               </a>
             </li>
             <li className="nav-item">
               <a onClick={this.toggleMenu}>
                 {this.state.menuTab === true ? (
-                  <p className="nav-link active">Menu</p>
+                  <a className="nav-link active">Menu</a>
                 ) : (
-                  <p className="nav-link">Menu</p>
+                  <a className="nav-link">Menu</a>
                 )}
               </a>
             </li>
             <li className="nav-item">
               <a onClick={this.toggleLocation}>
                 {this.state.locationTab === true ? (
-                  <p className="nav-link active">Location</p>
+                  <a className="nav-link active">Location</a>
                 ) : (
-                  <p className="nav-link">Location</p>
+                  <a className="nav-link">Location</a>
                 )}
               </a>
             </li>
             <li className="nav-item">
               <a onClick={this.toggleReview}>
                 {this.state.reviewTab === true ? (
-                  <p className="nav-link active">Reviews</p>
+                  <a className="nav-link active">Reviews</a>
                 ) : (
-                  <p className="nav-link">Reviews</p>
+                  <a className="nav-link">Reviews</a>
                 )}
               </a>
             </li>

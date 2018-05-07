@@ -29,7 +29,12 @@ const items = [
 class Carousels extends Component {
   constructor(props) {
     super(props);
-    this.state = { activeIndex: 0 };
+    this.state = {
+      activeIndex: 0
+    };
+    this.a = this.props.a;
+    console.log(props.photos);
+    console.log(this.props.photos);
     this.next = this.next.bind(this);
     this.previous = this.previous.bind(this);
     this.goToIndex = this.goToIndex.bind(this);
@@ -76,9 +81,13 @@ class Carousels extends Component {
         <CarouselItem
           onExiting={this.onExiting}
           onExited={this.onExited}
-          key={item.src}
+          key="https://cdn.filestackcontent.com/aTIr8zQDCvM7BVQsrmA3"
         >
-          <img className="img" src={item.src} alt={item.altText} />
+          <img
+            className="img"
+            src="https://cdn.filestackcontent.com/aTIr8zQDCvM7BVQsrmA3"
+            alt={item.altText}
+          />
           <CarouselCaption
             captionText={item.caption}
             captionHeader={item.caption}
