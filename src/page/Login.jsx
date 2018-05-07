@@ -33,39 +33,32 @@ class Login extends Component {
   render() {
     console.log("state", this.state);
     return (
-      <div className="margin-top-100">
-        <div className="Container" onSubmit={this.submitForm}>
-          <Form>
-            <FormGroup>
-              <Label for="exampleEmail">User Name</Label>
-              <Input
-                type="text"
-                name="userid"
-                placeholder="Insert Your User Name"
-                value={this.state.username}
-                onChange={this.handleChangeUserName}
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label for="examplePassword">Password</Label>
-              <Input
-                type="password"
-                name="password"
-                placeholder="Insert Your Password"
-                value={this.state.password}
-                onChange={this.handleChangePassword}
-              />
-            </FormGroup>
-            <FormGroup>
-              <Button outline color="primary" size="lg" block>
-                Sign Up
-              </Button>
-            </FormGroup>
-            <Button outline color="danger" size="lg" block>
-              Submit
-            </Button>
-          </Form>
-        </div>
+      <div className="Container" onSubmit={this.submitForm}>
+        <Form>
+          <FormGroup>
+            <Label for="exampleEmail">User Name</Label>
+            <Input
+              type="text"
+              name="userid"
+              placeholder="Insert Your User Name"
+              value={this.state.username}
+              onChange={this.handleChangeUserName}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for="examplePassword">Password</Label>
+            <Input
+              type="password"
+              name="password"
+              placeholder="Insert Your Password"
+              value={this.state.password}
+              onChange={this.handleChangePassword}
+            />
+          </FormGroup>
+          <Button outline color="danger" size="lg" block>
+            Submit
+          </Button>
+        </Form>
       </div>
     );
   }

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import {
   Row,
   Col,
@@ -17,7 +18,6 @@ const API_URL = "https://foodbook-api.herokuapp.com";
 class Home extends Component {
   constructor() {
     super();
-
     this.state = {
       foods: []
     };
@@ -34,13 +34,14 @@ class Home extends Component {
   }
 
   async getData() {
-    let foods = "";
-    await axios.get(`${API_URL}/foods`).then(res => {
-      foods = res.data;
-    });
-    await this.setState({ foods: foods });
-
-    console.log(this.state.foods);
+    await axios
+      .get(`${API_URL}/foods`)
+      .then(res => {
+        return res.data;
+      })
+      .then(res => {
+        this.setState({ foods: res });
+      });
   }
 
   componentWillMount() {
@@ -49,15 +50,15 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="margin-top-100">
-        <Row className="homeProduct">
-          {this.state.foods.map((food, index) => (
+      <Row className="homeProduct">
+        {this.state.foods &&
+          this.state.foods.map((food, index) => (
             <Col sm="4" key={index}>
               <CardImg
                 width="25%"
                 height="50%"
                 src={food.photos[0]}
-                alt="Card image cap"
+                alt="Food Image"
               />
               <CardBody>
                 <CardTitle>{food.name}</CardTitle>
@@ -68,8 +69,7 @@ class Home extends Component {
               </CardBody>
             </Col>
           ))}
-        </Row>
-      </div>
+      </Row>
     );
   }
 }
