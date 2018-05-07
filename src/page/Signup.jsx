@@ -46,7 +46,7 @@ class Signup extends React.Component {
     this.handleChangeEmail = this.handleChangeEmail.bind(this);
     this.handleChangeUserName = this.handleChangeUserName.bind(this);
     this.handleChangePassword = this.handleChangePassword.bind(this);
-    this.submitButton = this.submitButton.bind(this);
+    this.submitForm = this.submitForm.bind(this);
   }
 
   handleChangeFirstName(event) {
@@ -84,11 +84,11 @@ class Signup extends React.Component {
     });
   }
 
-  submitForm(event) {
-    event.preventDefault();
-  }
+  // submitForm(event) {
+  //   event.preventDefault();
+  // }
 
-  async submitButton() {
+  async submitForm() {
     await axios
       .post(`${API_URL}/accounts`, {
         firstName: this.state.firstName,
@@ -103,12 +103,11 @@ class Signup extends React.Component {
       .catch(error => {
         console.log(error.res);
       });
-    console.log(this.state.firstName);
   }
 
   render() {
     return (
-      <div className="Container" onSubmit={this.submitForm} styl={divStyle}>
+      <div className="Container" onSubmit={this.submitForm} style={divStyle}>
         <Form>
           <label htmlFor="fname">First Name</label>
           <input
@@ -170,7 +169,7 @@ class Signup extends React.Component {
             color="danger"
             block
             size="lg"
-            onClick={this.submitButton}
+            onClick={this.submitForm}
           >
             Submit
           </Button>*/}
@@ -179,7 +178,7 @@ class Signup extends React.Component {
             type="submit"
             value="SIGN UP"
             style={inputSubmit}
-            onClick={this.submitButton}
+            onClick={this.submitForm}
           />
         </Form>
       </div>

@@ -222,12 +222,13 @@ class AddFood extends Component {
         <Form className="addFoodForm">
           {/*Foodname Input*/}
           <FormGroup row>
-            <Label for="exampleFood" sm={2}>
+            <Label htmlFor="exampleFood" sm={2}>
               FOOD NAME
             </Label>
             <Col sm={10}>
               <Input
                 type="text"
+                id="foodname"
                 name="foodname"
                 placeholder="Insert Food Name"
                 value={this.state.inputFoodName}
@@ -237,13 +238,14 @@ class AddFood extends Component {
           </FormGroup>
           {/*Overview/Description input*/}
           <FormGroup row>
-            <Label for="exampleMenus" sm={2}>
+            <Label htmlFor="exampleMenus" sm={2}>
               DESCRIPTION MENU
             </Label>
             <Col sm={10}>
               <Input
                 type="text"
-                name="Menus"
+                id="menus"
+                name="menus"
                 placeholder="Insert Your Menu"
                 value={this.state.inputDescriptionMenu}
                 onChange={this.handleChangeDescriptionMenu}
@@ -252,13 +254,14 @@ class AddFood extends Component {
           </FormGroup>
           {/*Detail Location input*/}
           <FormGroup row>
-            <Label for="exampleAddress" sm={2}>
+            <Label htmlFor="exampleAddress" sm={2}>
               res ADDRESS
             </Label>
             <Col sm={10}>
               <Input
                 type="text"
-                name="Address"
+                id="address"
+                name="address"
                 placeholder="Insert Address"
                 value={this.state.inputAddress}
                 onChange={this.handleChangeAddress}
@@ -267,13 +270,14 @@ class AddFood extends Component {
           </FormGroup>
 
           <FormGroup row>
-            <Label for="exampleCity" sm={2}>
+            <Label htmlFor="exampleCity" sm={2}>
               CITY
             </Label>
             <Col sm={10}>
               <Input
                 type="text"
-                name="City"
+                id="city"
+                name="city"
                 placeholder="Insert City"
                 value={this.state.inputCity}
                 onChange={this.handleChangeCity}
@@ -282,14 +286,15 @@ class AddFood extends Component {
           </FormGroup>
 
           <FormGroup row>
-            <Label for="exampleLocation" sm={2}>
+            <Label htmlFor="exampleLocation" sm={2}>
               LOCATION
             </Label>
             <Col sm={10}>
               <MapWithASearchBox />
               <Input
                 type="text"
-                name="Price"
+                id="price"
+                name="price"
                 placeholder="Insert Price Menu"
                 value={this.state.inputPrice}
                 onChange={this.handleChangePrice}
@@ -298,7 +303,7 @@ class AddFood extends Component {
           </FormGroup>
 
           <FormGroup row>
-            <Label for="examplePrice" sm={2}>
+            <Label htmlFor="examplePrice" sm={2}>
               PRICE
             </Label>
             <Col sm={10}>
@@ -318,7 +323,7 @@ class AddFood extends Component {
             onSuccess={response => this.handleUpload(response)}
             render={({ onPick }) => (
               <FormGroup row>
-                <Label for="examplePrice" sm={2}>
+                <Label htmlFor="examplePrice" sm={2}>
                   PHOTO
                 </Label>
                 <Col sm={10}>
