@@ -149,6 +149,7 @@ class AddFood extends Component {
         file_uploaded: this.state.file_uploaded + 1
       });
     }
+    console.log(this.state.photos);
   }
 
   handleChangeFood(event) {
