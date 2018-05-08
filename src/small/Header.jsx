@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3030";
 
 const StyleImage = {
   width: "22%",
@@ -25,9 +28,19 @@ class Header extends Component {
     })
   }
 
-  submitForm(event) {
+  async submitForm(event) {
     event.preventDefault();
+    await axios
+      .get(`${API_URL}/foods/search?name=sate`)
+      .then(res => {
+        return res.data;
+      })
+      .then(res => {
+        this.setState({ foods: res });
+        console.log(this.state.foods);
+      });
   }
+
 
   render() {
   console.log("state", this.state);
