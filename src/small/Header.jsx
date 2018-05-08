@@ -36,7 +36,7 @@ class Header extends Component {
         return res.data;
       })
       .then(res => {
-        this.setState({ foods: res });
+        this.setState({ searchFoods: res });
         console.log(this.state.foods);
       });
   }
