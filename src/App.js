@@ -9,6 +9,7 @@ import Signup from "./page/Signup";
 import Food from "./page/Food";
 import AddFood from "./page/AddFood";
 import Tech from "./small/tech";
+import Team from "./small/team";
 
 import "./App.css";
 
@@ -23,6 +24,7 @@ const App = () => (
       <Route path="/addfood" component={AddFood} />
       <Route path="/profile" component={Profile} />
       <Route path="/tech" component={Tech} />
+      <Route path="/team" component={Team} />
     </Template>
   </Router>
 );

@@ -71,8 +71,8 @@ const Footer = () => (
 
     <div style={FlexContainer}>
       <div>
-        <Link to="#">
-          <h5 style={FooterStyle}>Our's Team</h5>
+        <Link to="/team">
+          <h5 style={FooterStyle}>Our Team</h5>
         </Link>
       </div>
 
