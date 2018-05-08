@@ -12,12 +12,14 @@ import {
 import axios from "axios";
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3030";
+const MAX_LENGTH = 70;
 
 class Home extends Component {
   constructor() {
     super();
     this.state = {
-      foods: []
+      foods: [],
+      text: ""
     };
     this.getIndex = this.getIndex.bind(this);
   }
@@ -63,7 +65,16 @@ class Home extends Component {
                 />
                 <CardBody>
                   <CardTitle>{food.name}</CardTitle>
-                  <CardText>{food.overview}</CardText>
+                  {food.overview.length > MAX_LENGTH ? (
+                    <div>
+                      {`${food.overview.substring(0, MAX_LENGTH)} `}
+                      <Link to={`/food/${food.id}`} className="paragraph">
+                        more...
+                      </Link>
+                    </div>
+                  ) : (
+                    <CardText>{food.overview}</CardText>
+                  )}
                   <Link to={`/food/${food.id}`}>
                     <Button className="width-full">Details</Button>
                   </Link>
