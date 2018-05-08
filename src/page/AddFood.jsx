@@ -346,8 +346,8 @@ class AddFood extends Component {
               <Col sm={12}>
                 <Link to="/">
                   <Button
+                    className="width-full"
                     color="danger"
-                    block
                     size="lg"
                     onClick={this.submitForm}
                   >

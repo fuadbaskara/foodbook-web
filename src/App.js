@@ -8,6 +8,7 @@ import Profile from "./page/Profile";
 import Signup from "./page/Signup";
 import Food from "./page/Food";
 import AddFood from "./page/AddFood";
+import Tech from "./small/tech";
 
 import "./App.css";
 
@@ -20,6 +21,7 @@ const App = () => (
       <Route path="/login" component={Login} />
       <Route path="/addfood" component={AddFood} />
       <Route path="/profile" component={Profile} />
+      <Route path="/tech" component={Tech} />
     </Template>
   </Router>
 );
