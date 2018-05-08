@@ -15,21 +15,6 @@ const Header = () => {
         <input type="text" className="inputText border border-danger" />
         <button className="button-border-sign textNavBar">Search</button>
       </div>
-      <Link className="textNavBar text-right mx-2" to="/">
-        Home
-      </Link>
-      <Link className="textNavBar text-right mx-2" to="/profile">
-        Profile
-      </Link>
-      <Link className="textNavBar text-right mx-2" to="/addfood">
-        Add Food
-      </Link>
-      <Link className="border-sign textNavBar text-right mx-2" to="/login">
-        Sign In
-      </Link>
-      <Link className="border-sign textNavBar text-right mx-2" to="/signup">
-        Sign Up
-      </Link>
       <div>
         <Link to="/">
           <img
@@ -39,6 +24,34 @@ const Header = () => {
           />
         </Link>
       </div>
+      {window.localStorage.token ? (
+        <div>
+          <Link className="border-sign textNavBar text-right mx-2" to="/">
+            Home
+          </Link>
+          <Link className="border-sign textNavBar text-right mx-2" to="/addfood">
+            Add Food
+          </Link>
+          <Link className="border-sign textNavBar text-right mx-2" to="/profile">
+            Profile
+          </Link>
+        </div>
+      ) : (
+        <div>
+          <Link className="border-sign textNavBar text-right mx-2" to="/">
+            Home
+          </Link>
+          <Link className="border-sign textNavBar text-right mx-2" to="/login">
+            Add Food
+          </Link>
+          <Link className="menu-sign textNavBar text-right mx-2" to="/login">
+            Sign In
+          </Link>
+          <Link className="menu-sign textNavBar text-right mx-2" to="/signup">
+            Sign Up
+          </Link>
+        </div>
+      )}
     </div>
   );
 };
