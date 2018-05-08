@@ -19,9 +19,11 @@ class Home extends Component {
     super();
     this.state = {
       foods: [],
-      text: ""
+      searchFoods: ""
     };
     this.getIndex = this.getIndex.bind(this);
+    this.handleChangeSearchFoods = this.handleChangeSearchFoods.bind(this);
+    this.submitForm = this.submitForm.bind(this);
   }
 
   getIndex(index) {
@@ -50,9 +52,40 @@ class Home extends Component {
     this.getData();
   }
 
+  handleChangeSearchFoods(event) {
+    let value = event.target.value;
+    this.setState(() => {
+      return { searchFoods: value };
+    });
+  }
+
+  async submitForm(event) {
+    event.preventDefault();
+    await axios
+      .get(`${API_URL}/foods/search?name=${this.state.searchFoods}`)
+      .then(res => {
+        return res.data;
+      })
+      .then(res => {
+        this.setState({ foods: res.data });
+      });
+  }
+
   render() {
     return (
       <div className="margin-top-100">
+        <input
+          type="text"
+          className="inputText border border-danger"
+          value={this.state.searchFoods}
+          onChange={this.handleChangeSearchFoods}
+        />
+        <button
+          className="button-border-sign textNavBar"
+          onClick={this.submitForm}
+        >
+          Search
+        </button>
         <Row className="homeProduct">
           {this.state.foods &&
             this.state.foods.map((food, index) => (
