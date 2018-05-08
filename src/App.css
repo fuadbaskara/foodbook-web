@@ -35,8 +35,9 @@ body {
 }
 
 .App-header {
-  background-color: red;
-  height: 70px;
+  background-color: #bb1212;
+  height: 90px;
+  padding: 20px;
   color: white;
   text-align: right;
   justify-content: flex-end;
@@ -132,7 +133,6 @@ body {
 .button-border-sign {
   border: white 2px solid;
   padding: 6px;
-  border-radius: 10px;
   background: red;
   font-family: Comfortaa;
 }
@@ -140,14 +140,17 @@ body {
 .button-border-sign:hover {
   border: white 2px solid;
   padding: 6px;
-  border-radius: 10px;
   background: white;
 }
 
+.menu-sign {
+  padding: 8px 8px 3px 8px;
+  background: #fff;
+  color: #000 !important;
+}
+
 .border-sign {
-  border: white 2px solid;
-  padding: 8px;
-  border-radius: 10px;
+  padding: 8px 8px 3px 8px;
 }
 
 .border-sign:hover {
@@ -173,12 +176,10 @@ body {
 }
 
 .inputText {
-  margin-top: 10px;
-  margin-left: 30%;
   margin-right: 5px;
   border-radius: 10px;
   height: 40px;
-  width: 30%;
+  width: 20%;
   justify-content: center;
 }
 

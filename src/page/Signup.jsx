@@ -1,5 +1,6 @@
 import React from "react";
 import { Form } from "reactstrap";
+import { withRouter } from "react-router-dom";
 import axios from "axios";
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3030";
@@ -14,6 +15,12 @@ const InputStyle = {
   boxSizing: "borderBox"
 };
 
+const divStyle = {
+  borderRadius: "5px",
+  backgroundColor: "#f2f2f2",
+  padding: "20px"
+};
+
 const inputSubmit = {
   width: "100%",
   backgroundColor: "#4CAF50",
@@ -23,12 +30,6 @@ const inputSubmit = {
   border: "none",
   borderRadius: "4px",
   cursor: "pointer"
-};
-
-const divStyle = {
-  borderRadius: "5px",
-  backgroundColor: "#f2f2f2",
-  padding: "20px"
 };
 
 class Signup extends React.Component {
@@ -46,7 +47,7 @@ class Signup extends React.Component {
     this.handleChangeEmail = this.handleChangeEmail.bind(this);
     this.handleChangeUserName = this.handleChangeUserName.bind(this);
     this.handleChangePassword = this.handleChangePassword.bind(this);
-    this.submitButton = this.submitButton.bind(this);
+    this.submitForm = this.submitForm.bind(this);
   }
 
   handleChangeFirstName(event) {
@@ -78,17 +79,18 @@ class Signup extends React.Component {
   }
 
   handleChangePassword(event) {
-    let value = event.target.value;
+    const value = event.target.value;
     this.setState(() => {
       return { password: value };
     });
   }
 
-  submitForm(event) {
-    event.preventDefault();
-  }
+  // submitForm(event) {
+  //   event.preventDefault();
+  // }
 
-  async submitButton() {
+  async submitForm(event) {
+    event.preventDefault();
     await axios
       .post(`${API_URL}/accounts`, {
         firstName: this.state.firstName,
@@ -98,93 +100,96 @@ class Signup extends React.Component {
         password: this.state.password
       })
       .then(res => {
-        res, console.log(res.data);
+        console.log(res);
+        this.props.history.push("/login");
       })
       .catch(error => {
-        console.log(error.res);
+        console.log(error);
+        alert(error);
       });
-    console.log(this.state.firstName);
   }
 
   render() {
     return (
-      <div className="Container" onSubmit={this.submitForm} styl={divStyle}>
-        <Form>
-          <label htmlFor="fname">First Name</label>
-          <input
-            type="text"
-            id="fname"
-            name="firstName"
-            placeholder="Your name.."
-            style={InputStyle}
-            value={this.state.firstName}
-            onChange={this.handleChangeFirstName}
-          />
+      <div className="margin-top-100">
+        <div className="Container" style={divStyle}>
+          <Form onSubmit={this.submitForm}>
+            <label htmlFor="fname">First Name</label>
+            <input
+              type="text"
+              id="fname"
+              name="firstName"
+              placeholder="Your name.."
+              style={InputStyle}
+              value={this.state.firstName}
+              onChange={this.handleChangeFirstName}
+            />
 
-          <label htmlFor="lname">Last Name</label>
-          <input
-            type="text"
-            id="lname"
-            name="lastName"
-            placeholder="Your last name.."
-            style={InputStyle}
-            value={this.state.lastName}
-            onChange={this.handleChangeLastName}
-          />
+            <label htmlFor="lname">Last Name</label>
+            <input
+              type="text"
+              id="lname"
+              name="lastName"
+              placeholder="Your last name.."
+              style={InputStyle}
+              value={this.state.lastName}
+              onChange={this.handleChangeLastName}
+            />
 
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Your email.."
-            style={InputStyle}
-            value={this.state.email}
-            onChange={this.handleChangeEmail}
-          />
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Your email.."
+              style={InputStyle}
+              value={this.state.email}
+              onChange={this.handleChangeEmail}
+            />
 
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            placeholder="Your username.."
-            style={InputStyle}
-            value={this.state.username}
-            onChange={this.handleChangeUserName}
-          />
+            <label htmlFor="username">Username</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Your username.."
+              style={InputStyle}
+              value={this.state.username}
+              onChange={this.handleChangeUserName}
+            />
 
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Your password.."
-            style={InputStyle}
-            value={this.state.password}
-            onChange={this.handleChangePassword}
-          />
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Your password.."
+              style={InputStyle}
+              value={this.state.password}
+              onChange={this.handleChangePassword}
+            />
 
-          {/*<Button
+            {/*<Button
             style={inputSubmit}
             color="danger"
             block
             size="lg"
-            onClick={this.submitButton}
+            onClick={this.submitForm}
           >
             Submit
           </Button>*/}
 
-          <input
-            type="submit"
-            value="SIGN UP"
-            style={inputSubmit}
-            onClick={this.submitButton}
-          />
-        </Form>
+            <input
+              type="submit"
+              value="SIGN UP"
+              style={inputSubmit}
+              onClick={this.submitForm}
+            />
+          </Form>
+        </div>
       </div>
     );
   }
 }
 
-export default Signup;
+export default withRouter(Signup);

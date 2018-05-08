@@ -9,7 +9,7 @@ export default class Submenu extends Component {
     super(props);
     // this.subMenu = this.props.match.params.subMenu;
     // this.data = this.props.data;
-    console.log("this.data");
+    console.log(this.props);
   }
 
   render() {

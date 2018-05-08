@@ -30,7 +30,8 @@ class Carousels extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeIndex: 0
+      activeIndex: 0,
+      image: []
     };
     this.photos = this.props.photos;
     console.log(props.photos);
@@ -76,6 +77,7 @@ class Carousels extends Component {
   render() {
     const { activeIndex } = this.state;
     if (this.props.photos) {
+      console.log(this.props.photos);
     }
     const slides = items.map(item => {
       return (

@@ -32,6 +32,7 @@ export default class DetailTab extends React.Component {
 
   async getData() {
     await axios.get(`${API_URL}/foods/${this.id}`).then(res => {
+      console.log(res);
       let responseData = res.data.data;
       let data = {
         ...responseData,
@@ -50,6 +51,7 @@ export default class DetailTab extends React.Component {
 
   async componentWillMount() {
     await this.getData();
+    console.log(this.props);
     console.log(this.state.detailfood);
     console.log(this.state.detailfood.photos);
     console.log(process.env.REACT_APP_API_URL);
@@ -143,28 +145,48 @@ export default class DetailTab extends React.Component {
               </Link>
             </li>
           </ul>
-
           <Route
-            path={`${this.match.path}/:subMenu`}
-            render={props => (
-              <Submenu {...props} data={this.state.detailfood} />
+            exact
+            path={`${this.match}/`}
+            render={() => (
+              <Overview
+                id={this.id}
+                name={this.state.detailfood.name}
+                overview={this.state.detailfood.overview}
+                rating={this.state.detailfood.rating}
+              />
             )}
           />
-        </div>
-        <div>
-          <Overview
-            name={this.state.detailfood.name}
-            rating={this.state.detailfood.rating}
+          <Route
+            path={`${this.match}/overview`}
+            render={() => (
+              <Overview
+                id={this.id}
+                name={this.state.detailfood.name}
+                overview={this.state.detailfood.overview}
+                rating={this.state.detailfood.rating}
+              />
+            )}
           />
-          <Locations
-            city={this.state.detailfood.city}
-            street={this.state.detailfood.street}
-            latitude={this.state.detailfood.latitude}
-            longitude={this.state.detailfood.longitude}
+          <Route
+            path={`${this.match}/location`}
+            render={() => (
+              <Locations
+                city={this.state.detailfood.city}
+                street={this.state.detailfood.street}
+                latitude={this.state.detailfood.latitude}
+                longitude={this.state.detailfood.longitude}
+              />
+            )}
           />
-          <Reviews
-            userid={this.state.detailfood._userid}
-            rating={this.state.detailfood.rating}
+          <Route
+            path={`${this.match}/reviews`}
+            component={() => (
+              <Reviews
+                userid={this.state.detailfood._userid}
+                rating={this.state.detailfood.rating}
+              />
+            )}
           />
         </div>
       </div>

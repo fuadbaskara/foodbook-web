@@ -3,6 +3,7 @@ import React, { Component } from "react";
 export default class Overview extends React.Component {
   constructor(props) {
     super(props);
+    console.log(props);
   }
 
   render() {
@@ -12,7 +13,7 @@ export default class Overview extends React.Component {
           <h4>{this.props.name}</h4>
           <b>{`Rating: ${this.props.rating}`}</b>
           <div>
-            <p>{this.props.description}</p>
+            <p>{this.props.overview}</p>
           </div>
         </div>
       </div>

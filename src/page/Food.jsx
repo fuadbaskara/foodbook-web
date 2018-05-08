@@ -16,6 +16,8 @@ class Food extends Component {
       <div>
         <br />
         <br />
+        <br />
+        <br />
         <div>
           <DetailTab
             className="detailTab"
