@@ -2,6 +2,11 @@ body {
   margin-top: 100px;
 }
 
+.img {
+  width: 640px;
+  height: 360px;
+}
+
 .app {
   display: flex;
   min-height: 100vh;
