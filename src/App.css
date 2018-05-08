@@ -144,20 +144,6 @@ body {
   border-radius: 50%;
 }
 
-.button-border-sign {
-  border: white 2px solid;
-  padding: 6px;
-  background: red;
-  font-family: Comfortaa;
-  background-color: #bb1212;
-}
-
-.button-border-sign:hover {
-  border: white 2px solid;
-  padding: 6px;
-  background: white;
-}
-
 .menu-sign {
   padding: 8px 8px 3px 8px;
   background: #fff;
@@ -193,8 +179,8 @@ body {
 .inputText {
   margin-right: 5px;
   border-radius: 10px;
-  height: 40px;
-  width: 20%;
+  height: 36px;
+  width: 50%;
   justify-content: center;
 }
 
@@ -224,7 +210,7 @@ body {
   object-fit: cover;
 }
 
-.searchText{
+.searchText {
   text-align: center;
 }
 

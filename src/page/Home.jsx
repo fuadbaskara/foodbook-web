@@ -82,7 +82,7 @@ class Home extends Component {
           />
           <Button
             color="danger"
-            className="button-border-sign textNavBar"
+            className="textNavBar"
             onClick={this.submitForm}
           >
             Search
