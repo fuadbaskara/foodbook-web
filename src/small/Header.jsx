@@ -12,20 +12,20 @@ const StyleImage = {
 };
 
 class Header extends Component {
-  constructor(){
+  constructor() {
     super();
-    this.state ={
+    this.state = {
       searchFoods: ""
-    }
+    };
     this.handleChangeSearchFoods = this.handleChangeSearchFoods.bind(this);
     this.submitForm = this.submitForm.bind(this);
   }
 
-  handleChangeSearchFoods(event){
+  handleChangeSearchFoods(event) {
     let value = event.target.value;
-    this.setState(() =>{
-      return { searchFoods : value }
-    })
+    this.setState(() => {
+      return { searchFoods: value };
+    });
   }
 
   async submitForm(event) {
@@ -41,59 +41,76 @@ class Header extends Component {
       });
   }
 
-
   render() {
-  console.log("state", this.state);
-  return (
-    <div className="App-header fixed-top">
-      <div className="display-inline margin-right-30"
-       onSubmit={this.submitForm}>
-         <input
-           type="text"
-           className="inputText border border-danger"
-           value={this.state.searchFoods}
-           onChange={this.handleChangeSearchFoods}/>
-         <button
-           className="button-border-sign textNavBar"
-           onClick={this.submitForm}>Search</button>
-      </div>
-        <Link
-          className="textNavBar text-right mx-2"
-          to="/">
-          Home
-        </Link>
-        <Link
-          className="textNavBar text-right mx-2"
-          to="/profile">
-          Profile
-        </Link>
-        <Link
-          className="textNavBar text-right mx-2"
-          to="/addfood">
-          Add Food
-        </Link>
-        <Link
-          className="border-sign textNavBar text-right mx-2"
-          to="/login">
-          Sign In
-        </Link>
-      <Link
-          className="border-sign textNavBar text-right mx-2"
-          to="/signup">
-          Sign Up
-      </Link>
-      <div>
-        <Link to="/">
-          <img
-            src={require(`../image/foodbook-logo.png`)}
-            alt="Foodbook Logo"
-            style={StyleImage}
+    console.log("state", this.state);
+    return (
+      <div className="App-header fixed-top">
+        <div
+          className="display-inline margin-right-30"
+          onSubmit={this.submitForm}
+        >
+          <input
+            type="text"
+            className="inputText border border-danger"
+            value={this.state.searchFoods}
+            onChange={this.handleChangeSearchFoods}
           />
-        </Link>
+          <button
+            className="button-border-sign textNavBar"
+            onClick={this.submitForm}
+          >
+            Search
+          </button>
+        </div>
+        <div>
+          <Link to="/">
+            <img
+              src={require(`../image/foodbook-logo.png`)}
+              alt="Foodbook Logo"
+              style={StyleImage}
+            />
+          </Link>
+        </div>
+        {window.localStorage.token ? (
+          <div>
+            <Link className="border-sign textNavBar text-right mx-2" to="/">
+              Home
+            </Link>
+            <Link
+              className="border-sign textNavBar text-right mx-2"
+              to="/addfood"
+            >
+              Add Food
+            </Link>
+            <Link
+              className="border-sign textNavBar text-right mx-2"
+              to="/profile"
+            >
+              Profile
+            </Link>
+          </div>
+        ) : (
+          <div>
+            <Link className="border-sign textNavBar text-right mx-2" to="/">
+              Home
+            </Link>
+            <Link
+              className="border-sign textNavBar text-right mx-2"
+              to="/login"
+            >
+              Add Food
+            </Link>
+            <Link className="menu-sign textNavBar text-right mx-2" to="/login">
+              Sign In
+            </Link>
+            <Link className="menu-sign textNavBar text-right mx-2" to="/signup">
+              Sign Up
+            </Link>
+          </div>
+        )}
       </div>
-    </div>
-  );
- }
+    );
+  }
 }
 
 export default Header;
