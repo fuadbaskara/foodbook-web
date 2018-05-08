@@ -74,18 +74,21 @@ class Home extends Component {
   render() {
     return (
       <div className="margin-top-100">
-        <input
-          type="text"
-          className="inputText border border-danger"
-          value={this.state.searchFoods}
-          onChange={this.handleChangeSearchFoods}
-        />
-        <button
-          className="button-border-sign textNavBar"
-          onClick={this.submitForm}
-        >
-          Search
-        </button>
+        <div className="searchText">
+          <input
+            type="text"
+            className="inputText border border-danger"
+            value={this.state.searchFoods}
+            onChange={this.handleChangeSearchFoods}
+          />
+          <Button
+            color="danger"
+            className="button-border-sign textNavBar"
+            onClick={this.submitForm}
+          >
+            Search
+          </Button>{" "}
+        </div>
         <Row className="homeProduct center">
           {this.state.foods &&
             this.state.foods.map((food, index) => (
