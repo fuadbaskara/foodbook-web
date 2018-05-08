@@ -1,8 +1,12 @@
 import React, { Component } from "react";
+<<<<<<< HEAD
 import { Link } from "react-router-dom";
 import axios from "axios";
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3030";
+=======
+import { Link, withRouter } from "react-router-dom";
+>>>>>>> b6224d38ec0e0d94b00df85fc467c546eed61c3b
 
 const StyleImage = {
   width: "22%",
@@ -12,6 +16,7 @@ const StyleImage = {
 };
 
 class Header extends Component {
+<<<<<<< HEAD
   constructor(){
     super();
     this.state ={
@@ -36,7 +41,7 @@ class Header extends Component {
         return res.data;
       })
       .then(res => {
-        this.setState({ searchFoods: res });
+        this.setState({ foods : res });
         console.log(this.state.foods);
       });
   }
@@ -94,6 +99,80 @@ class Header extends Component {
     </div>
   );
  }
+=======
+  constructor() {
+    super();
+    this.handleLogout = this.handleLogout.bind(this);
+  }
+  handleLogout = async event => {
+    localStorage.clear();
+
+    this.props.history.push("/login");
+  };
+  render() {
+    return (
+      <div className="App-header fixed-top">
+        <div className="display-inline margin-right-30">
+          <input type="text" className="inputText border border-danger" />
+          <button className="button-border-sign textNavBar">Search</button>
+        </div>
+        <div>
+          <Link to="/">
+            <img
+              src={require(`../image/foodbook-logo.png`)}
+              alt="Foodbook Logo"
+              style={StyleImage}
+            />
+          </Link>
+        </div>
+        {window.localStorage.token ? (
+          <div>
+            <Link className="border-sign textNavBar text-right mx-2" to="/">
+              Home
+            </Link>
+            <Link
+              className="border-sign textNavBar text-right mx-2"
+              to="/addfood"
+            >
+              Add Food
+            </Link>
+            <Link
+              className="border-sign textNavBar text-right mx-2"
+              to="/profile"
+            >
+              Profile
+            </Link>
+            <Link
+              className="menu-sign textNavBar text-right mx-2"
+              to="/"
+              onClick={this.handleLogout}
+            >
+              Log Out
+            </Link>
+          </div>
+        ) : (
+          <div>
+            <Link className="border-sign textNavBar text-right mx-2" to="/">
+              Home
+            </Link>
+            <Link
+              className="border-sign textNavBar text-right mx-2"
+              to="/login"
+            >
+              Add Food
+            </Link>
+            <Link className="menu-sign textNavBar text-right mx-2" to="/login">
+              Sign In
+            </Link>
+            <Link className="menu-sign textNavBar text-right mx-2" to="/signup">
+              Sign Up
+            </Link>
+          </div>
+        )}
+      </div>
+    );
+  }
+>>>>>>> b6224d38ec0e0d94b00df85fc467c546eed61c3b
 }
 
-export default Header;
+export default withRouter(Header);
