@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import DetailTab from "../medium/DetailTab.jsx";
-import Reviews from "../medium/Reviews.jsx";
 
 class Food extends Component {
   constructor(props) {
@@ -15,9 +14,14 @@ class Food extends Component {
   render() {
     return (
       <div>
+        <br />
+        <br />
         <div>
-          <DetailTab className="detailTab" food_id={this.id} />
-          <Reviews />
+          <DetailTab
+            className="detailTab"
+            food_id={this.id}
+            match={this.props.match.url}
+          />
         </div>
       </div>
     );
