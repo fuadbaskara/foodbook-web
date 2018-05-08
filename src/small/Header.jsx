@@ -48,20 +48,7 @@ class Header extends Component {
         <div
           className="display-inline margin-right-30"
           onSubmit={this.submitForm}
-        >
-          <input
-            type="text"
-            className="inputText border border-danger"
-            value={this.state.searchFoods}
-            onChange={this.handleChangeSearchFoods}
-          />
-          <button
-            className="button-border-sign textNavBar"
-            onClick={this.submitForm}
-          >
-            Search
-          </button>
-        </div>
+        />
         <div>
           <Link to="/">
             <img
