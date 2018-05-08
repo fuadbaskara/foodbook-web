@@ -9,19 +9,19 @@ class Login extends Component {
   constructor() {
     super();
     this.state = {
-      email: "",
+      username: "",
       password: "",
       isLogin: false
     };
-    this.handleChangeEmail = this.handleChangeEmail.bind(this);
+    this.handleChangeUsername = this.handleChangeUsername.bind(this);
     this.handleChangePassword = this.handleChangePassword.bind(this);
     this.submitForm = this.submitForm.bind(this);
   }
 
-  handleChangeEmail(event) {
+  handleChangeUsername(event) {
     let value = event.target.value;
     this.setState(() => {
-      return { email: value };
+      return { username: value };
     });
   }
 
@@ -34,10 +34,10 @@ class Login extends Component {
 
   async submitForm(e) {
     e.preventDefault();
-    console.log(this.state.email, this.state.password);
+    console.log(this.state.username, this.state.password);
     await axios
       .post(`${API_URL}/accounts/login`, {
-        email: this.state.email,
+        username: this.state.username,
         password: this.state.password
       })
       .then(res => {
@@ -58,13 +58,13 @@ class Login extends Component {
         <div className="Container">
           <Form onSubmit={this.submitForm}>
             <FormGroup>
-              <Label for="exampleEmail">Email</Label>
+              <Label for="exampleEmail">Username</Label>
               <Input
                 type="text"
                 name="userid"
                 placeholder="Insert Your User Name"
-                value={this.state.email}
-                onChange={this.handleChangeEmail}
+                value={this.state.username}
+                onChange={this.handleChangeUsername}
               />
             </FormGroup>
             <FormGroup>
