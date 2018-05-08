@@ -12,7 +12,7 @@ import {
 import axios from "axios";
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3030";
-const MAX_LENGTH = 70;
+const MAX_LENGTH = 50;
 
 class Home extends Component {
   constructor() {
@@ -86,12 +86,11 @@ class Home extends Component {
         >
           Search
         </button>
-        <Row className="homeProduct">
+        <Row className="homeProduct center">
           {this.state.foods &&
             this.state.foods.map((food, index) => (
-              <Col className="card-full" sm="4" key={index}>
+              <Col className="card-full border-black" sm="3" key={index}>
                 <CardImg
-                  width="50%"
                   height="50%"
                   src={food.photos[0][0]}
                   alt="Food Image"

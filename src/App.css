@@ -8,9 +8,14 @@ body {
   flex-direction: column;
 }
 
+.border-black {
+  border: solid black 1px;
+}
+
 .card-full {
   height: 320px;
-  width: 300px;
+  padding: 0px !important;
+  margin: 10px;
 }
 
 .paragraph:hover {

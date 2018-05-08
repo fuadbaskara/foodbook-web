@@ -4,8 +4,7 @@ import { Link, withRouter } from "react-router-dom";
 const StyleImage = {
   width: "22%",
   display: "flex",
-  justifyContent: "left",
-  marginTop: "-45px"
+  justifyContent: "left"
 };
 
 class Header extends Component {
@@ -22,10 +21,6 @@ class Header extends Component {
   render() {
     return (
       <div className="App-header fixed-top">
-        <div className="display-inline margin-right-30">
-          <input type="text" className="inputText border border-danger" />
-          <button className="button-border-sign textNavBar">Search</button>
-        </div>
         <div>
           <Link to="/">
             <img
