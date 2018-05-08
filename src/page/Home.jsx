@@ -11,7 +11,7 @@ import {
 } from "reactstrap";
 import axios from "axios";
 
-const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3030";
+const API_URL = "https://foodbook-api.herokuapp.com";
 const MAX_LENGTH = 70;
 
 class Home extends Component {
@@ -74,18 +74,21 @@ class Home extends Component {
   render() {
     return (
       <div className="margin-top-100">
+       <div className="searchText">
         <input
           type="text"
           className="inputText border border-danger"
           value={this.state.searchFoods}
           onChange={this.handleChangeSearchFoods}
-        />
-        <button
-          className="button-border-sign textNavBar"
-          onClick={this.submitForm}
-        >
-          Search
-        </button>
+          />
+          <Button
+           color="danger"
+           className="button-border-sign textNavBar"
+           onClick={this.submitForm}
+           >
+           Search
+           </Button>{' '}
+      </div>
         <Row className="homeProduct">
           {this.state.foods &&
             this.state.foods.map((food, index) => (
