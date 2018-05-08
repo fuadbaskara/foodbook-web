@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import axios from "axios";
-import { Redirect } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3030";
 
@@ -10,7 +10,8 @@ class Login extends Component {
     super();
     this.state = {
       email: "",
-      password: ""
+      password: "",
+      isLogin: false
     };
     this.handleChangeEmail = this.handleChangeEmail.bind(this);
     this.handleChangePassword = this.handleChangePassword.bind(this);
@@ -43,6 +44,7 @@ class Login extends Component {
         if (res.data.token) {
           window.localStorage.token = res.data.token;
           //redirect here
+          this.props.history.push(`/`);
         }
       })
       .catch(error => {
@@ -51,7 +53,6 @@ class Login extends Component {
   }
 
   render() {
-    // console.log("state", this.state);
     return (
       <div className="margin-top-100">
         <div className="Container">
@@ -86,4 +87,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default withRouter(Login);
