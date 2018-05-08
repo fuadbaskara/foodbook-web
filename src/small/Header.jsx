@@ -1,12 +1,8 @@
 import React, { Component } from "react";
-<<<<<<< HEAD
 import { Link } from "react-router-dom";
 import axios from "axios";
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3030";
-=======
-import { Link, withRouter } from "react-router-dom";
->>>>>>> b6224d38ec0e0d94b00df85fc467c546eed61c3b
 
 const StyleImage = {
   width: "22%",
@@ -16,21 +12,20 @@ const StyleImage = {
 };
 
 class Header extends Component {
-<<<<<<< HEAD
   constructor(){
     super();
-    this.state ={
+    this.state = {
       searchFoods: ""
-    }
+    };
     this.handleChangeSearchFoods = this.handleChangeSearchFoods.bind(this);
     this.submitForm = this.submitForm.bind(this);
   }
 
-  handleChangeSearchFoods(event){
+  handleChangeSearchFoods(event) {
     let value = event.target.value;
-    this.setState(() =>{
-      return { searchFoods : value }
-    })
+    this.setState(() => {
+      return { searchFoods: value };
+    });
   }
 
   async submitForm(event) {
@@ -46,76 +41,24 @@ class Header extends Component {
       });
   }
 
-
   render() {
-  console.log("state", this.state);
-  return (
-    <div className="App-header fixed-top">
-      <div className="display-inline margin-right-30"
-       onSubmit={this.submitForm}>
-         <input
-           type="text"
-           className="inputText border border-danger"
-           value={this.state.searchFoods}
-           onChange={this.handleChangeSearchFoods}/>
-         <button
-           className="button-border-sign textNavBar"
-           onClick={this.submitForm}>Search</button>
-      </div>
-        <Link
-          className="textNavBar text-right mx-2"
-          to="/">
-          Home
-        </Link>
-        <Link
-          className="textNavBar text-right mx-2"
-          to="/profile">
-          Profile
-        </Link>
-        <Link
-          className="textNavBar text-right mx-2"
-          to="/addfood">
-          Add Food
-        </Link>
-        <Link
-          className="border-sign textNavBar text-right mx-2"
-          to="/login">
-          Sign In
-        </Link>
-      <Link
-          className="border-sign textNavBar text-right mx-2"
-          to="/signup">
-          Sign Up
-      </Link>
-      <div>
-        <Link to="/">
-          <img
-            src={require(`../image/foodbook-logo.png`)}
-            alt="Foodbook Logo"
-            style={StyleImage}
-          />
-        </Link>
-      </div>
-    </div>
-  );
- }
-=======
-  constructor() {
-    super();
-    this.handleLogout = this.handleLogout.bind(this);
-  }
-  handleLogout = async event => {
-    localStorage.clear();
-
-    this.props.history.push("/login");
-  };
-  render() {
+    console.log("state", this.state);
     return (
       <div className="App-header fixed-top">
-        <div className="display-inline margin-right-30">
-          <input type="text" className="inputText border border-danger" />
-          <button className="button-border-sign textNavBar">Search</button>
+        <div>
+          <Link to="/">
+            <img
+              src={require(`../image/foodbook-logo.png`)}
+              alt="Foodbook Logo"
+              style={StyleImage}
+            />
+          </Link>
         </div>
+      <div className="App-header fixed-top">
+        <div
+          className="display-inline margin-right-30"
+          onSubmit={this.submitForm}
+        />
         <div>
           <Link to="/">
             <img
@@ -168,11 +111,9 @@ class Header extends Component {
               Sign Up
             </Link>
           </div>
-        )}
-      </div>
+        )
     );
-  }
->>>>>>> b6224d38ec0e0d94b00df85fc467c546eed61c3b
-}
+  
+
 
 export default withRouter(Header);
