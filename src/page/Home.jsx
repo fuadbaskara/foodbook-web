@@ -56,9 +56,9 @@ class Home extends Component {
         <Row className="homeProduct">
           {this.state.foods &&
             this.state.foods.map((food, index) => (
-              <Col sm="4" key={index}>
+              <Col className="card-full" sm="4" key={index}>
                 <CardImg
-                  width="25%"
+                  width="50%"
                   height="50%"
                   src={food.photos[0][0]}
                   alt="Food Image"

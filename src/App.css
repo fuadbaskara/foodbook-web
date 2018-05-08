@@ -8,6 +8,11 @@ body {
   flex-direction: column;
 }
 
+.card-full {
+  height: 320px;
+  width: 300px;
+}
+
 .paragraph:hover {
   text-decoration: none;
   color: #5a6268;
@@ -53,7 +58,6 @@ body {
 
 .footer {
   border-top: solid #ccc 2px;
-  margin-top: 20px;
   padding: 25px;
   width: 100%;
   height: 8px;
@@ -171,7 +175,7 @@ body {
 }
 
 .homeProduct {
-  margin-top: 10px;
+  margin: 0 !important;
   padding: 10px;
 }
 
