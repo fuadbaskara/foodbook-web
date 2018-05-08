@@ -131,6 +131,7 @@ body {
   border-radius: 10px;
   background: red;
   font-family: Comfortaa;
+  background-color: #bb1212;
 }
 
 .button-border-sign:hover {
@@ -183,7 +184,7 @@ body {
   color: white;
   text-align: right;
   font-family: Comfortaa;
-  font-size: 13px;
+  font-size: 1em;
 }
 
 .textNavBar:hover {
