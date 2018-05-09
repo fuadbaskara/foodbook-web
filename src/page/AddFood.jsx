@@ -23,7 +23,7 @@ const StyleH3 = {
 
 /*global google*/
 const API_KEY = "AGPirPvMfTs2BMOi8EPmaz";
-const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3030";
+const API_URL = "http://localhost:3030";
 
 const MapWithASearchBox = compose(
   withProps({
@@ -136,7 +136,7 @@ class AddFood extends Component {
       name: "",
       overview: "",
       price: "",
-      location: "",
+      detailLocation: "",
       city: "",
       street: "",
       photos: [],
@@ -216,17 +216,18 @@ class AddFood extends Component {
         name: this.state.inputFoodName,
         overview: this.state.inputDescriptionMenu,
         price: this.state.inputPrice,
-        location: "",
+        detailLocation: this.state.inputLocation,
         city: this.state.inputCity,
         street: this.state.inputAddress,
-        photos: this.state.photos
+        photos: this.state.photos,
+        token: window.localStorage.token
       })
       .then(res => {
         const id = res.data.data.id;
-        // console.log(res);
         this.props.history.push(`/food/${id}`);
       })
       .catch(error => {
+        alert("res");
         console.log(error.res);
       });
   }
@@ -260,10 +261,11 @@ class AddFood extends Component {
                 DESCRIPTION MENU
               </Label>
               <Col sm={10}>
-                <Input
+                <textarea
                   type="text"
                   id="menus"
                   name="menus"
+                  className="textarea-input"
                   placeholder="Insert Your Menu"
                   value={this.state.inputDescriptionMenu}
                   onChange={this.handleChangeDescriptionMenu}
@@ -273,7 +275,7 @@ class AddFood extends Component {
             {/*Detail Location input*/}
             <FormGroup row>
               <Label htmlFor="exampleAddress" sm={2}>
-                res ADDRESS
+                ADDRESS
               </Label>
               <Col sm={10}>
                 <Input
@@ -305,17 +307,18 @@ class AddFood extends Component {
 
             <FormGroup row>
               <Label htmlFor="exampleLocation" sm={2}>
-                LOCATION
+                DETAIL LOCATION
               </Label>
               <Col sm={10}>
-                <MapWithASearchBox />
-                <Input
+                {/*<MapWithASearchBox />*/}
+                <textarea
+                  className="textarea-input"
                   type="text"
                   id="price"
                   name="price"
-                  placeholder="Insert Price Menu"
-                  value={this.state.inputPrice}
-                  onChange={this.handleChangePrice}
+                  placeholder="Insert Detail Location of Your Food"
+                  value={this.state.inputLocation}
+                  onChange={this.handleChangeLocation}
                 />
               </Col>
             </FormGroup>
