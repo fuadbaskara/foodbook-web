@@ -34,7 +34,7 @@ class Login extends Component {
 
   async submitForm(e) {
     e.preventDefault();
-    console.log(this.state.username, this.state.password);
+    // console.log(this.state.username, this.state.password);
     await axios
       .post(`${API_URL}/accounts/login`, {
         username: this.state.username,

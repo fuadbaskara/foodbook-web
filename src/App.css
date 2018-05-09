@@ -37,8 +37,7 @@ body {
 }
 
 .pb-cmnt-container {
-  font-family: Lato;
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 .pb-cmnt-textarea {
@@ -67,6 +66,7 @@ body {
 }
 
 .footer {
+  margin-top: 100px;
   border-top: solid #ccc 2px;
   padding: 25px;
   width: 100%;
@@ -81,6 +81,18 @@ body {
 .detailTab {
   display: flex;
   justify-content: space-around;
+}
+
+.detail-tabs {
+  min-height: 200px;
+}
+
+.detail-tabs a {
+  color: hsl(0, 82%, 40%);
+}
+
+.detail-tabs a:hover {
+  color: hsl(0, 82%, 20%);
 }
 
 .center {

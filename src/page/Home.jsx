@@ -27,7 +27,7 @@ class Home extends Component {
   }
 
   getIndex(index) {
-    console.log(index);
+    // console.log(index);
     this.setState(() => {
       return {
         index: index
@@ -43,7 +43,7 @@ class Home extends Component {
       })
       .then(res => {
         this.setState({ foods: res.data });
-        console.log(this.state.foods);
+        // console.log(this.state.foods);
       });
   }
 
@@ -103,7 +103,7 @@ class Home extends Component {
                     <div>
                       {`${food.overview.substring(0, MAX_LENGTH)} `}
                       <Link to={`/food/${food.id}`} className="paragraph">
-                        more...
+                        Read more...
                       </Link>
                     </div>
                   ) : (

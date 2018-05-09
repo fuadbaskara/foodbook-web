@@ -7,17 +7,9 @@ class Food extends Component {
     this.id = this.props.match.params.id;
   }
 
-  // componentWillMount() {
-  //   console.log(this.id);
-  // }
-
   render() {
     return (
       <div>
-        <br />
-        <br />
-        <br />
-        <br />
         <div>
           <DetailTab
             className="detailTab"
