@@ -39,19 +39,8 @@ class Carousels extends Component {
     // this.getPhotos = this.getPhotos.bind(this);
   }
 
-  // async componentWillMount() {
-  //   await this.getPhotos();
-  //   console.log(this.state.photos);
-  // }
-  //
-  // async getPhotos() {
-  //   this.photos = await this.props.photos;
-  //   this.setState({ photos: this.photos });
-  //   console.log(this.photos);
-  // }
-
   onExiting() {
-    this.animating = true;
+    this.animating = false;
   }
 
   onExited() {
@@ -59,7 +48,7 @@ class Carousels extends Component {
   }
 
   next() {
-    if (this.animating) return;
+    return;
     const nextIndex =
       this.state.activeIndex === items.length - 1
         ? 0
@@ -68,7 +57,7 @@ class Carousels extends Component {
   }
 
   previous() {
-    if (this.animating) return;
+    return;
     const nextIndex =
       this.state.activeIndex === 0
         ? items.length - 1
@@ -120,16 +109,6 @@ class Carousels extends Component {
             onClickHandler={this.goToIndex}
           />
           {slides}
-          {/*<CarouselControl
-            direction="prev"
-            directionText="Previous"
-            onClickHandler={this.previous}
-          />
-         <CarouselControl
-            direction="next"
-            directionText="Next"
-            onClickHandler={this.next}
-          />*/}
         </Carousel>
       );
     } else {
