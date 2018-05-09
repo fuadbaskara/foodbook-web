@@ -91,7 +91,11 @@ class Home extends Component {
         <Row className="homeProduct center">
           {this.state.foods &&
             this.state.foods.map((food, index) => (
-              <Col className="card-full border-black" sm="3" key={index}>
+              <Col
+                key={`${food.name}-${index}`}
+                className="card-full border-black"
+                sm="3"
+              >
                 <CardImg
                   height="50%"
                   src={food.photos[0][0]}
