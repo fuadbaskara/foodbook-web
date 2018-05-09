@@ -19,7 +19,6 @@ class Home extends Component {
     super();
     this.state = {
       foods: [],
-      searchFoods: ""
     };
     this.getIndex = this.getIndex.bind(this);
     this.handleChangeSearchFoods = this.handleChangeSearchFoods.bind(this);
@@ -69,6 +68,7 @@ class Home extends Component {
         this.setState({ foods: res.data });
       });
   }
+
 
   render() {
     return (
