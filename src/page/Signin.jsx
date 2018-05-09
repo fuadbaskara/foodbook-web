@@ -82,7 +82,7 @@ class Signin extends Component {
       <div>
         <h1 style={StyleH1}>Welcome to FoodBook.com</h1>
         <h3 style={StyleH3}>please, log in to access your account... !</h3>
-        <div className="margin-top-100">
+        <div className="margin-top-60">
           <div className="Container">
             <Form onSubmit={this.submitForm}>
               <FormGroup>
@@ -106,19 +106,19 @@ class Signin extends Component {
                 />
               </FormGroup>
               <Button outline color="danger" size="lg" block>
-                Submit
+                Log In
               </Button>
             </Form>
           </div>
-        </div>
-        <div style={FlexContainer}>
-          <div>
-            <h6 style={StyleH6}>Don't have an account ?</h6>
-          </div>
-          <div>
-            <Link to="/signup">
-              <h6 style={StyleH6}>Register Now !</h6>
-            </Link>
+          <div style={FlexContainer}>
+            <div>
+              <h6 style={StyleH6}>Don't have an account ?</h6>
+            </div>
+            <div>
+              <Link to="/signup">
+                <h6 style={StyleH6}>Sign Up Now !</h6>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
