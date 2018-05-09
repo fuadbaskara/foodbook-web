@@ -37,7 +37,7 @@ const Team = () => (
             <CardImg top width="100%" src={require(`../image/Team/miftah.jpg`)} alt="Miftah Faris" />
             <CardBody>
               <CardTitle style={CardStyle}>Miftah Faris (PM) </CardTitle>
-              <CardText>Back-End Developer</CardText>
+              <CardText>Full-Stack Developer</CardText>
             </CardBody>
           </Card>
           </Col>
@@ -56,7 +56,7 @@ const Team = () => (
             <CardImg top width="100%" src={require(`../image/Team/yanuar.jpg`)} alt="Yanuar Yudhistira" />
             <CardBody>
               <CardTitle style={CardStyle}>Yanuar Yudhistira</CardTitle>
-              <CardText>Back-Stack Developer</CardText>
+              <CardText>Back-End Developer</CardText>
             </CardBody>
             </Card>
           </Col>
