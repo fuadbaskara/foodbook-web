@@ -67,8 +67,10 @@ class Signin extends Component {
       .then(res => {
         console.log(res.data.id);
         if (res.data.token) {
+          console.log(res.data);
           window.localStorage.id = res.data.id;
           window.localStorage.token = res.data.token;
+          window.localStorage.userId = res.data.userId;
           //redirect here
           this.setState({isValidPassword: true});
           this.props.history.push(`/`);

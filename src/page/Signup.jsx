@@ -1,8 +1,10 @@
 import React from "react";
-import { Form } from "reactstrap";
+import { Form, FormGroup, Label, Button, Col } from "reactstrap";
 import { withRouter } from "react-router-dom";
+import ReactFilestack from "filestack-react";
 import axios from "axios";
 
+const API_KEY = "AGPirPvMfTs2BMOi8EPmaz";
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3030";
 
 const StyleH1 = {
@@ -47,7 +49,8 @@ class Signup extends React.Component {
       lastName: "",
       email: "",
       username: "",
-      password: ""
+      password: "",
+      profile_picture: ""
     };
     this.handleChangeFirstName = this.handleChangeFirstName.bind(this);
     this.handleChangeLastName = this.handleChangeLastName.bind(this);
@@ -55,6 +58,15 @@ class Signup extends React.Component {
     this.handleChangeUserName = this.handleChangeUserName.bind(this);
     this.handleChangePassword = this.handleChangePassword.bind(this);
     this.submitForm = this.submitForm.bind(this);
+  }
+
+  handleUpload(response) {
+    if (response.filesUploaded[0].url) {
+      this.setState({
+        profile_picture: response.filesUploaded[0].url
+      });
+    }
+    console.log(this.state.profile_picture);
   }
 
   handleChangeFirstName(event) {
@@ -104,7 +116,8 @@ class Signup extends React.Component {
         lastName: this.state.lastName,
         email: this.state.email,
         username: this.state.username,
-        password: this.state.password
+        password: this.state.password,
+        profile_picture: this.state.profile_picture
       })
       .then(res => {
         console.log(res);
@@ -177,16 +190,17 @@ class Signup extends React.Component {
                 value={this.state.password}
                 onChange={this.handleChangePassword}
               />
-
-              {/*<Button
-            style={inputSubmit}
-            color="danger"
-            block
-            size="lg"
-            onClick={this.submitForm}
-          >
-            Submit
-          </Button>*/}
+              <ReactFilestack
+                apikey={API_KEY}
+                onSuccess={response => this.handleUpload(response)}
+                render={({ onPick }) => (
+                  <FormGroup row className="float-right">
+                    <Button outline color="danger" size="sm" onClick={onPick}>
+                      Upload Your Photo
+                    </Button>
+                  </FormGroup>
+                )}
+              />
 
               <input
                 type="submit"

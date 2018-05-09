@@ -6,6 +6,10 @@ body {
   float: left;
 }
 
+.float-right {
+  float: right;
+}
+
 .img {
   height: 360px;
   object-fit: cover;
@@ -13,7 +17,7 @@ body {
 
 .textarea-input {
   width: 100%;
-  height: 200px;
+  height: 100px;
   border-radius: 10px;
 }
 
@@ -121,6 +125,11 @@ body {
   justify-content: center;
 }
 
+.display-flex-end {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .justify {
   display: flex;
   justify-content: space-between;
@@ -205,9 +214,6 @@ body {
   color: #000;
 }
 
-.homeProduct {
-}
-
 .inputText {
   border-radius: 10px;
   width: 50%;
@@ -237,10 +243,6 @@ body {
 
 .card-img {
   object-fit: cover;
-}
-
-.searchText {
-  text-align: center;
 }
 
 @keyframes App-logo-spin {

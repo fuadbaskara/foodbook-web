@@ -1,6 +1,16 @@
 import React, { Component } from "react";
-import { Card, CardImg, CardBody, CardTitle } from "reactstrap";
+import {
+  Row,
+  Col,
+  Card,
+  CardImg,
+  CardText,
+  CardBody,
+  CardTitle
+} from "reactstrap";
 import axios from "axios";
+
+import FoodUserThumbnail from "../medium/FoodUserThumbnail";
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3030";
 
@@ -12,60 +22,82 @@ class Profile extends Component {
       lastName: "",
       username: "",
       email: "",
-      photo: ""
+      photo: "",
+      userFoods: []
     };
+  }
+
+  getDataFood() {
+    axios
+      .get(`${API_URL}/foods`)
+      .then(res => {
+        res.data.data.map(dataId => {
+          if (dataId._account == window.localStorage.userId) {
+            this.setState({
+              userFoods: this.state.userFoods.concat([dataId])
+            });
+          }
+        });
+        console.log(this.state.userFoods);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   getDataAccount() {
     if (window.localStorage.id) {
-      axios.get(`${API_URL}/accounts/${window.localStorage.id}`).then(res => {
-        // res.data.data.map(food => {
-        //   if (food.id == window.localStorage.id) {
-        //     console.log(food);
-        //   }
-        // });
-        this.setState({
-          firstName: res.data.data.firstName,
-          lastName: res.data.data.lastName,
-          username: res.data.data.username,
-          email: res.data.data.email,
-          photo: res.data.data.photo
+      axios
+        .get(`${API_URL}/accounts/${window.localStorage.id}`)
+        .then(res => {
+          this.setState({
+            firstName: res.data.data.firstName,
+            lastName: res.data.data.lastName,
+            username: res.data.data.username,
+            email: res.data.data.email,
+            profile_picture: res.data.data.profile_picture
+          });
+        })
+        .catch(err => {
+          console.log(err);
         });
-        console.log(res.data.data);
-      });
     }
   }
 
   componentWillMount() {
     this.getDataAccount();
+    this.getDataFood();
   }
 
   render() {
     return (
       <div className="margin-top-100">
-        <div>
-          <img
-            src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180"
-            alt=""
-          />
-          <span className="large-font">{` ${this.state.firstName}
-          ${this.state.lastName}`}</span>
-          <span>{this.state.email}</span>
-        </div>
-        {/*<Card>
-          <CardImg
-            width="100%"
-            src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180"
-            alt="User Avatar Image"
-          />
-          <CardBody>
-            <CardTitle>
-              FullName:
-              {` ${this.state.firstName}
-              ${this.state.lastName}`}
-            </CardTitle>
-          </CardBody>
-        </Card>*/}
+        <Row>
+          <Col>
+            <div>
+              <Card style={{ width: "250px", marginTop: 10 }}>
+                <CardImg
+                  top
+                  width="50%"
+                  src={this.state.profile_picture}
+                  alt="Card image cap"
+                />
+                <CardBody>
+                  <CardTitle>
+                    {`${this.state.firstName} ${this.state.lastName}`}
+                  </CardTitle>
+                  <CardText>{this.state.email}</CardText>
+                </CardBody>
+              </Card>
+            </div>
+          </Col>
+        </Row>
+        <Row className="homeProduct center">
+          {this.state.userFoods &&
+            this.state.userFoods.map((dataId, index) => (
+              <FoodUserThumbnail key={index} index={index} dataId={dataId} />
+            ))}
+        </Row>
       </div>
     );
   }

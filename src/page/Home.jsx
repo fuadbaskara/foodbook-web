@@ -1,12 +1,5 @@
 import React, { Component } from "react";
-import {
-  Row,
-  Button,
-  InputGroup,
-  InputGroupAddon,
-  InputGroupText,
-  Input
-} from "reactstrap";
+import { Row, InputGroup, InputGroupAddon, Input } from "reactstrap";
 import axios from "axios";
 
 import FoodThumbnail from "../medium/FoodThumbnail";
@@ -17,7 +10,7 @@ class Home extends Component {
   constructor() {
     super();
     this.state = {
-      foods: [],
+      foods: []
     };
     this.getIndex = this.getIndex.bind(this);
     this.handleChangeSearchFoods = this.handleChangeSearchFoods.bind(this);
@@ -39,7 +32,7 @@ class Home extends Component {
       })
       .then(res => {
         this.setState({ foods: res.data });
-        // console.log(this.state.foods);
+        console.log(this.state.foods);
       });
   }
 
@@ -61,11 +54,10 @@ class Home extends Component {
       });
   }
 
-
   render() {
     return (
       <div>
-        <div className="carousels">
+        <div className="center">
           <InputGroup className="inputText">
             <Input
               className=" border border-danger"
