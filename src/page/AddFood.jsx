@@ -14,7 +14,7 @@ import { Link, withRouter } from "react-router-dom";
 import { SearchBox } from "react-google-maps/lib/components/places/SearchBox";
 
 const StyleH3 = {
-  marginTop: "120px",
+  marginTop: "30px",
   fontFamily: "Comfortaa",
   display: "flex",
   justifyContent: "center",
