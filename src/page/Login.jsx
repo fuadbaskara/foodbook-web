@@ -11,7 +11,8 @@ class Login extends Component {
     this.state = {
       username: "",
       password: "",
-      isLogin: false
+      isLogin: false,
+      isValidPassword: true
     };
     this.handleChangeUsername = this.handleChangeUsername.bind(this);
     this.handleChangePassword = this.handleChangePassword.bind(this);
@@ -44,7 +45,10 @@ class Login extends Component {
         if (res.data.token) {
           window.localStorage.token = res.data.token;
           //redirect here
+          this.setState({ isValidPassword: true });
           this.props.history.push(`/`);
+        } else {
+          this.setState({ isValidPassword: false });
         }
       })
       .catch(error => {
@@ -68,7 +72,14 @@ class Login extends Component {
               />
             </FormGroup>
             <FormGroup>
-              <Label htmlFor="examplePassword">Password:</Label>
+              <Label htmlFor="examplePassword">Password:</Label>&nbsp;&nbsp;
+              {this.state.isValidPassword ? (
+                <span />
+              ) : (
+                <span className="invalid-pas-notif">
+                  (Please enter a valid password)
+                </span>
+              )}
               <Input
                 type="password"
                 name="password"
