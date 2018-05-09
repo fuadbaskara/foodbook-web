@@ -1,10 +1,12 @@
 import React from "react";
+import { Route, Link } from "react-router-dom";
 import axios from "axios";
+
 import Carousels from "./Carousels.jsx";
 import Overview from "./Overview.jsx";
 import Locations from "./Location.jsx";
 import Reviews from "./Reviews.jsx";
-import { Route, Link } from "react-router-dom";
+
 const API_URL =
   process.env.REACT_APP_API_URL || "https://foodbook-api.herokuapp.com";
 
@@ -21,7 +23,7 @@ export default class DetailTab extends React.Component {
       detailfood: []
     };
     this.match = this.props.match;
-    console.log(this.match);
+    // console.log(this.match);
     this.toggleOverview = this.toggleOverview.bind(this);
     this.toggleMenu = this.toggleMenu.bind(this);
     this.toggleLocation = this.toggleLocation.bind(this);
@@ -31,7 +33,7 @@ export default class DetailTab extends React.Component {
 
   async getData() {
     await axios.get(`${API_URL}/foods/${this.id}`).then(res => {
-      console.log(res);
+      // console.log(res);
       let responseData = res.data.data;
       let data = {
         ...responseData,
@@ -50,10 +52,10 @@ export default class DetailTab extends React.Component {
 
   async componentWillMount() {
     await this.getData();
-    console.log(this.props);
-    console.log(this.state.detailfood);
-    console.log(this.state.detailfood.photos);
-    console.log(process.env.REACT_APP_API_URL);
+    // console.log(this.props);
+    // console.log(this.state.detailfood);
+    // console.log(this.state.detailfood.photos);
+    // console.log(process.env.REACT_APP_API_URL);
   }
 
   toggleOverview() {
@@ -103,12 +105,12 @@ export default class DetailTab extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id="detail-tab" className="detail-tab">
         <div className="carousels">
           <Carousels photos={this.state.detailfood.photos} />
         </div>
         <br />
-        <div>
+        <div id="detail-tabs" className="detail-tabs">
           <ul className="nav nav-tabs nav-justified">
             <li className="nav-item">
               <Link to={`${this.match}/overview`}>

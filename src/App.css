@@ -18,9 +18,20 @@ body {
 }
 
 .card-full {
-  height: 320px;
-  padding: 0px !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
   margin: 10px;
+}
+
+.btn-secondary {
+  background-color: hsl(33, 100%, 52%);
+  border-style: none;
+}
+
+.btn-secondary:hover,
+.btn-secondary:active {
+  background-color: hsl(33, 100%, 30%);
+  border-style: none;
 }
 
 .paragraph:hover {
@@ -37,8 +48,7 @@ body {
 }
 
 .pb-cmnt-container {
-  font-family: Lato;
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 .pb-cmnt-textarea {
@@ -67,6 +77,7 @@ body {
 }
 
 .footer {
+  margin-top: 100px;
   border-top: solid #ccc 2px;
   padding: 25px;
   width: 100%;
@@ -81,6 +92,18 @@ body {
 .detailTab {
   display: flex;
   justify-content: space-around;
+}
+
+.detail-tabs {
+  min-height: 200px;
+}
+
+.detail-tabs a {
+  color: hsl(0, 82%, 40%);
+}
+
+.detail-tabs a:hover {
+  color: hsl(0, 82%, 20%);
 }
 
 .center {
@@ -111,10 +134,6 @@ body {
 
 .margin-top-70 {
   margin-top: 70px;
-}
-
-.margin-top-100 {
-  margin-top: 100px;
 }
 
 .addFoodForm {
@@ -172,8 +191,6 @@ body {
 }
 
 .homeProduct {
-  margin: 0 !important;
-  padding: 10px;
 }
 
 .inputText {

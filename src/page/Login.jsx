@@ -34,7 +34,7 @@ class Login extends Component {
 
   async submitForm(e) {
     e.preventDefault();
-    console.log(this.state.username, this.state.password);
+    // console.log(this.state.username, this.state.password);
     await axios
       .post(`${API_URL}/accounts/login`, {
         username: this.state.username,
@@ -54,31 +54,31 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="margin-top-100">
+      <div>
         <div className="Container">
           <Form onSubmit={this.submitForm}>
             <FormGroup>
-              <Label for="exampleEmail">Username</Label>
+              <Label for="exampleEmail">Username:</Label>
               <Input
                 type="text"
                 name="userid"
-                placeholder="Insert Your User Name"
+                placeholder="your username"
                 value={this.state.username}
                 onChange={this.handleChangeUsername}
               />
             </FormGroup>
             <FormGroup>
-              <Label htmlFor="examplePassword">Password</Label>
+              <Label htmlFor="examplePassword">Password:</Label>
               <Input
                 type="password"
                 name="password"
-                placeholder="Insert Your Password"
+                placeholder="Your Password"
                 value={this.state.password}
                 onChange={this.handleChangePassword}
               />
             </FormGroup>
             <Button outline color="danger" size="lg" block>
-              Submit
+              Login
             </Button>
           </Form>
         </div>

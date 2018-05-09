@@ -2,7 +2,7 @@ import React from "react";
 import { Card, CardImg } from "reactstrap";
 
 const Profile = () => (
-  <div className="margin-top-100">
+  <div>
     <Card className="containerProfile">
       <CardImg
         className="rounded-circle"
