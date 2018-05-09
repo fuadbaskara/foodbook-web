@@ -106,7 +106,7 @@ class Login extends Component {
               />
             </FormGroup>
             <Button outline color="danger" size="lg" block>
-              Submit
+              Log In
             </Button>
           </Form>
         </div>
@@ -117,7 +117,7 @@ class Login extends Component {
           </div>
           <div>
             <Link to="/signup">
-            <h6 style={StyleH6}>Register Now !</h6>
+            <h6 style={StyleH6}>Sign Up Now !</h6>
             </Link>
           </div>
         </div>

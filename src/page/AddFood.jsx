@@ -224,6 +224,8 @@ class AddFood extends Component {
   render() {
     console.log("state", this.state);
     return (
+      // <div>
+      //   <h2>Add Food</h2>
       <div className="margin-top-100">
         <div>
           <Form onSubmit={this.submitForm} className="addFoodForm">
@@ -359,6 +361,7 @@ class AddFood extends Component {
           </Form>
         </div>
       </div>
+      // </div>
     );
   }
 }

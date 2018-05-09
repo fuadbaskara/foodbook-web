@@ -8,6 +8,7 @@ const StyleH1 = {
     fontFamily: "Comfortaa",
     display: "flex",
     justifyContent: "center",
+    color: "blue",
 }
 
 const ContainerStyle={
@@ -29,7 +30,7 @@ const CardStyle = {
 
 const Team = () => (
     <div>
-      <h1 style={StyleH1}>Team Member :</h1>
+      <h1 style={StyleH1}>CHARIZARD-BLUE MEMBER</h1>
       <Container style={ContainerStyle}>
         <Row>
           <Col sm="4">
