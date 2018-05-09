@@ -52,10 +52,7 @@ export default class DetailTab extends React.Component {
 
   async componentWillMount() {
     await this.getData();
-    // console.log(this.props);
-    // console.log(this.state.detailfood);
-    // console.log(this.state.detailfood.photos);
-    // console.log(process.env.REACT_APP_API_URL);
+    console.log(this.state.detailfood);
   }
 
   toggleOverview() {
@@ -107,42 +104,36 @@ export default class DetailTab extends React.Component {
     return (
       <div id="detail-tab" className="detail-tab">
         <div className="carousels">
-          <Carousels photos={this.state.detailfood.photos} a="a" />
+          <Carousels photos={this.state.detailfood.photos} />
         </div>
         <br />
         <div id="detail-tabs" className="detail-tabs">
           <ul className="nav nav-tabs nav-justified">
             <li className="nav-item">
-              <Link to={`${this.match}/overview`}>
-                <a onClick={this.toggleOverview}>
-                  {this.state.overviewTab === true ? (
-                    <a className="nav-link active">Overview</a>
-                  ) : (
-                    <a className="nav-link">Overview</a>
-                  )}
-                </a>
+              <Link onClick={this.toggleOverview} to={`${this.match}/overview`}>
+                {this.state.overviewTab === true ? (
+                  <a className="nav-link active">Overview</a>
+                ) : (
+                  <a className="nav-link">Overview</a>
+                )}
               </Link>
             </li>
             <li className="nav-item">
-              <Link to={`${this.match}/location`}>
-                <a onClick={this.toggleLocation}>
-                  {this.state.locationTab === true ? (
-                    <a className="nav-link active">Location</a>
-                  ) : (
-                    <a className="nav-link">Location</a>
-                  )}
-                </a>
+              <Link onClick={this.toggleLocation} to={`${this.match}/location`}>
+                {this.state.locationTab === true ? (
+                  <a className="nav-link active">Location</a>
+                ) : (
+                  <a className="nav-link">Location</a>
+                )}
               </Link>
             </li>
             <li className="nav-item">
-              <Link to={`${this.match}/reviews`}>
-                <a onClick={this.toggleReview}>
-                  {this.state.reviewTab === true ? (
-                    <a className="nav-link active">Reviews</a>
-                  ) : (
-                    <a className="nav-link">Reviews</a>
-                  )}
-                </a>
+              <Link onClick={this.toggleReview} to={`${this.match}/reviews`}>
+                {this.state.reviewTab === true ? (
+                  <a className="nav-link active">Reviews</a>
+                ) : (
+                  <a className="nav-link">Reviews</a>
+                )}
               </Link>
             </li>
           </ul>

@@ -2,6 +2,10 @@ body {
   margin-top: 100px;
 }
 
+.float-left {
+  float: left;
+}
+
 .img {
   width: 640px;
   height: 360px;
@@ -177,6 +181,11 @@ body {
 
 .border-sign {
   padding: 8px 8px 3px 8px;
+}
+
+.large-font {
+  font-size: 100px;
+  font-family: Comfortaa;
 }
 
 .border-sign:hover {
