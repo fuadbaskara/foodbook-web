@@ -3,12 +3,22 @@ import { Form } from "reactstrap";
 import { withRouter } from "react-router-dom";
 import axios from "axios";
 
+
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3030";
+
+const StyleH1 = {
+  marginTop: "130px",
+  fontFamily: "Lobster, cursive",
+  display: "flex",
+  justifyContent: "center",
+}
+
 
 const InputStyle = {
   width: "100%",
   padding: "12px 20px",
   margin: "8px 0",
+  marginTop: "-10px",
   display: "inlineBlock",
   border: "solid black 2px",
   borderRadius: "4px",
@@ -111,7 +121,9 @@ class Signup extends React.Component {
 
   render() {
     return (
-      <div className="margin-top-100">
+      <div>
+      <h1 style={StyleH1}>SIGN UP FoodBook.com</h1>
+      <div className="margin-top-60">
         <div className="Container" style={divStyle}>
           <Form onSubmit={this.submitForm}>
             <label htmlFor="fname">First Name</label>
@@ -187,6 +199,7 @@ class Signup extends React.Component {
             />
           </Form>
         </div>
+      </div>
       </div>
     );
   }
