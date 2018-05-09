@@ -1,11 +1,10 @@
 import React from "react";
 import axios from "axios";
 import Carousels from "./Carousels.jsx";
-import Submenu from "./Submenu.jsx";
 import Overview from "./Overview.jsx";
 import Locations from "./Location.jsx";
 import Reviews from "./Reviews.jsx";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 const API_URL =
   process.env.REACT_APP_API_URL || "https://foodbook-api.herokuapp.com";
 

@@ -1,11 +1,7 @@
 import "../App.css";
-import React, { Component } from "react";
+import React from "react";
 
 export default class Reviews extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div>
