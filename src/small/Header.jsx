@@ -10,13 +10,21 @@ const StyleImage = {
 class Header extends Component {
   constructor() {
     super();
-    this.handleLogout = this.handleLogout.bind(this);
+    this.state = {
+      login: false
+    };
   }
+
+  componentWillMount = () => {
+    if (localStorage.token) this.setState({ login: true });
+  };
+
   handleLogout = async event => {
     localStorage.clear();
     alert("You're logged out");
     this.props.history.push("/");
   };
+
   render() {
     return (
       <div className="App-header fixed-top">
@@ -58,12 +66,6 @@ class Header extends Component {
           <div>
             <Link className="border-sign textNavBar text-right mx-2" to="/">
               Home
-            </Link>
-            <Link
-              className="border-sign textNavBar text-right mx-2"
-              to="/login"
-            >
-              Add Food
             </Link>
             <Link className="menu-sign textNavBar text-right mx-2" to="/login">
               Login
