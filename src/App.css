@@ -18,9 +18,20 @@ body {
 }
 
 .card-full {
-  height: 320px;
-  padding: 0px !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
   margin: 10px;
+}
+
+.btn-secondary {
+  background-color: hsl(33, 100%, 52%);
+  border-style: none;
+}
+
+.btn-secondary:hover,
+.btn-secondary:active {
+  background-color: hsl(33, 100%, 30%);
+  border-style: none;
 }
 
 .paragraph:hover {
@@ -125,10 +136,6 @@ body {
   margin-top: 70px;
 }
 
-.margin-top-100 {
-  margin-top: 100px;
-}
-
 .addFoodForm {
   margin-top: 40px;
   margin-left: 15%;
@@ -184,8 +191,6 @@ body {
 }
 
 .homeProduct {
-  margin: 0 !important;
-  padding: 10px;
 }
 
 .inputText {

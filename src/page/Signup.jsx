@@ -111,7 +111,7 @@ class Signup extends React.Component {
 
   render() {
     return (
-      <div className="margin-top-100">
+      <div>
         <div className="Container" style={divStyle}>
           <Form onSubmit={this.submitForm}>
             <label htmlFor="fname">First Name</label>

@@ -225,7 +225,7 @@ class AddFood extends Component {
 
   render() {
     return (
-      <div className="margin-top-100">
+      <div>
         <div>
           <Form onSubmit={this.submitForm} className="addFoodForm">
             {/*Foodname Input*/}

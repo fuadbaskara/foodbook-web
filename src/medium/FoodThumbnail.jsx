@@ -12,7 +12,7 @@ import {
 const MAX_LENGTH = 50;
 
 const FoodThumbnail = ({ food, index }) => (
-  <Col className="card-full border-black" sm="3">
+  <Col xs={11} sm={5} md={4} lg={3} className="card-full border-black">
     <CardImg height="50%" src={food.photos[0][0]} alt="Food Image" />
     <CardBody>
       <CardTitle>{food.name}</CardTitle>

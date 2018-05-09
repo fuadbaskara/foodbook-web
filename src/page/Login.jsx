@@ -54,7 +54,7 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="margin-top-100">
+      <div>
         <div className="Container">
           <Form onSubmit={this.submitForm}>
             <FormGroup>
