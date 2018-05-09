@@ -33,9 +33,11 @@ class Carousels extends Component {
       activeIndex: 0,
       image: []
     };
+
     this.photos = this.props.photos;
-    console.log(props.photos);
-    console.log(this.props.photos);
+    // console.log(props.photos);
+    // console.log(this.props.photos);
+
     this.next = this.next.bind(this);
     this.previous = this.previous.bind(this);
     this.goToIndex = this.goToIndex.bind(this);
@@ -76,9 +78,11 @@ class Carousels extends Component {
 
   render() {
     const { activeIndex } = this.state;
-    if (this.props.photos) {
-      console.log(this.props.photos);
-    }
+
+    // if (this.props.photos) {
+    //   console.log(this.props.photos);
+    // }
+
     const slides = items.map(item => {
       return (
         <CarouselItem

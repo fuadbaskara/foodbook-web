@@ -8,8 +8,8 @@ import Profile from "./page/Profile";
 import Signup from "./page/Signup";
 import Food from "./page/Food";
 import AddFood from "./page/AddFood";
-import Tech from "./small/tech";
-import Team from "./small/team";
+import Tech from "./page/Tech";
+import Team from "./page/Team";
 
 import "./App.css";
 

@@ -5,7 +5,6 @@ import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const StyleH1 = {
-  marginTop: "100px",
   display: "flex",
   justifyContent: "center",
   fontFamily: "Lobster, cursive"
@@ -19,8 +18,7 @@ const StyleH3 = {
 
 const FlexContainer = {
   display: "flex",
-  justifyContent: "center",
-  marginTop: "10px"
+  justifyContent: "center"
 };
 
 const StyleH6 = {
@@ -61,7 +59,7 @@ class Signin extends Component {
     e.preventDefault();
     console.log(this.state.username, this.state.password);
     await axios
-      .post(`${API_URL}/accounts/Signin`, {
+      .post(`${API_URL}/accounts/signin`, {
         username: this.state.username,
         password: this.state.password
       })
@@ -84,7 +82,7 @@ class Signin extends Component {
       <div>
         <h1 style={StyleH1}>Welcome to FoodBook.com</h1>
         <h3 style={StyleH3}>please, log in to access your account... !</h3>
-        <div className="margin-top-60">
+        <div className="margin-top-100">
           <div className="Container">
             <Form onSubmit={this.submitForm}>
               <FormGroup>

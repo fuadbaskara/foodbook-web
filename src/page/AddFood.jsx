@@ -59,17 +59,20 @@ const MapWithASearchBox = compose(
               bounds.extend(place.geometry.location);
             }
           });
+
           const nextMarkers = places.map(place => ({
             position: place.geometry.location
           }));
+
           const nextCenter = _.get(
             nextMarkers,
             "0.position",
             this.state.center
           );
-          console.log(JSON.stringify(refs.map.getCenter()));
 
-          console.log(refs);
+          // console.log(JSON.stringify(refs.map.getCenter()));
+          // console.log(refs);
+
           this.setState({
             center: nextCenter,
             markers: nextMarkers
@@ -149,7 +152,7 @@ class AddFood extends Component {
         file_uploaded: this.state.file_uploaded + 1
       });
     }
-    console.log(this.state.photos);
+    // console.log(this.state.photos);
   }
 
   handleChangeFood(event) {
@@ -212,19 +215,17 @@ class AddFood extends Component {
       })
       .then(res => {
         const id = res.data.data.id;
-        console.log(res);
+        // console.log(res);
         this.props.history.push(`/food/${id}`);
       })
-
       .catch(error => {
         console.log(error.res);
       });
   }
 
   render() {
-    console.log("state", this.state);
     return (
-      <div className="margin-top-100">
+      <div>
         <div>
           <Form onSubmit={this.submitForm} className="addFoodForm">
             {/*Foodname Input*/}

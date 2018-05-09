@@ -3,16 +3,13 @@ import { Form } from "reactstrap";
 import { withRouter } from "react-router-dom";
 import axios from "axios";
 
-
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3030";
 
 const StyleH1 = {
-  marginTop: "130px",
   fontFamily: "Lobster, cursive",
   display: "flex",
-  justifyContent: "center",
-}
-
+  justifyContent: "center"
+};
 
 const InputStyle = {
   width: "100%",
@@ -111,7 +108,7 @@ class Signup extends React.Component {
       })
       .then(res => {
         console.log(res);
-        this.props.history.push("/Signin");
+        this.props.history.push("/signin");
       })
       .catch(error => {
         console.log(error);
@@ -122,66 +119,66 @@ class Signup extends React.Component {
   render() {
     return (
       <div>
-      <h1 style={StyleH1}>SIGN UP FoodBook.com</h1>
-      <div className="margin-top-60">
-        <div className="Container" style={divStyle}>
-          <Form onSubmit={this.submitForm}>
-            <label htmlFor="fname">First Name</label>
-            <input
-              type="text"
-              id="fname"
-              name="firstName"
-              placeholder="Your name.."
-              style={InputStyle}
-              value={this.state.firstName}
-              onChange={this.handleChangeFirstName}
-            />
+        <h1 style={StyleH1}>SIGN UP FoodBook.com</h1>
+        <div className="margin-top-60">
+          <div className="Container" style={divStyle}>
+            <Form onSubmit={this.submitForm}>
+              <label htmlFor="fname">First Name</label>
+              <input
+                type="text"
+                id="fname"
+                name="firstName"
+                placeholder="Your name.."
+                style={InputStyle}
+                value={this.state.firstName}
+                onChange={this.handleChangeFirstName}
+              />
 
-            <label htmlFor="lname">Last Name</label>
-            <input
-              type="text"
-              id="lname"
-              name="lastName"
-              placeholder="Your last name.."
-              style={InputStyle}
-              value={this.state.lastName}
-              onChange={this.handleChangeLastName}
-            />
+              <label htmlFor="lname">Last Name</label>
+              <input
+                type="text"
+                id="lname"
+                name="lastName"
+                placeholder="Your last name.."
+                style={InputStyle}
+                value={this.state.lastName}
+                onChange={this.handleChangeLastName}
+              />
 
-            <label htmlFor="email">Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="Your email.."
-              style={InputStyle}
-              value={this.state.email}
-              onChange={this.handleChangeEmail}
-            />
+              <label htmlFor="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Your email.."
+                style={InputStyle}
+                value={this.state.email}
+                onChange={this.handleChangeEmail}
+              />
 
-            <label htmlFor="username">Username</label>
-            <input
-              type="text"
-              id="username"
-              name="username"
-              placeholder="Your username.."
-              style={InputStyle}
-              value={this.state.username}
-              onChange={this.handleChangeUserName}
-            />
+              <label htmlFor="username">Username</label>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Your username.."
+                style={InputStyle}
+                value={this.state.username}
+                onChange={this.handleChangeUserName}
+              />
 
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              placeholder="Your password.."
-              style={InputStyle}
-              value={this.state.password}
-              onChange={this.handleChangePassword}
-            />
+              <label htmlFor="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Your password.."
+                style={InputStyle}
+                value={this.state.password}
+                onChange={this.handleChangePassword}
+              />
 
-            {/*<Button
+              {/*<Button
             style={inputSubmit}
             color="danger"
             block
@@ -191,15 +188,15 @@ class Signup extends React.Component {
             Submit
           </Button>*/}
 
-            <input
-              type="submit"
-              value="SIGN UP"
-              style={inputSubmit}
-              onClick={this.submitForm}
-            />
-          </Form>
+              <input
+                type="submit"
+                value="SIGN UP"
+                style={inputSubmit}
+                onClick={this.submitForm}
+              />
+            </Form>
+          </div>
         </div>
-      </div>
       </div>
     );
   }

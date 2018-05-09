@@ -10,14 +10,22 @@ const StyleImage = {
 class Header extends Component {
   constructor() {
     super();
-    this.handleLogout = this.handleLogout.bind(this);
+    this.state = {
+      login: false
+    };
   }
+
+  componentWillMount = () => {
+    if (localStorage.token) this.setState({ login: true });
+  };
+
   handleLogout = async event => {
     localStorage.clear();
-    alert("youloggedout");
-
     this.props.history.push("/signin");
+    alert("You're logged out");
+    this.props.history.push("/");
   };
+
   render() {
     return (
       <div className="App-header fixed-top">
