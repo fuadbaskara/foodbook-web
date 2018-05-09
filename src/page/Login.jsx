@@ -2,6 +2,31 @@ import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
+
+const StyleH1 = {
+  marginTop: "100px",
+  display: "flex",
+  justifyContent: "center",
+  fontFamily: "Lobster, cursive",
+}
+
+const StyleH3 = {
+  display: "flex",
+  justifyContent: "center",
+  fontFamily: "comfortaa",
+}
+
+const FlexContainer = {
+  display: "flex",
+  justifyContent: "center",
+  marginTop: "10px",
+}
+
+const StyleH6 = {
+  fontFamily: "comfortaa",
+  margin: "3px",
+}
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3030";
 
@@ -54,7 +79,10 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="margin-top-100">
+      <div>
+      <h1 style={StyleH1}>Welcome to FoodBook.com</h1>
+      <h3 style={StyleH3}>please, log in to access your account... !</h3>
+      <div className="margin-top-60">
         <div className="Container">
           <Form onSubmit={this.submitForm}>
             <FormGroup>
@@ -81,6 +109,17 @@ class Login extends Component {
               Submit
             </Button>
           </Form>
+        </div>
+      </div>
+        <div style={FlexContainer}>
+          <div>
+            <h6 style={StyleH6}>Don't have an account ?</h6>
+          </div>
+          <div>
+            <Link to="/signup">
+            <h6 style={StyleH6}>Register Now !</h6>
+            </Link>
+          </div>
         </div>
       </div>
     );
