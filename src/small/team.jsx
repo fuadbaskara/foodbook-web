@@ -48,7 +48,7 @@ const Team = () => (
             <CardImg top width="100%" src={require(`../image/Team/fuad.jpg`)} alt="Fuad Baskara" />
             <CardBody>
               <CardTitle style={CardStyle}>Fuad Baskara</CardTitle>
-              <CardText>Full-Stack Developer</CardText>
+              <CardText>Front-End Developer</CardText>
             </CardBody>
             </Card>
           </Col>

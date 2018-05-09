@@ -13,6 +13,14 @@ import {
 import { Link, withRouter } from "react-router-dom";
 import { SearchBox } from "react-google-maps/lib/components/places/SearchBox";
 
+const StyleH3 = {
+  marginTop: "30px",
+  fontFamily: "Comfortaa",
+  display: "flex",
+  justifyContent: "center",
+}
+
+
 /*global google*/
 const API_KEY = "AGPirPvMfTs2BMOi8EPmaz";
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3030";
@@ -226,7 +234,9 @@ class AddFood extends Component {
 
   render() {
     return (
-      <div className="margin-top-100">
+      <div>
+        <h3 style={StyleH3}>You can Add Food in here :</h3>
+      <div>
         <div>
           <Form onSubmit={this.submitForm} className="addFoodForm">
             {/*Foodname Input*/}
@@ -363,6 +373,7 @@ class AddFood extends Component {
           </Form>
         </div>
       </div>
+    </div>
     );
   }
 }
