@@ -31,16 +31,26 @@ class Carousels extends Component {
     super(props);
     this.state = {
       activeIndex: 0,
-      image: []
+      photos: ""
     };
-    this.photos = this.props.photos;
-    console.log(props.photos);
     console.log(this.props.photos);
     this.next = this.next.bind(this);
     this.previous = this.previous.bind(this);
     this.goToIndex = this.goToIndex.bind(this);
     this.onExiting = this.onExiting.bind(this);
     this.onExited = this.onExited.bind(this);
+    this.getPhotos = this.getPhotos.bind(this);
+  }
+
+  async componentWillMount() {
+    await this.getPhotos();
+    console.log(this.state.photos);
+  }
+
+  getPhotos() {
+    this.photos = this.props.photos;
+    this.setState({ photos: this.photos });
+    console.log(this.photos);
   }
 
   onExiting() {
@@ -84,16 +94,12 @@ class Carousels extends Component {
         <CarouselItem
           onExiting={this.onExiting}
           onExited={this.onExited}
-          key="https://cdn.filestackcontent.com/aTIr8zQDCvM7BVQsrmA3"
+          key={this.props.photos && this.props.photos}
         >
           <img
             className="img"
-            src="https://cdn.filestackcontent.com/aTIr8zQDCvM7BVQsrmA3"
+            src={this.props.photos && this.props.photos}
             alt={item.altText}
-          />
-          <CarouselCaption
-            captionText={item.caption}
-            captionHeader={item.caption}
           />
         </CarouselItem>
       );

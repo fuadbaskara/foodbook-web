@@ -105,7 +105,7 @@ export default class DetailTab extends React.Component {
     return (
       <div>
         <div className="carousels">
-          <Carousels photos={this.state.detailfood.photos} a="a" />
+          <Carousels photos={this.state.detailfood.photos} />
         </div>
         <br />
         <div>
