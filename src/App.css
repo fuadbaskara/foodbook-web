@@ -245,3 +245,8 @@ body {
     transform: rotate(360deg);
   }
 }
+
+.invalid-pas-notif {
+  color: red;
+  font-size: 10px;
+}

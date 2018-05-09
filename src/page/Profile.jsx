@@ -43,11 +43,9 @@ class Profile extends Component {
   render() {
     return (
       <div className="margin-top-100">
-        <Card className="containerProfile">
+        <Card>
           <CardImg
-            className="rounded-circle"
-            top
-            width="25%"
+            width="100%"
             src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180"
             alt="User Avatar Image"
           />
