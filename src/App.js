@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Template from "./page/Template";
 import Home from "./page/Home";
-import Login from "./page/Login";
+import Signin from "./page/Signin";
 import Profile from "./page/Profile";
 import Signup from "./page/Signup";
 import Food from "./page/Food";
@@ -19,7 +19,7 @@ const App = () => (
       <Route exact path="/" component={Home} />
       <Route path="/food/:id" component={Food} />
       <Route path="/signup" component={Signup} />
-      <Route path="/login" component={Login} />
+      <Route path="/signin" component={Signin} />
       <Route path="/addfood" component={AddFood} />
       <Route path="/profile" component={Profile} />
       <Route path="/tech" component={Tech} />

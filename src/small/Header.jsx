@@ -16,7 +16,7 @@ class Header extends Component {
     localStorage.clear();
     alert("youloggedout");
 
-    this.props.history.push("/login");
+    this.props.history.push("/signin");
   };
   render() {
     return (
@@ -49,7 +49,7 @@ class Header extends Component {
             </Link>
             <Link
               className="menu-sign textNavBar text-right mx-2"
-              to="/login"
+              to="/signin"
               onClick={this.handleLogout}
             >
               Log Out
@@ -62,11 +62,11 @@ class Header extends Component {
             </Link>
             <Link
               className="border-sign textNavBar text-right mx-2"
-              to="/login"
+              to="/signin"
             >
               Add Food
             </Link>
-            <Link className="menu-sign textNavBar text-right mx-2" to="/login">
+            <Link className="menu-sign textNavBar text-right mx-2" to="/signin">
               Sign In
             </Link>
             <Link className="menu-sign textNavBar text-right mx-2" to="/signup">
