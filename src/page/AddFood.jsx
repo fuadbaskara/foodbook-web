@@ -23,7 +23,7 @@ const StyleH3 = {
 
 /*global google*/
 const API_KEY = "AGPirPvMfTs2BMOi8EPmaz";
-const API_URL = "http://localhost:3030";
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3030";
 
 const MapWithASearchBox = compose(
   withProps({
