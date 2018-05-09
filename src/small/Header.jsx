@@ -21,6 +21,7 @@ class Header extends Component {
 
   handleLogout = async event => {
     localStorage.clear();
+    this.props.history.push("/signin");
     alert("You're logged out");
     this.props.history.push("/");
   };
@@ -56,7 +57,7 @@ class Header extends Component {
             </Link>
             <Link
               className="menu-sign textNavBar text-right mx-2"
-              to="/login"
+              to="/signin"
               onClick={this.handleLogout}
             >
               Log Out
@@ -67,8 +68,14 @@ class Header extends Component {
             <Link className="border-sign textNavBar text-right mx-2" to="/">
               Home
             </Link>
-            <Link className="menu-sign textNavBar text-right mx-2" to="/login">
-              Login
+            <Link
+              className="border-sign textNavBar text-right mx-2"
+              to="/signin"
+            >
+              Add Food
+            </Link>
+            <Link className="menu-sign textNavBar text-right mx-2" to="/signin">
+              Sign In
             </Link>
             <Link className="menu-sign textNavBar text-right mx-2" to="/signup">
               Sign Up
