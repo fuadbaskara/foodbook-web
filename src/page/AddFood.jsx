@@ -211,7 +211,8 @@ class AddFood extends Component {
         detailLocation: this.state.inputLocation,
         city: this.state.inputCity,
         street: this.state.inputAddress,
-        photos: this.state.photos
+        photos: this.state.photos,
+        token: window.localStorage.token
       })
       .then(res => {
         const id = res.data.data.id;
