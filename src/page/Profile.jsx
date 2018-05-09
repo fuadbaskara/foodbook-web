@@ -43,7 +43,13 @@ class Profile extends Component {
   render() {
     return (
       <div className="margin-top-100">
-        <Card>
+        <div className="float-left">
+          <img
+            src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180"
+            alt=""
+          />
+        </div>
+        {/*<Card>
           <CardImg
             width="100%"
             src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180"
@@ -56,7 +62,7 @@ class Profile extends Component {
               ${this.state.lastName}`}
             </CardTitle>
           </CardBody>
-        </Card>
+        </Card>*/}
       </div>
     );
   }

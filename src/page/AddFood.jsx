@@ -15,7 +15,7 @@ import { SearchBox } from "react-google-maps/lib/components/places/SearchBox";
 
 /*global google*/
 const API_KEY = "AGPirPvMfTs2BMOi8EPmaz";
-const API_URL = "http://localhost:3030";
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3030";
 
 const MapWithASearchBox = compose(
   withProps({
