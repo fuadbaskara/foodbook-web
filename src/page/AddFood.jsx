@@ -319,7 +319,7 @@ class AddFood extends Component {
               </Label>
               <Col sm={10}>
                 <Input
-                  type="text"
+                  type="number"
                   name="Price"
                   placeholder="Insert Price Menu"
                   value={this.state.inputPrice}
