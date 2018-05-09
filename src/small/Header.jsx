@@ -66,7 +66,7 @@ class Header extends Component {
               Add Food
             </Link>
             <Link className="menu-sign textNavBar text-right mx-2" to="/login">
-              Sign In
+              Login
             </Link>
             <Link className="menu-sign textNavBar text-right mx-2" to="/signup">
               Sign Up

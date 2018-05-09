@@ -78,7 +78,7 @@ class Login extends Component {
               />
             </FormGroup>
             <Button outline color="danger" size="lg" block>
-              Submit
+              Login
             </Button>
           </Form>
         </div>
