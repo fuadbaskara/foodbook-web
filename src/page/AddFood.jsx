@@ -219,8 +219,14 @@ class AddFood extends Component {
 
   async submitForm(event) {
     event.preventDefault();
-    await axios
-      .post(`${API_URL}/foods`, {
+    await axios;
+    axios({
+      url: `${API_URL}/foods`,
+      method: "POST",
+      headers: {
+        Authorization: "Bearer " + window.localStorage.token
+      },
+      data: {
         name: this.state.inputFoodName,
         overview: this.state.inputDescriptionMenu,
         minPrice: this.state.inputMinPrice,
@@ -228,9 +234,24 @@ class AddFood extends Component {
         detailLocation: this.state.inputLocation,
         city: this.state.inputCity,
         street: this.state.inputAddress,
-        photos: this.state.photos,
-        token: window.localStorage.token
-      })
+        photos: this.state.photos
+      }
+    })
+      // .post(`${API_URL}/foods`, {
+      //   headers: {
+      //     Authorization: "Bearer " + window.localStorage.token
+      //   },
+      //   name: this.state.inputFoodName,
+      //   overview: this.state.inputDescriptionMenu,
+      //   minPrice: this.state.inputMinPrice,
+      //   maxPrice: this.state.inputMaxPrice,
+      //   detailLocation: this.state.inputLocation,
+      //   city: this.state.inputCity,
+      //   street: this.state.inputAddress,
+      //   photos: this.state.photos
+      //   // token: window.localStorage.token
+      // })
+
       .then(res => {
         console.log(res.data.data);
         const id = res.data.data.id;

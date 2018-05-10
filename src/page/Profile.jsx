@@ -25,14 +25,15 @@ class Profile extends Component {
       photo: "",
       userFoods: []
     };
+    this.deleteFood = this.deleteFood.bind(this);
   }
 
   getDataFood() {
     axios
       .get(`${API_URL}/foods`)
       .then(res => {
-        res.data.data.map(dataId => {
-          if (dataId._account == window.localStorage.userId) {
+        res.data.data.forEach(dataId => {
+          if (dataId._account === window.localStorage.userId) {
             this.setState({
               userFoods: this.state.userFoods.concat([dataId])
             });
@@ -64,6 +65,21 @@ class Profile extends Component {
     }
   }
 
+  deleteFood(target_index) {
+    axios.defaults.headers.common["Authorization"] = window.localStorage.token;
+
+    const id = this.state.userFoods[target_index].id;
+    // const id =this.state.userFoods[target_index].id;
+    axios
+      .delete(`${API_URL}/foods/${id}`)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
   componentWillMount() {
     this.getDataAccount();
     this.getDataFood();
@@ -74,7 +90,7 @@ class Profile extends Component {
       <div className="margin-top-100">
         <Row>
           <Col>
-            <div>
+            <div className="center">
               <Card style={{ width: "250px", marginTop: 10 }}>
                 <CardImg
                   top
@@ -93,10 +109,10 @@ class Profile extends Component {
           </Col>
         </Row>
         <Row className="homeProduct center">
-          {this.state.userFoods &&
-            this.state.userFoods.map((dataId, index) => (
-              <FoodUserThumbnail key={index} index={index} dataId={dataId} />
-            ))}
+          <FoodUserThumbnail
+            deleteFood={this.deleteFood}
+            userFoods={this.state.userFoods}
+          />
         </Row>
       </div>
     );

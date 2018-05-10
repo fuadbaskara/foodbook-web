@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, FormGroup, Label, Button, Col } from "reactstrap";
+import { Form, FormGroup, Button } from "reactstrap";
 import { withRouter } from "react-router-dom";
 import ReactFilestack from "filestack-react";
 import axios from "axios";
