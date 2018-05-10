@@ -14,15 +14,17 @@ var settings = {
 };
 
 const CarouselSlick = ({ photos }) => {
-  <Slider {...settings} className="slidercaro mb-4">
-    {photos.map((photo, index) => {
-      return (
-        <div>
-          <img className="carousel-size" src={photo} alt="Caroosel 1" />
-        </div>
-      );
-    })}
-  </Slider>;
+  return (
+    <Slider {...settings} className="slidercaro mb-4">
+      {photos.map((photo, index) => {
+        return (
+          <div>
+            <img className="carousel-size" src={photo} alt="Caroosel 1" />
+          </div>
+        );
+      })}
+    </Slider>
+  );
 };
 
 export default CarouselSlick;

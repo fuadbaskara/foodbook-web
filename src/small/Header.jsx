@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
-import { Button } from "reactstrap";
 
 const StyleImage = {
   width: "300px",
