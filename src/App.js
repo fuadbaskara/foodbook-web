@@ -1,6 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
+import ScrollToTop from "./ScrollToTop";
+
 import Template from "./page/Template";
 import Home from "./page/Home";
 import Signin from "./page/Signin";
@@ -15,16 +17,18 @@ import "./App.css";
 
 const App = () => (
   <Router>
-    <Template>
-      <Route exact path="/" component={Home} />
-      <Route path="/food/:id" component={Food} />
-      <Route path="/signup" component={Signup} />
-      <Route path="/signin" component={Signin} />
-      <Route path="/addfood" component={AddFood} />
-      <Route path="/profile" component={Profile} />
-      <Route path="/tech" component={Tech} />
-      <Route path="/team" component={Team} />
-    </Template>
+    <ScrollToTop>
+      <Template>
+        <Route exact path="/" component={Home} />
+        <Route path="/food/:id" component={Food} />
+        <Route path="/signup" component={Signup} />
+        <Route path="/signin" component={Signin} />
+        <Route path="/addfood" component={AddFood} />
+        <Route path="/profile" component={Profile} />
+        <Route path="/tech" component={Tech} />
+        <Route path="/team" component={Team} />
+      </Template>
+    </ScrollToTop>
   </Router>
 );
 
