@@ -66,12 +66,14 @@ class Profile extends Component {
   }
 
   deleteFood(target_index) {
-    axios.defaults.headers.common["Authorization"] = window.localStorage.token;
-
     const id = this.state.userFoods[target_index].id;
-    // const id =this.state.userFoods[target_index].id;
-    axios
-      .delete(`${API_URL}/foods/${id}`)
+    axios({
+      url: `${API_URL}/foods/${id}`,
+      method: "DELETE",
+      headers: {
+        Authorization: "Bearer " + window.localStorage.token
+      }
+    })
       .then(res => {
         console.log(res);
       })

@@ -41,7 +41,7 @@ const MAX_LENGTH = 50;
 // }
 
 const FoodUserThumbnail = props => (
-  <div className="homeProduct center">
+  <div className="center">
     {props.userFoods.map((dataId, index) => (
       <Col
         xs={11}
