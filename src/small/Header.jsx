@@ -57,7 +57,7 @@ class Header extends Component {
               className="menu-sign mx-2"
               onClick={this.handleLogout}
             >
-              Log Out
+              Sign Out
             </Link>
           </div>
         ) : (

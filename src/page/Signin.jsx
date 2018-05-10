@@ -86,8 +86,8 @@ class Signin extends Component {
   render() {
     return (
       <div className="pt-5">
-        <h1 style={StyleH1}>Welcome to FoodBook.com</h1>
-        <h3 style={StyleH3}>please, log in to access your account... !</h3>
+        <h1 style={StyleH1}>Welcome to Foodbook</h1>
+        <h3 style={StyleH3}>Please sign in to access your account</h3>
         <div className="margin-top-60">
           <div className="Container">
             <Form onSubmit={this.submitForm}>
@@ -119,17 +119,17 @@ class Signin extends Component {
                 />
               </FormGroup>
               <Button outline color="danger" size="lg" block>
-                Log In
+                Sign In
               </Button>
             </Form>
           </div>
           <div style={FlexContainer}>
             <div>
-              <h6 style={StyleH6}>Don't have an account ?</h6>
+              <h6 style={StyleH6}>Don't have an account?</h6>
             </div>
             <div>
               <Link to="/signup">
-                <h6 style={StyleH6}>Sign Up Now !</h6>
+                <h6 style={StyleH6}>Sign up now</h6>
               </Link>
             </div>
           </div>
