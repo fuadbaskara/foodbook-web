@@ -1,8 +1,16 @@
 import React from "react";
 import { Card, CardBody, CardTitle, CardSubtitle } from "reactstrap";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 export default class Reviews extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      review: []
+    };
+  }
+
   render() {
     return (
       <div>
@@ -21,6 +29,7 @@ export default class Reviews extends React.Component {
                       <button
                         className="btn btn-primary float-xs-right col-md-3 m-2"
                         type="button"
+                        onClick={this.postReview}
                       >
                         Post
                       </button>

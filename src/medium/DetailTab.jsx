@@ -24,7 +24,6 @@ export default class DetailTab extends React.Component {
       allreview: []
     };
     this.match = this.props.match;
-    // console.log(this.match);
     this.toggleOverview = this.toggleOverview.bind(this);
     this.toggleMenu = this.toggleMenu.bind(this);
     this.toggleLocation = this.toggleLocation.bind(this);
@@ -34,7 +33,6 @@ export default class DetailTab extends React.Component {
 
   async getData() {
     await axios.get(`${API_URL}/foods/${this.id}`).then(res => {
-      // console.log(res);
       let responseData = res.data.data;
       let data = {
         ...responseData,
@@ -55,7 +53,6 @@ export default class DetailTab extends React.Component {
 
   async componentWillMount() {
     await this.getData();
-    console.log(this.state.detailfood);
   }
 
   toggleOverview() {
@@ -91,6 +88,12 @@ export default class DetailTab extends React.Component {
     });
   }
 
+  postReview() {
+    const id = this.state.detailfood.id;
+    console.log(this.state.detailfood.id);
+    axios.put(`${API_URL}/foods/${id}`);
+  }
+
   toggleReview() {
     this.setState(() => {
       return {
@@ -115,27 +118,27 @@ export default class DetailTab extends React.Component {
             <li className="nav-item">
               <Link onClick={this.toggleOverview} to={`${this.match}/overview`}>
                 {this.state.overviewTab === true ? (
-                  <a className="nav-link active">Overview</a>
+                  <p className="nav-link active">Overview</p>
                 ) : (
-                  <a className="nav-link">Overview</a>
+                  <p className="nav-link">Overview</p>
                 )}
               </Link>
             </li>
             <li className="nav-item">
               <Link onClick={this.toggleLocation} to={`${this.match}/location`}>
                 {this.state.locationTab === true ? (
-                  <a className="nav-link active">Location</a>
+                  <p className="nav-link active">Location</p>
                 ) : (
-                  <a className="nav-link">Location</a>
+                  <p className="nav-link">Location</p>
                 )}
               </Link>
             </li>
             <li className="nav-item">
               <Link onClick={this.toggleReview} to={`${this.match}/reviews`}>
                 {this.state.reviewTab === true ? (
-                  <a className="nav-link active">Reviews</a>
+                  <p className="nav-link active">Reviews</p>
                 ) : (
-                  <a className="nav-link">Reviews</a>
+                  <p className="nav-link">Reviews</p>
                 )}
               </Link>
             </li>
@@ -178,6 +181,7 @@ export default class DetailTab extends React.Component {
             path={`${this.match}/reviews`}
             component={() => (
               <Reviews
+                detailFood={this.state.detailfood}
                 userid={this.state.detailfood._userid}
                 rating={this.state.detailfood.rating}
               />

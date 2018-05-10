@@ -1,14 +1,6 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
-import {
-  Row,
-  Col,
-  CardImg,
-  CardText,
-  CardBody,
-  CardTitle,
-  Button
-} from "reactstrap";
+import { withRouter } from "react-router-dom";
+import { Row, Col, CardImg, CardBody, CardTitle, Button } from "reactstrap";
 
 const FoodUserThumbnail = props => (
   <div>

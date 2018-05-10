@@ -77,7 +77,7 @@ class Profile extends Component {
     })
       .then(res => {
         console.log(res);
-        this.props.history.push(`/profile`);
+        window.location.reload();
       })
       .catch(err => {
         console.log(err);
