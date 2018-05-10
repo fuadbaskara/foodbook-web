@@ -116,27 +116,27 @@ export default class DetailTab extends React.Component {
             <li className="nav-item">
               <Link onClick={this.toggleOverview} to={`${this.match}/overview`}>
                 {this.state.overviewTab === true ? (
-                  <p className="nav-link active">Overview</p>
+                  <span className="nav-link active">Overview</span>
                 ) : (
-                  <p className="nav-link">Overview</p>
+                  <span className="nav-link">Overview</span>
                 )}
               </Link>
             </li>
             <li className="nav-item">
               <Link onClick={this.toggleLocation} to={`${this.match}/location`}>
                 {this.state.locationTab === true ? (
-                  <p className="nav-link active">Location</p>
+                  <span className="nav-link active">Location</span>
                 ) : (
-                  <p className="nav-link">Location</p>
+                  <span className="nav-link">Location</span>
                 )}
               </Link>
             </li>
             <li className="nav-item">
               <Link onClick={this.toggleReview} to={`${this.match}/reviews`}>
                 {this.state.reviewTab === true ? (
-                  <p className="nav-link active">Reviews</p>
+                  <span className="nav-link active">Reviews</span>
                 ) : (
-                  <p className="nav-link">Reviews</p>
+                  <span className="nav-link">Reviews</span>
                 )}
               </Link>
             </li>
