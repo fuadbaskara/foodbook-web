@@ -7,6 +7,16 @@ body {
   float: left;
 }
 
+.image-container {
+  width: 480px;
+  height: 360px;
+}
+
+.image-detail {
+  width: 480px;
+  height: 360px;
+}
+
 .logo {
   width: auto;
 }
@@ -104,10 +114,10 @@ body {
   height: 8px;
 }
 
-.carousels {
+/* .carousels {
   display: flex;
   justify-content: center;
-}
+} */
 
 .detailTab {
   display: flex;

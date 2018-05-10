@@ -13,8 +13,7 @@ export default class Reviews extends React.Component {
 
   render() {
     return (
-      <div>
-        <div />
+      <div className="container pt-4">
         {window.localStorage.token ? (
           <div className="container pb-cmnt-container">
             <div className="row">

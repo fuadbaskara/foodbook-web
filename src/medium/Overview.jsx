@@ -4,14 +4,16 @@ export default class Overview extends React.Component {
   render() {
     return (
       <div>
-        <div>
+        <div className="container pt-4">
           <h4>{this.props.name}</h4>
           <div>
             <p>{this.props.overview}</p>
           </div>
           <div>
             <b>
-              <p>{`Start From: Rp.${this.props.price}`}</p>
+              <p>{`Price Range: Rp.${this.props.minPrice} - Rp.${
+                this.props.maxPrice
+              }`}</p>
             </b>
           </div>
         </div>
