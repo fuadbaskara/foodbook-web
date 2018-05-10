@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Row, Button } from "reactstrap";
+import { Row, InputGroup, InputGroupAddon, Input } from "reactstrap";
 import axios from "axios";
+import { Button } from "reactstrap";
 
 import FoodThumbnail from "../medium/FoodThumbnail";
 
@@ -10,16 +11,13 @@ class Home extends Component {
   constructor() {
     super();
     this.state = {
-      foods: [],
-      searchFoods: ""
+      foods: []
     };
     this.getIndex = this.getIndex.bind(this);
     this.handleChangeSearchFoods = this.handleChangeSearchFoods.bind(this);
-    this.submitForm = this.submitForm.bind(this);
   }
 
   getIndex(index) {
-    // console.log(index);
     this.setState(() => {
       return {
         index: index
@@ -35,7 +33,7 @@ class Home extends Component {
       })
       .then(res => {
         this.setState({ foods: res.data });
-        // console.log(this.state.foods);
+        console.log(this.state.foods);
       });
   }
 
@@ -43,42 +41,38 @@ class Home extends Component {
     this.getData();
   }
 
-  handleChangeSearchFoods(event) {
+  async handleChangeSearchFoods(event) {
     let value = event.target.value;
-    this.setState(() => {
-      return { searchFoods: value };
-    });
-  }
 
-  async submitForm(event) {
-    event.preventDefault();
     await axios
-      .get(`${API_URL}/foods/search?name=${this.state.searchFoods}`)
+      .get(`${API_URL}/foods/search?name=${value}`)
       .then(res => {
         return res.data;
       })
       .then(res => {
         this.setState({ foods: res.data });
+        console.log(this.state.searchedFoods);
       });
   }
 
   render() {
     return (
       <div>
-        <div className="searchText">
-          <input
-            type="text"
-            className="inputText border border-danger"
-            value={this.state.searchFoods}
-            onChange={this.handleChangeSearchFoods}
-          />
-          <Button
-            color=""
-            className="textNavBar btn-secondary"
-            onClick={this.submitForm}
-          >
-            Search
-          </Button>{" "}
+        <div className="center">
+          <InputGroup className="inputText">
+            <Input
+              className=" border border-danger"
+              value={this.state.value}
+              onChange={this.handleChangeSearchFoods}
+              placeholder="Search Your Favorite Food"
+            />
+            <Button
+              value={this.state.value}
+              onClick={this.handleChangeSearchFoods}
+            >
+              Search
+            </Button>
+          </InputGroup>
         </div>
         <Row className="homeProduct center">
           {this.state.foods &&

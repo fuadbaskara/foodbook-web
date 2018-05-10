@@ -1,4 +1,5 @@
 body {
+  font-family: Comfortaa;
   margin-top: 100px;
 }
 
@@ -6,14 +7,22 @@ body {
   float: left;
 }
 
+.logo {
+  width: auto;
+}
+
+.float-right {
+  float: right;
+}
+
 .img {
-  width: 640px;
   height: 360px;
+  object-fit: cover;
 }
 
 .textarea-input {
   width: 100%;
-  height: 200px;
+  height: 100px;
   border-radius: 10px;
 }
 
@@ -23,8 +32,9 @@ body {
   flex-direction: column;
 }
 
-.border-black {
-  border: solid black 1px;
+.border-red {
+  border: solid #bb1212 1px;
+  border-radius: 4px;
 }
 
 .card-full {
@@ -71,16 +81,16 @@ body {
 
 .App-header {
   background-color: #bb1212;
-  height: 96px;
+  height: 110px;
   padding: 20px;
+  padding-top: 15px;
   color: white;
   text-align: right;
   justify-content: flex-end;
 }
 
 .header {
-  background-color: red;
-  height: 70px;
+  background-color: #bb1212;
   color: white;
   text-align: right;
   justify-content: flex-end;
@@ -117,8 +127,14 @@ body {
 }
 
 .center {
+  padding-top: 20px;
   display: flex;
   justify-content: center;
+}
+
+.display-flex-end {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .justify {
@@ -175,8 +191,13 @@ body {
 
 .menu-sign {
   padding: 8px 8px 3px 8px;
-  background: #fff;
-  color: #000 !important;
+  font-family: Comfortaa;
+  background: #bb1212;
+  color: white !important;
+}
+.menu-sign:hover {
+  color: #bb1212 !important;
+  background: white;
 }
 
 .border-sign {
@@ -205,15 +226,9 @@ body {
   color: #000;
 }
 
-.homeProduct {
-}
-
 .inputText {
-  margin-right: 5px;
   border-radius: 10px;
-  height: 36px;
   width: 50%;
-  justify-content: center;
 }
 
 .textNavBar {
@@ -240,10 +255,6 @@ body {
 
 .card-img {
   object-fit: cover;
-}
-
-.searchText {
-  text-align: center;
 }
 
 @keyframes App-logo-spin {

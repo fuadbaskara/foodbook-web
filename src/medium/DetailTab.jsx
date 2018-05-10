@@ -39,14 +39,16 @@ export default class DetailTab extends React.Component {
       let data = {
         ...responseData,
         city: responseData.address.city,
-        street: responseData.address.street,
-        photos: responseData.photos[0],
-        latitude: responseData.coordinate.latitude,
-        longitude: responseData.coordinate.longitude,
-        // comment: responseData.reviews[0].comment,
-        rating: responseData.reviews[0].rating,
-        _userid: responseData.reviews[0]._id
+        street: responseData.address.street
+        // photos: responseData.photos[0]
+        // photos: responseData.photos[0],
+        // latitude: responseData.coordinate.latitude,
+        // longitude: responseData.coordinate.longitude,
+        // // comment: responseData.reviews[0].comment,
+        // rating: responseData.reviews[0].rating,
+        // _userid: responseData.reviews[0]._id
       };
+
       this.setState({ detailfood: data });
     });
   }

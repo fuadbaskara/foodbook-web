@@ -34,7 +34,8 @@ class Signin extends Component {
     this.state = {
       username: "",
       password: "",
-      isLogin: false
+      isLogin: false,
+      isValidPassword: true
     };
     this.handleChangeUsername = this.handleChangeUsername.bind(this);
     this.handleChangePassword = this.handleChangePassword.bind(this);
@@ -66,10 +67,15 @@ class Signin extends Component {
       .then(res => {
         console.log(res.data.id);
         if (res.data.token) {
+          console.log(res.data);
           window.localStorage.id = res.data.id;
           window.localStorage.token = res.data.token;
+          window.localStorage.userId = res.data.userId;
           //redirect here
+          this.setState({ isValidPassword: true });
           this.props.history.push(`/`);
+        } else {
+          this.setState({ isValidPassword: false });
         }
       })
       .catch(error => {
@@ -79,7 +85,7 @@ class Signin extends Component {
 
   render() {
     return (
-      <div>
+      <div className="pt-5">
         <h1 style={StyleH1}>Welcome to FoodBook.com</h1>
         <h3 style={StyleH3}>please, log in to access your account... !</h3>
         <div className="margin-top-60">
@@ -96,7 +102,14 @@ class Signin extends Component {
                 />
               </FormGroup>
               <FormGroup>
-                <Label htmlFor="examplePassword">Password</Label>
+                <Label htmlFor="examplePassword">Password</Label> &nbsp;&nbsp;
+                {this.state.isValidPassword ? (
+                  <span />
+                ) : (
+                  <span className="invalid-pas-notif">
+                    (Please enter a valid password)
+                  </span>
+                )}
                 <Input
                   type="password"
                   name="password"

@@ -29,64 +29,47 @@ class Header extends Component {
 
   render() {
     return (
-      <div className="App-header fixed-top">
-        <div>
+      <div className="fixed-top App-header">
+        <div className="logo">
           <Link to="/">
-            <img
-              src={require(`../image/foodbook-logo.png`)}
-              alt="Foodbook Logo"
-              style={StyleImage}
-            />
+            <div>
+              <img
+                src={require(`../image/foodbook-logo.png`)}
+                alt="Foodbook Logo"
+                style={StyleImage}
+              />
+            </div>
           </Link>
         </div>
         {window.localStorage.token ? (
           <div>
-            <Link className="border-sign textNavBar text-right mx-2" to="/">
-              Home
+            <Link to="/">
+              <Button className="menu-sign mx-2">Home</Button>
             </Link>
-            <Link
-              className="border-sign textNavBar text-right mx-2"
-              to="/addfood"
-            >
-              Add Food
+            <Link to="/addfood">
+              <Button className="menu-sign mx-2">Add Food</Button>
             </Link>
-            <Link
-              className="border-sign textNavBar text-right mx-2"
-              to="/profile"
-            >
-              Profile
+            <Link to="/profile">
+              <Button className="menu-sign mx-2">Profile</Button>
             </Link>
-            <Button
-              className="menu-sign textNavBar text-right mx-2"
-              to="/signin"
-              onClick={this.handleLogout}
-            >
-              Log Out
-            </Button>
+            <Link to="/signin" onClick={this.handleLogout}>
+              <Button className="menu-sign mx-2">Log Out</Button>
+            </Link>
           </div>
         ) : (
-          <div>
-            <Link className="border-sign textNavBar text-right mx-2" to="/">
-              Home
+          <div className="d-flex justify-content-end">
+            <Link to="/">
+              <Button className="menu-sign mx-2">Home</Button>
             </Link>
-            <Link
-              className="border-sign textNavBar text-right mx-2"
-              to="/signin"
-            >
-              Add Food
+            <Link to="/signin">
+              <Button className="menu-sign mx-2">Add Food</Button>
             </Link>
-            <Button
-              className="menu-sign textNavBar text-right mx-2"
-              to="/signin"
-            >
-              Sign In
-            </Button>
-            <Button
-              className="menu-sign textNavBar text-right mx-2"
-              to="/signup"
-            >
-              Sign Up
-            </Button>
+            <Link to="/signin">
+              <Button className="menu-sign mx-2">Sign In</Button>
+            </Link>
+            <Link to="/signup">
+              <Button className="menu-sign mx-2">Sign Up</Button>
+            </Link>
           </div>
         )}
       </div>
