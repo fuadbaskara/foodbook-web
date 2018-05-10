@@ -96,7 +96,7 @@ class Signin extends Component {
                 <Input
                   type="text"
                   name="userid"
-                  placeholder="Insert Your User Name"
+                  placeholder="Your username"
                   value={this.state.username}
                   onChange={this.handleChangeUsername}
                 />
@@ -113,7 +113,7 @@ class Signin extends Component {
                 <Input
                   type="password"
                   name="password"
-                  placeholder="Insert Your Password"
+                  placeholder="Your password"
                   value={this.state.password}
                   onChange={this.handleChangePassword}
                 />

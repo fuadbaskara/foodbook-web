@@ -110,7 +110,7 @@ export default class DetailTab extends React.Component {
             <CarouselSlick photos={this.state.detailfood.photos} />
           )}
         </div>
-        <br />
+
         <div id="detail-tabs" className="detail-tabs">
           <ul className="nav nav-tabs nav-justified">
             <li className="nav-item">

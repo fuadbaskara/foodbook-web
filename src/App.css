@@ -290,3 +290,11 @@ body {
   color: red;
   font-size: 10px;
 }
+
+.image-height {
+  height: 300px;
+}
+
+.slick-slide img {
+  padding: 5px;
+}
