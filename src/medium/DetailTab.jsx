@@ -6,7 +6,8 @@ import Overview from "./Overview.jsx";
 import Locations from "./Location.jsx";
 import Reviews from "./Reviews.jsx";
 
-const API_URL = "http://localhost:3030";
+const API_URL =
+  process.env.REACT_APP_API_URL || "https://foodbook-api.herokuapp.com";
 
 export default class DetailTab extends React.Component {
   constructor(props) {
@@ -18,10 +19,8 @@ export default class DetailTab extends React.Component {
       locationTab: false,
       reviewTab: false,
       reviewContent: false,
-      detailFood: [],
-      allReview: [],
-      comment: "",
-      _account: ""
+      detailfood: [],
+      allreview: []
     };
     this.match = this.props.match;
     this.toggleOverview = this.toggleOverview.bind(this);
@@ -29,9 +28,6 @@ export default class DetailTab extends React.Component {
     this.toggleLocation = this.toggleLocation.bind(this);
     this.toggleReview = this.toggleReview.bind(this);
     this.getData = this.getData.bind(this);
-    this.postReview = this.postReview.bind(this);
-
-    this.handleChangeComment = this.handleChangeComment.bind(this);
   }
 
   async getData() {
@@ -41,13 +37,13 @@ export default class DetailTab extends React.Component {
         ...responseData,
         city: responseData.address.city,
         street: responseData.address.street,
-        detailLocation: responseData.address.detailLocation,
+        detailLocation: responseData.address.street,
         photos: responseData.photos[0],
         latitude: responseData.coordinate.latitude,
         longitude: responseData.coordinate.longitude
       };
 
-      this.setState({ detailFood: data, allReview: data.reviews });
+      this.setState({ detailfood: data });
     });
   }
 
@@ -88,29 +84,10 @@ export default class DetailTab extends React.Component {
     });
   }
 
-  handleChangeComment(event) {
-    let value = event.target.value;
-    this.setState(() => {
-      return { inputComment: value };
-    });
-  }
-
   postReview() {
-    const id = this.state.detailFood.id;
-    console.log(this.state.detailFood);
-    axios({
-      url: `${API_URL}/foods/add_review/${id}`,
-      method: "PUT",
-      headers: {
-        Authorization: "Bearer " + window.localStorage.token
-      },
-      data: {
-        comment: this.props.inputComment,
-        _account: this.state.detailFood._account
-      }
-    }).then(res => {
-      console.log(res);
-    });
+    const id = this.state.detailfood.id;
+    console.log(this.state.detailfood.id);
+    axios.put(`${API_URL}/foods/${id}`);
   }
 
   toggleReview() {
@@ -129,8 +106,8 @@ export default class DetailTab extends React.Component {
     return (
       <div id="detail-tab" className="detail-tab">
         <div className="carousels">
-          {this.state.detailFood.photos && (
-            <CarouselSlick photos={this.state.detailFood.photos} />
+          {this.state.detailfood.photos && (
+            <CarouselSlick photos={this.state.detailfood.photos} />
           )}
         </div>
         <br />
@@ -170,10 +147,10 @@ export default class DetailTab extends React.Component {
             render={() => (
               <Overview
                 id={this.id}
-                name={this.state.detailFood.name}
-                overview={this.state.detailFood.overview}
-                minPrice={this.state.detailFood.minPrice}
-                maxPrice={this.state.detailFood.maxPrice}
+                name={this.state.detailfood.name}
+                overview={this.state.detailfood.overview}
+                minPrice={this.state.detailfood.minPrice}
+                maxPrice={this.state.detailfood.maxPrice}
               />
             )}
           />
@@ -182,10 +159,10 @@ export default class DetailTab extends React.Component {
             render={() => (
               <Overview
                 id={this.id}
-                name={this.state.detailFood.name}
-                overview={this.state.detailFood.overview}
-                minPrice={this.state.detailFood.minPrice}
-                maxPrice={this.state.detailFood.maxPrice}
+                name={this.state.detailfood.name}
+                overview={this.state.detailfood.overview}
+                minPrice={this.state.detailfood.minPrice}
+                maxPrice={this.state.detailfood.maxPrice}
               />
             )}
           />
@@ -193,9 +170,9 @@ export default class DetailTab extends React.Component {
             path={`${this.match}/location`}
             render={() => (
               <Locations
-                city={this.state.detailFood.city}
-                street={this.state.detailFood.street}
-                detailLocation={this.state.detailFood.detailLocation}
+                city={this.state.detailfood.city}
+                street={this.state.detailfood.street}
+                detailLocation={this.state.detailfood.detailLocation}
               />
             )}
           />
@@ -203,10 +180,9 @@ export default class DetailTab extends React.Component {
             path={`${this.match}/reviews`}
             component={() => (
               <Reviews
-                postComment={this.handleChangeComment}
-                postReview={this.postReview}
-                userid={this.state.detailFood._userid}
-                rating={this.state.detailFood.rating}
+                detailFood={this.state.detailfood}
+                userid={this.state.detailfood._userid}
+                rating={this.state.detailfood.rating}
               />
             )}
           />
