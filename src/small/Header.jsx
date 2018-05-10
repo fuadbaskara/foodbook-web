@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
-import { Row, Button } from "reactstrap";
+import { Button } from "reactstrap";
 
 const StyleImage = {
-  width: "22%",
+  width: "300px",
   display: "flex",
   justifyContent: "left"
 };

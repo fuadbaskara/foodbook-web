@@ -8,6 +8,7 @@ import {
   CardTitle,
   Button
 } from "reactstrap";
+import _ from "lodash";
 
 const MAX_LENGTH = 50;
 
@@ -15,7 +16,7 @@ const FoodThumbnail = ({ food, index }) => (
   <Col xs={11} sm={5} md={4} lg={3} className="card-full border-red">
     <CardImg height="50%" src={food.photos[0][0]} alt="Food Image" />
     <CardBody>
-      <CardTitle>{food.name}</CardTitle>
+      <CardTitle>{_.capitalize(food.name)}</CardTitle>
       {food.overview.length > MAX_LENGTH ? (
         <div>
           {`${food.overview.substring(0, MAX_LENGTH)} `}

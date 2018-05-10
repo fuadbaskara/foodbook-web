@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Row, InputGroup, InputGroupAddon, Input } from "reactstrap";
 import axios from "axios";
-import { Button } from "reactstrap";
 
 import FoodThumbnail from "../medium/FoodThumbnail";
 
@@ -66,12 +65,7 @@ class Home extends Component {
               onChange={this.handleChangeSearchFoods}
               placeholder="Search Your Favorite Food"
             />
-            <Button
-              value={this.state.value}
-              onClick={this.handleChangeSearchFoods}
-            >
-              Search
-            </Button>
+            <InputGroupAddon addonType="append">Search</InputGroupAddon>
           </InputGroup>
         </div>
         <Row className="homeProduct center">

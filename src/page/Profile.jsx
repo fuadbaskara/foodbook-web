@@ -9,6 +9,7 @@ import {
   CardTitle
 } from "reactstrap";
 import axios from "axios";
+import _ from "lodash";
 
 import FoodUserThumbnail from "../medium/FoodUserThumbnail";
 
@@ -52,8 +53,8 @@ class Profile extends Component {
         .get(`${API_URL}/accounts/${window.localStorage.id}`)
         .then(res => {
           this.setState({
-            firstName: res.data.data.firstName,
-            lastName: res.data.data.lastName,
+            firstName: _.capitalize(res.data.data.firstName),
+            lastName: _.capitalize(res.data.data.lastName),
             username: res.data.data.username,
             email: res.data.data.email,
             profile_picture: res.data.data.profile_picture
@@ -76,6 +77,7 @@ class Profile extends Component {
     })
       .then(res => {
         console.log(res);
+        this.props.history.push(`/profile`);
       })
       .catch(err => {
         console.log(err);
@@ -90,6 +92,12 @@ class Profile extends Component {
   render() {
     return (
       <div className="margin-top-100">
+        <div>
+          <h1 className="center">
+            Hi {`${this.state.firstName} ${this.state.lastName}`} Welcome to
+            Profile Page
+          </h1>
+        </div>
         <Row>
           <Col>
             <div className="center">
