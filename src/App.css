@@ -50,15 +50,14 @@ body {
 .card-full {
   padding-left: 0 !important;
   padding-right: 0 !important;
-  height: 50%;
   margin: 10px;
 }
 
 .card-image {
   display: flex;
   justify-content: center;
-  height: 200px;
-  width: 319px;
+  max-height: 200px;
+  max-width: 319px;
 }
 
 .btn-secondary {

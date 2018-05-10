@@ -33,7 +33,7 @@ const FoodThumbnail = ({ food, index }) => (
         <CardText>{food.overview}</CardText>
       )}
       <Link to={`/food/${food.id}`}>
-        <Button className="width-full">Details</Button>
+        <Button className="width-full mt-4">Details</Button>
       </Link>
     </CardBody>
   </Col>
