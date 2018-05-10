@@ -43,7 +43,7 @@ export default class DetailTab extends React.Component {
         photos: responseData.photos[0],
         latitude: responseData.coordinate.latitude,
         longitude: responseData.coordinate.longitude,
-        comment: responseData.reviews[0].comment,
+        // comment: responseData.reviews[0].comment,
         rating: responseData.reviews[0].rating,
         _userid: responseData.reviews[0]._id
       };

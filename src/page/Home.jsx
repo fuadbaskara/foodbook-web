@@ -73,8 +73,8 @@ class Home extends Component {
             onChange={this.handleChangeSearchFoods}
           />
           <Button
-            color="danger"
-            className="textNavBar"
+            color=""
+            className="textNavBar btn-secondary"
             onClick={this.submitForm}
           >
             Search
