@@ -1,14 +1,20 @@
 import React from "react";
 import { Card, CardBody, CardTitle, CardSubtitle } from "reactstrap";
 import { Link } from "react-router-dom";
-import axios from "axios";
 
-export default class Reviews extends React.Component {
+class Reviews extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      review: []
+      comment: ""
     };
+    this.handleChangeComment = this.handleChangeComment.bind(this);
+  }
+  handleChangeComment(event) {
+    let value = event.target.value;
+    this.setState(() => {
+      return { inputComment: value };
+    });
   }
 
   render() {
@@ -16,11 +22,13 @@ export default class Reviews extends React.Component {
       <div className="container pt-4">
         {window.localStorage.token ? (
           <div className="container pb-cmnt-container">
-            <div className="row">
-              <div className="col-md-9 offset-md-3">
+            <div className="center">
+              <div className="col-md-9">
                 <div className="card card-info">
                   <div className="card-block">
                     <textarea
+                      value={this.state.inputComment}
+                      onChange={this.handleChangeComment}
                       placeholder="Write your review here!"
                       className="pb-cmnt-textarea"
                     />
@@ -28,7 +36,9 @@ export default class Reviews extends React.Component {
                       <button
                         className="btn btn-primary float-xs-right col-md-3 m-2"
                         type="button"
-                        onClick={this.postReview}
+                        onClick={() => {
+                          this.props.postReview();
+                        }}
                       >
                         Post
                       </button>
@@ -69,3 +79,5 @@ export default class Reviews extends React.Component {
     );
   }
 }
+
+export default Reviews;
