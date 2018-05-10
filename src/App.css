@@ -50,7 +50,15 @@ body {
 .card-full {
   padding-left: 0 !important;
   padding-right: 0 !important;
+  height: 50%;
   margin: 10px;
+}
+
+.card-image {
+  display: flex;
+  justify-content: center;
+  height: 200px;
+  width: 319px;
 }
 
 .btn-secondary {
@@ -201,12 +209,15 @@ body {
 
 .menu-sign {
   padding: 8px 8px 3px 8px;
+  border-radius: 4px;
+  text-decoration: none;
   font-family: Comfortaa;
   background: #bb1212;
   color: white !important;
 }
 .menu-sign:hover {
   color: #bb1212 !important;
+  text-decoration: none;
   background: white;
 }
 

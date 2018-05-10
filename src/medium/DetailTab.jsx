@@ -37,8 +37,8 @@ export default class DetailTab extends React.Component {
         ...responseData,
         city: responseData.address.city,
         street: responseData.address.street,
-        detailLocation: responseData.address.street,
-        photos: responseData.photos[0],
+        detailLocation: responseData.address.detailLocation,
+        photos: responseData.photos[0][0],
         latitude: responseData.coordinate.latitude,
         longitude: responseData.coordinate.longitude
       };
@@ -102,8 +102,10 @@ export default class DetailTab extends React.Component {
     return (
       <div id="detail-tab" className="detail-tab">
         <div className="carousels">
-          {this.state.detailfood.photos && (
+          {this.state.detailfood.photos.length > 0 ? (
             <CarouselSlick photos={this.state.detailfood.photos} />
+          ) : (
+            <div />
           )}
         </div>
         <br />

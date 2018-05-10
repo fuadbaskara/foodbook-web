@@ -43,32 +43,36 @@ class Header extends Component {
         </div>
         {window.localStorage.token ? (
           <div>
-            <Link to="/">
-              <Button className="menu-sign mx-2">Home</Button>
+            <Link to="/" className="menu-sign mx-2">
+              Home
             </Link>
-            <Link to="/addfood">
-              <Button className="menu-sign mx-2">Add Food</Button>
+            <Link to="/addfood" className="menu-sign mx-2">
+              Add Food
             </Link>
-            <Link to="/profile">
-              <Button className="menu-sign mx-2">Profile</Button>
+            <Link to="/profile" className="menu-sign mx-2">
+              Profile
             </Link>
-            <Link to="/signin" onClick={this.handleLogout}>
-              <Button className="menu-sign mx-2">Log Out</Button>
+            <Link
+              to="/signin"
+              className="menu-sign mx-2"
+              onClick={this.handleLogout}
+            >
+              Log Out
             </Link>
           </div>
         ) : (
           <div className="d-flex justify-content-end">
-            <Link to="/">
-              <Button className="menu-sign mx-2">Home</Button>
+            <Link to="/" className="menu-sign mx-2">
+              Home
             </Link>
-            <Link to="/signin">
-              <Button className="menu-sign mx-2">Add Food</Button>
+            <Link to="/signin" className="menu-sign mx-2">
+              Add Food
             </Link>
-            <Link to="/signin">
-              <Button className="menu-sign mx-2">Sign In</Button>
+            <Link to="/signin" className="menu-sign mx-2">
+              Sign In
             </Link>
-            <Link to="/signup">
-              <Button className="menu-sign mx-2">Sign Up</Button>
+            <Link to="/signup" className="menu-sign mx-2">
+              Sign Up
             </Link>
           </div>
         )}
