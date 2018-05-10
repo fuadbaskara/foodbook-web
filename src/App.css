@@ -53,6 +53,13 @@ body {
   margin: 10px;
 }
 
+.card-image {
+  display: flex;
+  justify-content: center;
+  max-height: 200px;
+  max-width: 319px;
+}
+
 .btn-secondary {
   background-color: #bb1212;
   border-style: none;
@@ -201,12 +208,15 @@ body {
 
 .menu-sign {
   padding: 8px 8px 3px 8px;
+  border-radius: 4px;
+  text-decoration: none;
   font-family: Comfortaa;
   background: #bb1212;
   color: white !important;
 }
 .menu-sign:hover {
   color: #bb1212 !important;
+  text-decoration: none;
   background: white;
 }
 

@@ -10,11 +10,16 @@ import {
 } from "reactstrap";
 import _ from "lodash";
 
-const MAX_LENGTH = 50;
+const MAX_LENGTH = 40;
 
 const FoodThumbnail = ({ food, index }) => (
   <Col xs={11} sm={5} md={4} lg={3} className="card-full border-red">
-    <CardImg height="50%" src={food.photos[0][0]} alt="Food Image" />
+    <CardImg
+      className="card-image"
+      height="50%"
+      src={food.photos[0][0]}
+      alt="Food Image"
+    />
     <CardBody>
       <CardTitle>
         {_.map(food.name.split(" "), _.upperFirst).join(" ")}
@@ -30,7 +35,7 @@ const FoodThumbnail = ({ food, index }) => (
         <CardText>{food.overview}</CardText>
       )}
       <Link to={`/food/${food.id}`}>
-        <Button className="width-full">Details</Button>
+        <Button className="width-full mt-4">Details</Button>
       </Link>
     </CardBody>
   </Col>
