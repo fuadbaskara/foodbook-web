@@ -20,7 +20,8 @@ export default class DetailTab extends React.Component {
       locationTab: false,
       reviewTab: false,
       reviewContent: false,
-      detailfood: []
+      detailfood: [],
+      allreview: []
     };
     this.match = this.props.match;
     // console.log(this.match);
@@ -145,7 +146,7 @@ export default class DetailTab extends React.Component {
                 id={this.id}
                 name={this.state.detailfood.name}
                 overview={this.state.detailfood.overview}
-                rating={this.state.detailfood.rating}
+                price={this.state.detailfood.price}
               />
             )}
           />
@@ -156,7 +157,7 @@ export default class DetailTab extends React.Component {
                 id={this.id}
                 name={this.state.detailfood.name}
                 overview={this.state.detailfood.overview}
-                rating={this.state.detailfood.rating}
+                price={this.state.detailfood.price}
               />
             )}
           />

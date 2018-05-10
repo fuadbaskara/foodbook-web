@@ -6,9 +6,13 @@ export default class Overview extends React.Component {
       <div>
         <div>
           <h4>{this.props.name}</h4>
-          <b>{`Rating: ${this.props.rating}`}</b>
           <div>
             <p>{this.props.overview}</p>
+          </div>
+          <div>
+            <b>
+              <p>{`Start From: Rp.${this.props.price}`}</p>
+            </b>
           </div>
         </div>
       </div>

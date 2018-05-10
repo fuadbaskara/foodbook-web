@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
+import { Row, Button } from "reactstrap";
 
 const StyleImage = {
   width: "22%",
@@ -55,13 +56,13 @@ class Header extends Component {
             >
               Profile
             </Link>
-            <Link
+            <Button
               className="menu-sign textNavBar text-right mx-2"
               to="/signin"
               onClick={this.handleLogout}
             >
               Log Out
-            </Link>
+            </Button>
           </div>
         ) : (
           <div>
@@ -74,12 +75,18 @@ class Header extends Component {
             >
               Add Food
             </Link>
-            <Link className="menu-sign textNavBar text-right mx-2" to="/signin">
+            <Button
+              className="menu-sign textNavBar text-right mx-2"
+              to="/signin"
+            >
               Sign In
-            </Link>
-            <Link className="menu-sign textNavBar text-right mx-2" to="/signup">
+            </Button>
+            <Button
+              className="menu-sign textNavBar text-right mx-2"
+              to="/signup"
+            >
               Sign Up
-            </Link>
+            </Button>
           </div>
         )}
       </div>

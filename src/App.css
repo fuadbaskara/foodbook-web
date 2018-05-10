@@ -34,13 +34,13 @@ body {
 }
 
 .btn-secondary {
-  background-color: hsl(33, 100%, 52%);
+  background-color: #bb1212;
   border-style: none;
 }
 
 .btn-secondary:hover,
 .btn-secondary:active {
-  background-color: hsl(33, 100%, 30%);
+  background-color: #fa0000;
   border-style: none;
 }
 
