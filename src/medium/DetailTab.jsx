@@ -1,8 +1,7 @@
 import React from "react";
 import { Route, Link } from "react-router-dom";
 import axios from "axios";
-
-import Carousels from "./Carousels.jsx";
+import CarouselSlick from "./CarouselSlick.jsx";
 import Overview from "./Overview.jsx";
 import Locations from "./Location.jsx";
 import Reviews from "./Reviews.jsx";
@@ -24,7 +23,6 @@ export default class DetailTab extends React.Component {
       allreview: []
     };
     this.match = this.props.match;
-    // console.log(this.match);
     this.toggleOverview = this.toggleOverview.bind(this);
     this.toggleMenu = this.toggleMenu.bind(this);
     this.toggleLocation = this.toggleLocation.bind(this);
@@ -34,19 +32,15 @@ export default class DetailTab extends React.Component {
 
   async getData() {
     await axios.get(`${API_URL}/foods/${this.id}`).then(res => {
-      // console.log(res);
       let responseData = res.data.data;
       let data = {
         ...responseData,
         city: responseData.address.city,
-        street: responseData.address.street
-        // photos: responseData.photos[0]
-        // photos: responseData.photos[0],
-        // latitude: responseData.coordinate.latitude,
-        // longitude: responseData.coordinate.longitude,
-        // // comment: responseData.reviews[0].comment,
-        // rating: responseData.reviews[0].rating,
-        // _userid: responseData.reviews[0]._id
+        street: responseData.address.street,
+        detailLocation: responseData.address.street,
+        photos: responseData.photos[0],
+        latitude: responseData.coordinate.latitude,
+        longitude: responseData.coordinate.longitude
       };
 
       this.setState({ detailfood: data });
@@ -56,6 +50,7 @@ export default class DetailTab extends React.Component {
   async componentWillMount() {
     await this.getData();
     console.log(this.state.detailfood);
+    console.log(this.state.detailfood.name);
   }
 
   toggleOverview() {
@@ -107,7 +102,9 @@ export default class DetailTab extends React.Component {
     return (
       <div id="detail-tab" className="detail-tab">
         <div className="carousels">
-          <Carousels photos={this.state.detailfood.photos} />
+          {this.state.detailfood.photos && (
+            <CarouselSlick photos={this.state.detailfood.photos} />
+          )}
         </div>
         <br />
         <div id="detail-tabs" className="detail-tabs">
@@ -148,7 +145,8 @@ export default class DetailTab extends React.Component {
                 id={this.id}
                 name={this.state.detailfood.name}
                 overview={this.state.detailfood.overview}
-                price={this.state.detailfood.price}
+                minPrice={this.state.detailfood.minPrice}
+                maxPrice={this.state.detailfood.maxPrice}
               />
             )}
           />
@@ -159,7 +157,8 @@ export default class DetailTab extends React.Component {
                 id={this.id}
                 name={this.state.detailfood.name}
                 overview={this.state.detailfood.overview}
-                price={this.state.detailfood.price}
+                minPrice={this.state.detailfood.minPrice}
+                maxPrice={this.state.detailfood.maxPrice}
               />
             )}
           />
@@ -169,8 +168,7 @@ export default class DetailTab extends React.Component {
               <Locations
                 city={this.state.detailfood.city}
                 street={this.state.detailfood.street}
-                latitude={this.state.detailfood.latitude}
-                longitude={this.state.detailfood.longitude}
+                detailLocation={this.state.detailfood.detailLocation}
               />
             )}
           />

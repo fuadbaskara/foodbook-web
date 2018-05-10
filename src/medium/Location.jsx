@@ -3,11 +3,11 @@ import React from "react";
 export default class Locations extends React.Component {
   render() {
     return (
-      <div>
+      <div className="container pt-4">
         <div>
           <h4>Location</h4>
           <p>{`Location: ${this.props.city}, ${this.props.street}`}</p>
-          <p>{`Coordinate: ${this.props.latitude}, ${this.props.longitude}`}</p>
+          <p>{`Detail Location: ${this.props.detailLocation}`}</p>
         </div>
       </div>
     );
