@@ -131,15 +131,6 @@ export default class DetailTab extends React.Component {
                 )}
               </Link>
             </li>
-            <li className="nav-item">
-              <Link onClick={this.toggleReview} to={`${this.match}/reviews`}>
-                {this.state.reviewTab === true ? (
-                  <span className="nav-link active">Reviews</span>
-                ) : (
-                  <span className="nav-link">Reviews</span>
-                )}
-              </Link>
-            </li>
           </ul>
           <Route
             exact
