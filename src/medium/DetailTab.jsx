@@ -37,7 +37,7 @@ export default class DetailTab extends React.Component {
         ...responseData,
         city: responseData.address.city,
         street: responseData.address.street,
-        detailLocation: responseData.address.street,
+        detailLocation: responseData.address.detailLocation,
         photos: responseData.photos[0],
         latitude: responseData.coordinate.latitude,
         longitude: responseData.coordinate.longitude
@@ -49,6 +49,9 @@ export default class DetailTab extends React.Component {
 
   async componentWillMount() {
     await this.getData();
+    console.log(this.state.detailfood);
+    console.log(this.state.detailfood.name);
+    console.log(this.state.detailfood.photos.length);
   }
 
   toggleOverview() {
@@ -107,7 +110,10 @@ export default class DetailTab extends React.Component {
       <div id="detail-tab" className="detail-tab">
         <div className="carousels">
           {this.state.detailfood.photos && (
-            <CarouselSlick photos={this.state.detailfood.photos} />
+            <CarouselSlick
+              photos={this.state.detailfood.photos}
+              name={this.state.detailfood.name}
+            />
           )}
         </div>
 

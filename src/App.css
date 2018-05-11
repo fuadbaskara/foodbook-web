@@ -36,6 +36,17 @@ body {
   border-radius: 10px;
 }
 
+.carousel-align {
+  display: flex;
+  justify-content: center;
+}
+
+.carousel-size {
+  max-width: 480px;
+  max-height: 300px;
+  flex-wrap: wrap;
+}
+
 .app {
   display: flex;
   min-height: 100vh;

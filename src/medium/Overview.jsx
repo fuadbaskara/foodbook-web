@@ -4,7 +4,10 @@ export default class Overview extends React.Component {
   render() {
     return (
       <div>
-        {this.props.minPrice && this.props.maxPrice ? (
+        {this.props.minPrice ||
+        this.props.maxPrice ||
+        this.props.name ||
+        this.props.overview ? (
           <div className="container pt-4">
             <h4>{this.props.name}</h4>
             <div>
@@ -19,9 +22,7 @@ export default class Overview extends React.Component {
             </div>
           </div>
         ) : (
-          <div>
-            <h1 className="center">wait</h1>
-          </div>
+          <div />
         )}
       </div>
     );
