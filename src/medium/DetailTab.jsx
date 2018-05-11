@@ -87,7 +87,7 @@ export default class DetailTab extends React.Component {
   postReview() {
     const id = this.state.detailfood.id;
     console.log(this.state.detailfood.id);
-    axios.put(`${API_URL}/foods/${id}`);
+    axios.put(`${API_URL}/foods/add_review/${id}`);
   }
 
   toggleReview() {
@@ -131,15 +131,6 @@ export default class DetailTab extends React.Component {
                 )}
               </Link>
             </li>
-            <li className="nav-item">
-              <Link onClick={this.toggleReview} to={`${this.match}/reviews`}>
-                {this.state.reviewTab === true ? (
-                  <span className="nav-link active">Reviews</span>
-                ) : (
-                  <span className="nav-link">Reviews</span>
-                )}
-              </Link>
-            </li>
           </ul>
           <Route
             exact
@@ -180,6 +171,7 @@ export default class DetailTab extends React.Component {
             path={`${this.match}/reviews`}
             component={() => (
               <Reviews
+                postReview={this.postReview}
                 detailFood={this.state.detailfood}
                 userid={this.state.detailfood._userid}
                 rating={this.state.detailfood.rating}

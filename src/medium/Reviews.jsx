@@ -27,7 +27,6 @@ export default class Reviews extends React.Component {
                       <button
                         className="btn btn-primary float-xs-right col-md-3 m-2"
                         type="button"
-                        onClick={this.postReview}
                       >
                         Post
                       </button>
