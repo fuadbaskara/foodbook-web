@@ -3,9 +3,9 @@ import { withRouter } from "react-router-dom";
 import { Row, Col, CardImg, CardBody, CardTitle, Button } from "reactstrap";
 
 const FoodUserThumbnail = props => (
-  <div>
+  <div className="width-full">
     <h1 className="center">List of Your Food</h1>
-    <Row className="homeProduct center">
+    <Row className="width-full homeProduct center">
       {props.userFoods.map((dataId, index) => (
         <Col
           xs={11}
