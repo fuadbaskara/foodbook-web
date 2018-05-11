@@ -15,8 +15,8 @@ export default class Reviews extends React.Component {
       <div className="container pt-4">
         {window.localStorage.token ? (
           <div className="container pb-cmnt-container">
-            <div className="row">
-              <div className="col-md-9 offset-md-3">
+            <div className="center row">
+              <div className="col-md-9">
                 <div className="card card-info">
                   <div className="card-block">
                     <textarea
