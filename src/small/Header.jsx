@@ -22,7 +22,6 @@ class Header extends Component {
   handleLogout = async event => {
     localStorage.clear();
     this.props.history.push("/signin");
-    alert("You're logged out");
     this.props.history.push("/");
   };
 

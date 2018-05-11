@@ -68,6 +68,9 @@ class Home extends Component {
             <InputGroupAddon addonType="append">Search</InputGroupAddon>
           </InputGroup>
         </div>
+        <div>
+          <h1 className="center">Share Your Favorite Food</h1>
+        </div>
         <Row className="homeProduct center">
           {this.state.foods &&
             this.state.foods.map((food, index) => (

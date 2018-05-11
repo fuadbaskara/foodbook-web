@@ -16,7 +16,7 @@ const LogoTechStack = {
 
 const Tech = () => (
   <div>
-    <h1 style={StyleH1}>FoodBook.com Tech Stack</h1>
+    <h1 style={StyleH1}>FoodBook Tech Stack</h1>
 
     <Container>
       <Row>

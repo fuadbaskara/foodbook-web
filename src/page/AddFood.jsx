@@ -144,7 +144,6 @@ class AddFood extends Component {
         this.props.history.push(`/food/${id}`);
       })
       .catch(error => {
-        alert("res");
         console.log(error.res);
       });
   }
@@ -154,7 +153,7 @@ class AddFood extends Component {
       <div>
         <h3 style={StyleH3}>You can Add Food in here :</h3>
         <div>
-          <div >
+          <div>
             <Form onSubmit={this.submitForm} className="addFoodForm">
               {/*Foodname Input*/}
               <FormGroup row>

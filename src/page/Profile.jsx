@@ -29,8 +29,8 @@ class Profile extends Component {
     this.deleteFood = this.deleteFood.bind(this);
   }
 
-  getDataFood() {
-    axios
+  async getDataFood() {
+    await axios
       .get(`${API_URL}/foods`)
       .then(res => {
         res.data.data.forEach(dataId => {
@@ -47,9 +47,9 @@ class Profile extends Component {
       });
   }
 
-  getDataAccount() {
+  async getDataAccount() {
     if (window.localStorage.id) {
-      axios
+      await axios
         .get(`${API_URL}/accounts/${window.localStorage.id}`)
         .then(res => {
           this.setState({
@@ -102,12 +102,17 @@ class Profile extends Component {
           <Col>
             <div className="center">
               <Card style={{ width: "250px", marginTop: 10 }}>
-                <CardImg
-                  top
-                  width="50%"
-                  src={this.state.profile_picture}
-                  alt="Card image cap"
-                />
+                {this.state.profile_picture ? (
+                  <CardImg
+                    top
+                    width="50%"
+                    src={this.state.profile_picture}
+                    alt="Card image cap"
+                  />
+                ) : (
+                  <CardImg top width="50%" wait />
+                )}
+
                 <CardBody>
                   <CardTitle>
                     {`${this.state.firstName} ${this.state.lastName}`}
