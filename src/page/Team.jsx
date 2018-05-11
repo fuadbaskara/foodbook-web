@@ -18,8 +18,7 @@ const ContainerStyle = {
 const CardContainer = {
   marginTop: "10px",
   borderRadius: "8px",
-  border: "solid lightskyblue 3px",
-  boxShadow: "0px 10px 8px 2px rgba(92, 95, 99, 0.86)"
+  border: "solid lightskyblue 3px"
 };
 
 const CardStyle = {
@@ -40,7 +39,7 @@ const Team = () => (
               alt="Miftah Faris"
             />
             <CardBody>
-              <CardTitle style={CardStyle}>Miftah Faris (PM) </CardTitle>
+              <CardTitle style={CardStyle}>Miftah Faris </CardTitle>
               <CardText>Full-Stack Developer</CardText>
             </CardBody>
           </Card>
@@ -56,7 +55,7 @@ const Team = () => (
             />
             <CardBody>
               <CardTitle style={CardStyle}>Fuad Baskara</CardTitle>
-              <CardText>Fron-End Developer</CardText>
+              <CardText>Front-End Developer</CardText>
             </CardBody>
           </Card>
         </Col>
