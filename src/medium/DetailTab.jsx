@@ -87,7 +87,7 @@ export default class DetailTab extends React.Component {
   postReview() {
     const id = this.state.detailfood.id;
     console.log(this.state.detailfood.id);
-    axios.put(`${API_URL}/foods/${id}`);
+    axios.put(`${API_URL}/foods/add_review/${id}`);
   }
 
   toggleReview() {
@@ -171,6 +171,7 @@ export default class DetailTab extends React.Component {
             path={`${this.match}/reviews`}
             component={() => (
               <Reviews
+                postReview={this.postReview}
                 detailFood={this.state.detailfood}
                 userid={this.state.detailfood._userid}
                 rating={this.state.detailfood.rating}
