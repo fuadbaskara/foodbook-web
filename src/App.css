@@ -246,6 +246,20 @@ body {
   color: #000;
 }
 
+@media screen and (max-width: 600px) {
+  .inputText {
+    border-radius: 10px;
+    width: 100% !important;
+  }
+  .textNavBar {
+    margin-right: 2px;
+    color: white;
+    text-align: right;
+    font-family: Comfortaa;
+    font-size: 10px !important;
+  }
+}
+
 .inputText {
   border-radius: 10px;
   width: 50%;
